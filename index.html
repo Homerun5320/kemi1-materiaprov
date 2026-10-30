@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kemi 1 Materiaprov</title>
+<meta name="description" content="Övningsprov i Kemi 1, materia, delprov 1 (E–C). Svara med egna ord och rätta själv mot facit.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Kemi 1 Materiaprov">
+<meta property="og:description" content="Övningsprov i Kemi 1, materia, delprov 1 (E–C). Svara med egna ord och rätta själv mot facit.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b57d0'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EK1%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+--font:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
+--bg:#ffffff;
+--text:#1b1f24; --muted:#59636e;
+--line:#d8dee4; --subtle:#f6f8fa;
+--accent:#0b57d0; --accent-ink:#ffffff; --focus:#0b57d0;
+--ok:#1a7f37; --bad:#b42318;
+color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){
+--bg:#111418;
+--text:#e6e9ed; --muted:#9aa4af;
+--line:#2e353d; --subtle:#1a1f25;
+--accent:#8ab4f8; --accent-ink:#0b1220; --focus:#8ab4f8;
+--ok:#6fd08c; --bad:#ff8a80;
+color-scheme:dark;
+}
+}
+:root[data-theme="dark"]{
+--bg:#111418;
+--text:#e6e9ed; --muted:#9aa4af;
+--line:#2e353d; --subtle:#1a1f25;
+--accent:#8ab4f8; --accent-ink:#0b1220; --focus:#8ab4f8;
+--ok:#6fd08c; --bad:#ff8a80;
+color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;
+  background:var(--bg);color:var(--text);
+  font:400 17px/1.6 var(--font);
+  padding-block:28px 72px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.app{max-width:40rem;margin:0 auto}
+h1,h2,h3,p,ul,fieldset,table{margin:0}
+p,ul,table{margin-bottom:1rem}
+h1{font-size:1.75rem;line-height:1.25;font-weight:650;margin-bottom:.9rem}
+h2{font-size:1.25rem;line-height:1.3;font-weight:650;margin-bottom:.6rem}
+h3{font-size:1rem;line-height:1.4;font-weight:650;margin-bottom:.35rem}
+b,strong{font-weight:650}
+sub,sup{line-height:0}
+button,input,textarea{font:inherit;color:inherit}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[tabindex="-1"]:focus{outline:none}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---------- start ---------- */
+.kicker{margin:0 0 .15rem;color:var(--muted);font-size:.9rem}
+fieldset{border:0;padding:0;min-width:0;margin-bottom:1.25rem}
+legend{padding:0;margin-bottom:.35rem;font-weight:650}
+.choice{display:flex;align-items:flex-start;gap:.65rem;padding:.4rem 0;cursor:pointer}
+.choice input{flex:none;width:1.15rem;height:1.15rem;margin:.28rem 0 0;accent-color:var(--accent)}
+.topics{list-style:none;padding:0}
+.topics li{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px solid var(--line)}
+.topics li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem 1.15rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text);font-weight:600;line-height:1.2;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.linkbtn{padding:.4rem 0;border:0;background:none;color:var(--muted);font-size:.9rem;text-decoration:underline;cursor:pointer}
+@media (hover:hover){.btn:not(.primary):not([disabled]):hover{background:var(--subtle)}.btn.primary:not([disabled]):hover{filter:brightness(1.08)}}
+
+/* ---------- question ---------- */
+.count{margin:0 0 .15rem;font-weight:650}
+.meta{margin:0 0 1rem;color:var(--muted);font-size:.9rem}
+.qtext{font-size:1.2rem;line-height:1.5;font-weight:600;margin:0 0 1rem}
+textarea,input.num{width:100%;padding:.7rem .8rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text)}
+textarea{display:block;min-height:8.5rem;resize:vertical;line-height:1.55}
+textarea[readonly],input.num[readonly]{background:var(--subtle)}
+.numrow{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+input.num{width:9rem;font-variant-numeric:tabular-nums}
+.unit{color:var(--muted)}
+.hint{margin:.5rem 0 0;color:var(--muted);font-size:.9rem}
+.hint.err{color:var(--bad)}
+.reveal{margin-top:1rem}
+.note{padding:.7rem .9rem;margin-bottom:1rem;background:var(--subtle);border-left:3px solid var(--line);font-size:.95rem}
+.warn{margin-top:1rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:6px;background:var(--subtle)}
+.warn p{margin-bottom:.7rem}
+.row{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* ---------- facit ---------- */
+.facit{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.model{padding:.8rem 1rem;margin-bottom:1.1rem;background:var(--subtle);border-radius:6px}
+.verdict{font-weight:650}
+.verdict.ok,.yes{color:var(--ok)}
+.verdict.bad,.no{color:var(--bad)}
+.grade{margin:0 0 .6rem}
+.grade legend{font-weight:600;margin-bottom:.2rem}
+.crit{display:flex;align-items:flex-start;gap:.65rem;padding:.4rem 0;cursor:pointer}
+.crit input{flex:none;width:1.15rem;height:1.15rem;margin:.28rem 0 0;accent-color:var(--accent)}
+.crit.off{color:var(--muted);cursor:default}
+.points{margin:0;font-weight:650;font-variant-numeric:tabular-nums}
+
+/* ---------- nav ---------- */
+.nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;margin-top:1.5rem}
+.nav .btn{flex:0 1 auto;min-width:8.5rem}
+.quit{margin:1.25rem 0 0}
+
+/* ---------- results ---------- */
+h1.score{font-size:2.4rem;line-height:1.15;font-weight:700;margin:0 0 .6rem;font-variant-numeric:tabular-nums}
+.levels{margin:0 0 1rem;padding:0;list-style:none}
+.levels li{padding:.1rem 0}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{padding:.4rem 0;border-bottom:1px solid var(--line);font-size:.9rem;font-weight:600;color:var(--muted);text-align:left}
+.tbl td{padding:.5rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th:last-child,.tbl td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:1rem}
+.tbl .rep{display:block;color:var(--muted);font-size:.9rem}
+.section{margin-top:2rem}
+.review-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:.4rem}
+.review-head h2{margin:0}
+.chk{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;cursor:pointer}
+.chk input{width:1.1rem;height:1.1rem;accent-color:var(--accent)}
+details.rev{padding:.7rem 0;border-top:1px solid var(--line)}
+details.rev summary{cursor:pointer}
+details.rev .rn{display:block;color:var(--muted);font-size:.9rem}
+details.rev .rb{padding:.6rem 0 .2rem}
+details.rev .rb p{margin-bottom:.6rem}
+.yours{white-space:pre-wrap;overflow-wrap:anywhere}
+.critlist{list-style:none;padding:0;margin:0 0 .4rem}
+.critlist li{padding:.15rem 0}
+.only-missed details.rev.full{display:none}
+
+@media (max-width:480px){
+  body{font-size:16.5px;padding-block:20px 56px}
+  h1{font-size:1.55rem}
+  h1.score{font-size:2.1rem}
+  .nav .btn{flex:1 1 0;min-width:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <main id="main">
+
+    <!-- START -->
+    <section id="screen-start" aria-labelledby="start-h">
+      <p class="kicker">Kemi 1 · Materia · Delprov 1, nivå E–C</p>
+      <h1 id="start-h">Övningsprov</h1>
+      <p>Frågor om atomen, elektronerna, periodiska systemet, blandningar och kemisk bindning. Du svarar med egna ord eller med ett tal, jämför med facit och rättar själv.</p>
+      <p class="muted small">Underlaget är arbetspaketet och genomgång 2–5. Det här är inte det riktiga provet, och uppdelningen i E- och C-frågor är en grov fingervisning.</p>
+
+      <form id="setup" novalidate>
+        <fieldset>
+          <legend>Läge</legend>
+          <label class="choice" for="mode-train"><input type="radio" name="mode" id="mode-train" value="train"><span><b>Träna</b> – facit efter varje fråga</span></label>
+          <label class="choice" for="mode-test"><input type="radio" name="mode" id="mode-test" value="test"><span><b>Prov</b> – skriv alla svar först, rätta i slutet</span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Antal frågor</legend>
+          <label class="choice" for="len-10"><input type="radio" name="len" id="len-10" value="10"><span>10 slumpade frågor</span></label>
+          <label class="choice" for="len-20"><input type="radio" name="len" id="len-20" value="20"><span>20 slumpade frågor</span></label>
+          <label class="choice" for="len-all"><input type="radio" name="len" id="len-all" value="all"><span id="len-all-text">Alla frågor</span></label>
+        </fieldset>
+        <button class="btn primary" id="btn-start" type="submit">Starta</button>
+      </form>
+
+      <h2 class="section">Det här ingår</h2>
+      <ul class="topics" id="topic-list"></ul>
+      <p class="muted small">Skriv formler som vanlig text, till exempel H2O, Na+ eller 1s2 2s2.</p>
+    </section>
+
+    <!-- QUESTION -->
+    <section id="screen-quiz" hidden aria-label="Fråga">
+      <p class="count" id="q-count"></p>
+      <p class="meta" id="q-meta"></p>
+      <p class="note" id="q-note" hidden>Nu rättar du dina svar. Jämför med facit och kryssa i det som ditt svar hade med.</p>
+      <h2 class="qtext" id="q-title" tabindex="-1"></h2>
+      <div id="q-answer"></div>
+      <div class="reveal" id="q-reveal"><button class="btn primary" id="btn-reveal" type="button">Visa facit</button></div>
+      <section class="facit" id="q-facit" tabindex="-1" aria-label="Facit" hidden></section>
+      <div class="warn" id="q-warn" hidden>
+        <p id="q-warn-text"></p>
+        <div class="row">
+          <button class="btn" id="btn-warn-back" type="button">Gå tillbaka</button>
+          <button class="btn primary" id="btn-warn-go" type="button"></button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn" id="btn-prev" type="button">← Föregående</button>
+        <button class="btn" id="btn-next" type="button">Nästa →</button>
+      </div>
+      <p class="quit"><button class="linkbtn" id="btn-quit" type="button">Avsluta och gå till start</button></p>
+      <div class="sr" id="live" aria-live="polite"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screen-result" hidden aria-labelledby="r-title">
+      <p class="kicker" id="r-kicker"></p>
+      <h1 class="score" id="r-title" tabindex="-1"></h1>
+      <ul class="levels" id="r-levels"></ul>
+      <p id="r-msg"></p>
+      <p class="muted small">Poängen bygger på din egen rättning mot facit.</p>
+      <div class="row">
+        <button class="btn primary" id="btn-retry" type="button">Försök igen</button>
+        <button class="btn" id="btn-missed" type="button">Träna på det jag missade</button>
+        <button class="btn" id="btn-settings" type="button">Ändra inställningar</button>
+      </div>
+
+      <h2 class="section">Per område</h2>
+      <table class="tbl" id="r-topics"></table>
+
+      <div class="section">
+        <div class="review-head">
+          <h2>Genomgång</h2>
+          <label class="chk" for="rev-missed"><input type="checkbox" id="rev-missed"> Visa bara det jag missade poäng på</label>
+        </div>
+        <div id="r-review"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script>
+(function(){
+'use strict';
+/* ATOMEN (Genomgång 2 och 3) – öppna frågor. l = nivå, p = poängkriterier (1 poäng var), m = facit */
+window.Q = (window.Q || []).concat([
+{id:'atom1', l:'E', t:'ATOM', ty:'open',
+ q:'Vilka partiklar finns i en atom, var sitter de och vilken laddning har de?',
+ m:'Protoner (laddning +1) och neutroner (laddning 0) sitter i atomkärnan. Elektroner (laddning −1) rör sig utanför kärnan, i elektronskal.',
+ p:['Protoner (positiva) och neutroner (oladdade) finns i atomkärnan','Elektroner (negativa) finns utanför kärnan, i elektronskal']},
+
+{id:'atom2', l:'E', t:'ATOM', ty:'open',
+ q:'Vad menas med atomnummer och med masstal?',
+ m:'Atomnumret (Z) är antalet protoner i kärnan och bestämmer vilket grundämne atomen tillhör. Masstalet (A) är summan av antalet protoner och antalet neutroner: A = Z + N.',
+ p:['Atomnummer = antalet protoner (och därmed vilket grundämne det är)','Masstal = antalet protoner + antalet neutroner']},
+
+{id:'atom3', l:'E', t:'ATOM', ty:'num',
+ q:'En kloratom har atomnummer 17 och masstal 35. Hur många neutroner har den?',
+ ans:18, tol:0, unit:'neutroner',
+ m:'Antalet neutroner är masstalet minus atomnumret: N = A − Z = 35 − 17 = 18.'},
+
+{id:'atom4', l:'E', t:'ATOM', ty:'open',
+ q:'Förklara vad isotoper är och ge ett exempel.',
+ m:'Isotoper är atomer av samma grundämne, alltså med samma antal protoner, men med olika antal neutroner och därför olika masstal. Exempel: kol-12 (6 neutroner), kol-13 (7 neutroner) och kol-14 (8 neutroner) har alla 6 protoner.',
+ p:['Isotoper har samma antal protoner (är samma grundämne)','Isotoper har olika antal neutroner (och därmed olika masstal)','Ett korrekt exempel, till exempel kol-12 och kol-14']},
+
+{id:'atom5', l:'E', t:'ATOM', ty:'open',
+ q:'Varför räknar man inte med elektronerna när man bestämmer en atoms masstal?',
+ m:'En elektron väger bara ungefär 0,0005 u, medan en proton och en neutron väger ungefär 1 u var. Elektronernas massa är så liten att den inte påverkar atomens massa märkbart.',
+ p:['Elektronens massa är mycket liten jämfört med protonens och neutronens (ca 0,0005 u mot ca 1 u)']},
+
+{id:'atom6', l:'E', t:'ATOM', ty:'open',
+ q:'En natriumatom (atomnummer 11) blir en natriumjon, Na<sup>+</sup>. Vad har hänt med atomen, och varför blir jonen positivt laddad?',
+ m:'Natriumatomen har avgett en elektron. Kärnan har fortfarande 11 protoner (+11), men jonen har bara 10 elektroner (−10). Det blir ett överskott på en positiv laddning, så jonen är Na<sup>+</sup>.',
+ p:['Atomen har avgett (förlorat) en elektron','Det finns fler protoner (11) än elektroner (10), så nettoladdningen blir +1']},
+
+{id:'atom7', l:'C', t:'ATOM', ty:'open',
+ q:'Aluminiumjonen Al<sup>3+</sup> har atomnummer 13 och masstal 27. Hur många protoner, neutroner och elektroner har den? Visa hur du kommer fram till svaret.',
+ m:'Protoner: 13 (atomnumret). Neutroner: 27 − 13 = 14. Elektroner: en neutral aluminiumatom har 13 elektroner, men jonen har avgett tre och har därför 13 − 3 = 10 elektroner.',
+ p:['13 protoner','14 neutroner (27 − 13)','10 elektroner (13 − 3, eftersom jonen har laddningen 3+)']},
+
+{id:'atom8', l:'C', t:'ATOM', ty:'open',
+ q:'Klors atommassa i periodiska systemet är 35,45 u, trots att en enskild kloratom har ett helt masstal (35 eller 37). Förklara varför atommassan inte är ett heltal.',
+ m:'Klor förekommer i naturen som en blandning av isotoperna klor-35 (cirka 76 %) och klor-37 (cirka 24 %). Atommassan är ett medelvärde av isotopernas massor, viktat efter hur vanliga de är, och blir därför ett decimaltal mellan 35 och 37.',
+ p:['Klor har flera isotoper med olika masstal (35 och 37)','Atommassan är ett medelvärde som tar hänsyn till hur vanlig varje isotop är']},
+
+{id:'atom9', l:'C', t:'ATOM', ty:'num',
+ q:'En svavelatom har masstal 32 och väger därför ungefär 32 u. Hur mycket väger den i gram? (1 u = 1,66·10<sup>−24</sup> g.) Svara som ett tal gånger 10<sup>−23</sup> g.',
+ ans:5.3, tol:0.1, unit:'·10⁻²³ g',
+ m:'32 · 1,66·10<sup>−24</sup> g = 53,12·10<sup>−24</sup> g ≈ 5,3·10<sup>−23</sup> g.'}
+]);
+
+/* KEMISK BINDNING (arbetspaketet, intramolekylära bindningar) */
+window.Q = (window.Q || []).concat([
+{id:'bind1', l:'E', t:'BIND', ty:'open',
+ q:'Mellan vilka sorters atomer uppstår jonbindning, kovalent bindning och metallbindning? Ge ett exempel på ett ämne för varje.',
+ m:'Jonbindning: mellan en metall och en ickemetall, till exempel natriumklorid (NaCl). Kovalent bindning: mellan ickemetaller, till exempel vatten (H<sub>2</sub>O) eller syrgas (O<sub>2</sub>). Metallbindning: mellan metallatomer, till exempel i koppar eller järn.',
+ p:['Jonbindning: metall + ickemetall (med exempel)','Kovalent bindning: ickemetall + ickemetall (med exempel)','Metallbindning: metall + metall (med exempel)']},
+
+{id:'bind2', l:'E', t:'BIND', ty:'open',
+ q:'Beskriv hur jonbindningen i natriumklorid (NaCl) bildas.',
+ m:'Natriumatomen avger sin valenselektron och blir en positiv jon, Na<sup>+</sup>. Kloratomen tar upp elektronen och blir en negativ jon, Cl<sup>−</sup>. Båda jonerna får då ädelgasstruktur. De motsatt laddade jonerna dras till varandra med en elektromagnetisk kraft, och det är jonbindningen.',
+ p:['Natrium avger en elektron (Na<sup>+</sup>) och klor tar upp den (Cl<sup>−</sup>)','De motsatt laddade jonerna attraherar varandra (båda får ädelgasstruktur)']},
+
+{id:'bind3', l:'E', t:'BIND', ty:'open',
+ q:'Beskriv hur kovalenta bindningar fungerar, till exempel i en vattenmolekyl, H<sub>2</sub>O.',
+ m:'I en kovalent bindning delar två ickemetallatomer på valenselektroner (ett elektronpar) så att de får en gemensam ädelgasstruktur. I vatten delar syreatomen ett elektronpar med var och en av de två väteatomerna. Eftersom syre drar hårdare i elektronerna än väte är bindningarna polära.',
+ p:['Atomerna delar på valenselektroner (elektronpar)','Delningen ger atomerna ädelgasstruktur (i vatten delar syre ett elektronpar med varje väteatom)']},
+
+{id:'bind4', l:'E', t:'BIND', ty:'open',
+ q:'Kalciumjonen är Ca<sup>2+</sup> och kloridjonen är Cl<sup>−</sup>. Vilken formel har kalciumklorid, och varför?',
+ m:'CaCl<sub>2</sub>. En jonförening är neutral, så laddningarna måste ta ut varandra. En Ca<sup>2+</sup> (+2) behöver två Cl<sup>−</sup> (2 · (−1) = −2). Den positiva jonen skrivs först.',
+ p:['Formeln CaCl<sub>2</sub>','Motivering: laddningarna ska ta ut varandra (+2 − 1 − 1 = 0)']},
+
+{id:'bind5', l:'C', t:'BIND', ty:'open',
+ q:'Skriv formeln för a) natriumsulfat (Na<sup>+</sup> och SO<sub>4</sub><sup>2−</sup>) och b) kalciumhydroxid (Ca<sup>2+</sup> och OH<sup>−</sup>). Förklara hur du kommer fram till antalet av varje jon.',
+ m:'a) Na<sub>2</sub>SO<sub>4</sub>: två Na<sup>+</sup> (+2) behövs för att ta ut en SO<sub>4</sub><sup>2−</sup> (−2). b) Ca(OH)<sub>2</sub>: en Ca<sup>2+</sup> (+2) behöver två OH<sup>−</sup> (−2). När det behövs fler än en sammansatt jon sätter man parentes runt den.',
+ p:['Na<sub>2</sub>SO<sub>4</sub>, med motivering via laddningarna','Ca(OH)<sub>2</sub> med parentes runt hydroxidjonen, med motivering via laddningarna']},
+
+{id:'bind6', l:'C', t:'BIND', ty:'open',
+ q:'Förklara varför metaller leder elektrisk ström.',
+ m:'I en metall sitter atomerna så tätt att valenselektronskalen överlappar varandra. Valenselektronerna är därför delokaliserade och kan röra sig fritt mellan atomerna. De fria elektronerna kan transportera laddning, och därför leder metaller ström.',
+ p:['Valenselektronerna är delokaliserade och kan röra sig fritt mellan atomerna','De fria elektronerna kan transportera laddning (elektrisk ström)']},
+
+{id:'bind7', l:'C', t:'BIND', ty:'open',
+ q:'Fast natriumklorid leder inte elektrisk ström, men en lösning av natriumklorid i vatten och en smälta av natriumklorid gör det. Förklara varför.',
+ m:'För att leda ström måste laddade partiklar kunna röra sig. I en saltkristall sitter jonerna (Na<sup>+</sup> och Cl<sup>−</sup>) på fasta platser i kristallen och kan inte röra sig. I en lösning, och i en smälta, kan jonerna röra sig fritt och därmed transportera laddning.',
+ p:['I fast form sitter jonerna fast i kristallen och kan inte röra sig','I lösning och smälta kan jonerna röra sig fritt och transportera laddning']},
+
+{id:'bind8', l:'C', t:'BIND', ty:'open',
+ q:'Vad är elektronegativitet? Skillnaden i elektronegativitet mellan två bundna atomer är 0,9. Vilken typ av bindning är det troligen, och hur avgör du det?',
+ m:'Elektronegativitet är en atoms förmåga att dra till sig elektroner. Är skillnaden mellan atomerna 0 är bindningen ren kovalent, är den större än 0 men mindre än 1,8 är den polär kovalent, och är den större än 1,8 är den övervägande en jonbindning. Skillnaden 0,9 ger alltså en polär kovalent bindning, där elektronerna dras mer mot atomen med högst elektronegativitet.',
+ p:['Elektronegativitet är en atoms förmåga att dra till sig elektroner','0,9 ligger mellan 0 och 1,8, så bindningen är polär kovalent (0 = ren kovalent, över 1,8 = jonbindning)']},
+
+{id:'bind9', l:'E', t:'BIND', ty:'num',
+ q:'Beräkna molekylmassan för koldioxid, CO<sub>2</sub>. Använd C = 12,0 u och O = 16,0 u.',
+ ans:44, tol:0.5, unit:'u',
+ m:'Molekylmassan är summan av atommassorna: 12,0 + 2 · 16,0 = 44,0 u.'}
+]);
+
+/* ELEKTRONER & ATOMMODELLER (Genomgång 3) */
+window.Q = (window.Q || []).concat([
+{id:'elek1', l:'E', t:'ELEK', ty:'open',
+ q:'Vad är valenselektroner och varför är de viktiga?',
+ m:'Valenselektroner är elektronerna i atomens yttersta skal. Det är de som avges, tas upp eller delas när atomer bildar joner eller binds ihop till molekyler, så de bestämmer hur en atom reagerar kemiskt.',
+ p:['Valenselektroner är elektronerna i det yttersta skalet','De är de som deltar i kemiska reaktioner och bindningar (avges, tas upp eller delas)']},
+
+{id:'elek2', l:'E', t:'ELEK', ty:'open',
+ q:'Vad menas med ädelgasstruktur? Hur kan en atom som saknar det uppnå det?',
+ m:'Ädelgasstruktur betyder att atomens yttersta elektronskal är fullt: 8 valenselektroner, eller 2 för väte och helium. Det är ett mycket stabilt tillstånd. En atom kan nå det genom att avge eller ta upp elektroner (och då bilda en jon) eller genom att dela elektroner med andra atomer.',
+ p:['Fullt yttersta elektronskal (8 valenselektroner, 2 för väte och helium)','Genom att avge eller ta upp elektroner (bilda joner), eller genom att dela elektroner']},
+
+{id:'elek3', l:'E', t:'ELEK', ty:'open',
+ q:'Hur många elektroner kan som mest rymmas i K-, L- och M-skalet? Hur är de 16 elektronerna i en svavelatom fördelade på skalen?',
+ m:'K-skalet rymmer 2, L-skalet 8 och M-skalet 18 elektroner (formeln är 2n², där n är skalets nummer: K = 1, L = 2, M = 3). Svavel fyller K (2) och L (8), och de sista 6 elektronerna hamnar i M-skalet: 2, 8, 6. Svavel har alltså 6 valenselektroner.',
+ p:['K = 2, L = 8 och M = 18 elektroner (2n²)','Svavel: 2, 8, 6']},
+
+{id:'elek4', l:'E', t:'ELEK', ty:'open',
+ q:'Beskriv vad som händer med en elektron när en atom exciteras, och vad som händer när elektronen sedan faller tillbaka.',
+ m:'När atomen tillförs energi (till exempel värme) lyfts en elektron till en högre energinivå, ett skal längre från kärnan. Atomen är då exciterad och instabil. När elektronen faller tillbaka till sin ursprungliga nivå sänds energin ut i form av ljus.',
+ p:['Elektronen tar upp energi och hoppar till en högre energinivå','När elektronen faller tillbaka sänds energi ut som ljus']},
+
+{id:'elek5', l:'C', t:'ELEK', ty:'open',
+ q:'Vad är skillnaden mellan att en atom exciteras och att den joniseras? Vad kallas energin som krävs för att jonisera en atom?',
+ m:'Vid excitation lyfts elektronen till en högre energinivå men finns kvar i atomen. Vid jonisering tillförs så mycket energi att elektronen lämnar atomen helt, och en jon bildas. Energin som krävs för att avlägsna en elektron kallas joniseringsenergi.',
+ p:['Excitation: elektronen byter till en högre energinivå men stannar kvar i atomen','Jonisering: elektronen lämnar atomen och en jon bildas, och energin kallas joniseringsenergi']},
+
+{id:'elek6', l:'C', t:'ELEK', ty:'open',
+ q:'Förklara varför olika grundämnen ger olika färger i en lågreaktion.',
+ m:'Värmen från lågan exciterar elektroner i metallatomerna. När elektronerna faller tillbaka till lägre energinivåer sänds energin ut som ljus. Varje grundämne har sina egna energinivåer, så ljusets våglängd, och därmed färgen, blir specifik för grundämnet. Natrium ger till exempel gult ljus och litium karminrött.',
+ p:['Elektronerna exciteras av värmen och sänder ut ljus när de faller tillbaka','Varje grundämne har egna energinivåer, så ljuset får en egen färg (våglängd)']},
+
+{id:'elek7', l:'E', t:'ELEK', ty:'open',
+ q:'Beskriv Daltons och Bohrs atommodeller.',
+ m:'Dalton (1803) föreställde sig atomen som en massiv, odelbar kula utan inre delar. Bohr (1913) beskrev atomen som en kärna av protoner och neutroner med elektroner som rör sig i skal runt kärnan, där varje skal har en bestämd energi.',
+ p:['Dalton: atomen är en massiv, odelbar kula','Bohr: en kärna med elektroner i skal (energinivåer) runt kärnan']},
+
+{id:'elek8', l:'C', t:'ELEK', ty:'open',
+ q:'Varför har modellen av atomen ändrats flera gånger sedan Dalton? Ge ett exempel.',
+ m:'En modell är en förenkling av verkligheten och duger så länge den kan förklara det vi observerar. När nya experiment gav resultat som modellen inte kunde förklara behövde den byggas ut eller bytas. Exempel: när man visade att atomen har en liten, positivt laddad kärna (Rutherford, 1911) räckte inte Thomsons modell, och Bohr (1913) införde skal med bestämda energinivåer för elektronerna.',
+ p:['Modeller är förenklingar som ändras när nya experiment eller observationer inte stämmer med dem','Ett rimligt exempel på en modellförändring (till exempel upptäckten av kärnan eller elektronskalen)']},
+
+{id:'elek9', l:'C', t:'ELEK', ty:'open',
+ q:'Skriv elektronkonfigurationen för natrium (atomnummer 11) och förklara vad 3s<sup>1</sup> betyder.',
+ m:'1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>. I 3s<sup>1</sup> står 3 för skal nummer 3 (M-skalet), s för orbitaltypen och exponenten 1 för att orbitalen innehåller en elektron, natriums enda valenselektron.',
+ p:['Rätt konfiguration: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>','3s<sup>1</sup> betyder skal 3, s-orbital och en elektron (natriums enda valenselektron)']}
+]);
+
+/* LABORATION & ARBETSSÄTT (arbetspaketets laborationer) */
+window.Q = (window.Q || []).concat([
+{id:'lab1', l:'E', t:'LAB', ty:'open',
+ q:'Du ska mäta upp 20 ml vatten och kan välja mellan bägare, mätglas, graderad mätpipett och vollpipett. Vilket redskap ger den noggrannaste volymen, och hur väljer man redskap?',
+ m:'Vollpipetten är noggrannast, eftersom den är gjord för att mäta upp en enda bestämd volym med liten felmarginal. Graderingen på en bägare är minst noggrann och ska bara ses som en grov uppskattning. Man väljer redskap efter hur noggrant volymen behöver vara: bägare eller mätglas när det räcker med ungefär, pipett när volymen måste vara exakt.',
+ p:['Vollpipett är noggrannast (bägarens gradering är minst noggrann)','Redskapet väljs efter hur noggrant volymen behöver vara']},
+
+{id:'lab2', l:'E', t:'LAB', ty:'open',
+ q:'Du har en blandning av sand och salt. Beskriv hur du kan separera de två ämnena och varför metoden fungerar.',
+ m:'Salt löser sig i vatten, men sand gör det inte. 1) Rör ut blandningen i vatten så att saltet löses. 2) Filtrera: sanden stannar kvar i filtret och saltlösningen rinner igenom. 3) Indunsta vattnet ur filtratet, så blir saltet kvar.',
+ p:['Lös saltet i vatten (sanden löser sig inte)','Filtrera bort sanden','Indunsta vattnet ur filtratet så att saltet blir kvar']},
+
+{id:'lab3', l:'E', t:'LAB', ty:'open',
+ q:'Vilken färg får lågan i en lågreaktion för natrium, litium och kalium?',
+ m:'Natrium ger gul låga, litium karminröd och kalium rödviolett. (Övriga: cesium blåviolett, kalcium orange, strontium röd, barium grön och koppar blågrön.)',
+ p:['Natrium: gul','Litium: karminröd, och kalium: rödviolett']},
+
+{id:'lab4', l:'E', t:'LAB', ty:'num',
+ q:'En metallbit har massan 27 g och volymen 10 cm<sup>3</sup>. Beräkna densiteten i g/cm<sup>3</sup>.',
+ ans:2.7, tol:0.05, unit:'g/cm³',
+ m:'Densitet ρ = m / V = 27 g / 10 cm<sup>3</sup> = 2,7 g/cm<sup>3</sup>. Det är densiteten för aluminium.'},
+
+{id:'lab5', l:'C', t:'LAB', ty:'num',
+ q:'Etanol har densiteten 0,79 g/cm<sup>3</sup>. Vilken massa har 50 cm<sup>3</sup> etanol? Svara i gram.',
+ ans:39.5, tol:0.6, unit:'g',
+ m:'Från ρ = m / V får man m = ρ · V = 0,79 g/cm<sup>3</sup> · 50 cm<sup>3</sup> = 39,5 g. Avrundat till 40 g godtas också.'},
+
+{id:'lab6', l:'E', t:'LAB', ty:'open',
+ q:'Frågeställning: ”Smälter is olika fort i saltvatten och sötvatten?” Formulera en testbar hypotes och beskriv kort hur du skulle undersöka den.',
+ m:'Hypotes: Is smälter snabbare i saltvatten än i sötvatten. Undersökning: lägg lika stora isbitar i lika mycket saltvatten och sötvatten med samma starttemperatur och mät hur lång tid det tar tills isen har smält. Bara saltet ska skilja mellan försöken, så att resultatet går att jämföra. Hypotesen kan visa sig vara fel, huvudsaken är att den går att testa.',
+ p:['En testbar hypotes, alltså ett påstående om vad du förväntar dig (till exempel att isen smälter snabbare i saltvatten)','Ett rättvist test: saltvatten och sötvatten jämförs med allt annat lika, och smälttiden mäts']},
+
+{id:'lab7', l:'E', t:'LAB', ty:'open',
+ q:'Vad kännetecknar en naturvetenskaplig frågeställning? Ge ett exempel på en frågeställning som är naturvetenskaplig och ett som inte är det.',
+ m:'En naturvetenskaplig frågeställning går att undersöka och besvara med observationer, mätningar eller experiment. Exempel som är naturvetenskapligt: ”Hur påverkar salt hur fort is smälter?” Exempel som inte är det: ”Är saltvatten äckligt?”, eftersom det är en åsiktsfråga som inte går att mäta.',
+ p:['Frågan går att undersöka och besvara med mätningar, observationer eller experiment','Två rimliga exempel: en testbar fråga och en åsikts- eller värderingsfråga']}
+]);
+
+/* MATERIA & BLANDNINGAR (Genomgång 2 och arbetspaketet) */
+window.Q = (window.Q || []).concat([
+{id:'mat1', l:'E', t:'MAT', ty:'open',
+ q:'Beskriv hur partiklarna är ordnade och hur de rör sig i fast form, i vätskeform och i gasform.',
+ m:'Fast form: partiklarna sitter tätt med starka sammanhållande krafter och kan bara vibrera på sina platser. Vätska: partiklarna ligger tätt men kan röra sig och glida förbi varandra. Gas: partiklarna rör sig fritt och oberoende av varandra och har stora avstånd mellan sig.',
+ p:['Fast form: tätt, på fasta platser, partiklarna vibrerar','Vätska: tätt, men partiklarna kan röra sig förbi varandra','Gas: partiklarna rör sig fritt med stora avstånd']},
+
+{id:'mat2', l:'E', t:'MAT', ty:'open',
+ q:'Vad kallas övergångarna vätska → gas, gas → vätska, fast → vätska och vätska → fast?',
+ m:'Vätska → gas: ångbildning (förångning). Gas → vätska: kondensering. Fast → vätska: smältning. Vätska → fast: stelning.',
+ p:['Ångbildning (vätska → gas) och kondensering (gas → vätska)','Smältning (fast → vätska) och stelning (vätska → fast)']},
+
+{id:'mat3', l:'E', t:'MAT', ty:'open',
+ q:'Vilka är vattens smältpunkt och kokpunkt? Vilket aggregationstillstånd har vatten vid 50 °C?',
+ m:'Vattens smältpunkt är 0 °C och kokpunkt 100 °C. Vid 50 °C ligger temperaturen mellan de två, så vattnet är en vätska.',
+ p:['Smältpunkt 0 °C och kokpunkt 100 °C','Vätska vid 50 °C']},
+
+{id:'mat4', l:'E', t:'MAT', ty:'open',
+ q:'Förklara skillnaden mellan en homogen och en heterogen blandning och ge ett exempel på varje.',
+ m:'I en homogen blandning kan man inte urskilja de olika ämnena, varken med blotta ögat eller i mikroskop. Exempel: saltvatten och luft. I en heterogen blandning kan man urskilja delarna. Exempel: sand och vatten, eller sand och salt.',
+ p:['Homogen: delarna går inte att urskilja, med ett rätt exempel (till exempel saltvatten, luft)','Heterogen: delarna går att urskilja, med ett rätt exempel (till exempel sand och vatten)']},
+
+{id:'mat5', l:'C', t:'MAT', ty:'open',
+ q:'Förklara skillnaden mellan en kemisk förening och en blandning. Är syrgas, O<sub>2</sub>, en kemisk förening?',
+ m:'En kemisk förening består av atomer från minst två olika grundämnen som har reagerat och bundits ihop i ett fast förhållande, till exempel H<sub>2</sub>O. Den kan inte delas upp i sina grundämnen med fysikaliska metoder. I en blandning, till exempel luft, finns ämnena kvar med sina egna egenskaper och kan separeras med fysikaliska metoder. O<sub>2</sub> är inte en kemisk förening, eftersom molekylen bara innehåller en sorts atomer (syre). Det är ett grundämne, ett rent ämne.',
+ p:['Förening: atomer från olika grundämnen som bundits ihop, går inte att separera fysikaliskt','Blandning: ämnena behåller sina egenskaper och kan separeras fysikaliskt','O<sub>2</sub> är inte en förening, eftersom den bara innehåller en sorts atomer (ett grundämne)']}
+]);
+
+/* PERIODISKA SYSTEMET (Genomgång 4 och 5) */
+window.Q = (window.Q || []).concat([
+{id:'pse1', l:'E', t:'PSE', ty:'open',
+ q:'Hur är det periodiska systemet uppbyggt? Förklara vad perioder och grupper är och vad de säger om atomerna.',
+ m:'Systemet har 7 vågräta rader som kallas perioder och 18 lodräta kolumner som kallas grupper. Periodens nummer anger antalet elektronskal. Grundämnen i samma grupp har lika många valenselektroner och därför liknande kemiska egenskaper.',
+ p:['Perioder är vågräta rader och grupper är lodräta kolumner','Periodnumret anger antalet elektronskal','Ämnen i samma grupp har lika många valenselektroner och liknande egenskaper']},
+
+{id:'pse2', l:'C', t:'PSE', ty:'open',
+ q:'Natrium och klor står båda i period 3, men i grupp 1 respektive grupp 17. Vad säger placeringen om antalet elektronskal och valenselektroner, och vilken jon bildar varje ämne?',
+ m:'Båda har tre elektronskal eftersom de står i period 3. Natrium har 1 valenselektron (grupp 1), avger den och bildar Na<sup>+</sup>. Klor har 7 valenselektroner (grupp 17), tar upp en elektron och bildar Cl<sup>−</sup>. Båda får då ädelgasstruktur.',
+ p:['Båda har tre elektronskal (period 3)','Natrium: 1 valenselektron, avger den och bildar Na<sup>+</sup>','Klor: 7 valenselektroner, tar upp en elektron och bildar Cl<sup>−</sup>']},
+
+{id:'pse3', l:'E', t:'PSE', ty:'open',
+ q:'Hur skiljer sig metaller, halvmetaller och ickemetaller åt? Nämn en typisk egenskap och ett exempel för varje grupp.',
+ m:'Metaller (till exempel järn och koppar) är böjliga, leder ström och värme bra, har metallglans och är fasta vid rumstemperatur, med undantag för kvicksilver. Halvmetaller (till exempel kisel) står mellan metallerna och ickemetallerna och har några men inte alla metallegenskaper. Ickemetaller (till exempel syre, svavel och kol) står till höger i systemet, leder normalt inte elektrisk ström och är ofta gaser vid rumstemperatur, men kan också vara fasta (kol, svavel) eller flytande (brom).',
+ p:['Metaller: en rätt egenskap (till exempel leder ström, böjliga) och ett exempel','Halvmetaller: står mellan metaller och ickemetaller, har vissa men inte alla metallegenskaper, och ett exempel (till exempel kisel)','Ickemetaller: en rätt egenskap (till exempel leder inte ström, ofta gaser) och ett exempel']},
+
+{id:'pse4', l:'C', t:'PSE', ty:'open',
+ q:'Förklara varför atomradien ökar när man går nedåt i en grupp, till exempel från litium till natrium till kalium.',
+ m:'Nedåt i en grupp tillkommer ett nytt elektronskal för varje period. Valenselektronerna hamnar då allt längre från kärnan, så atomen blir större.',
+ p:['Antalet elektronskal ökar nedåt i gruppen','Valenselektronerna hamnar längre från kärnan, så atomen blir större']},
+
+{id:'pse5', l:'C', t:'PSE', ty:'open',
+ q:'Förklara varför atomradien minskar när man går från vänster till höger i en period, till exempel från natrium till klor.',
+ m:'Inom en period är antalet elektronskal detsamma, men för varje steg åt höger tillkommer en proton i kärnan (kärnladdningen ökar) och en elektron i det yttersta skalet. Kärnan drar då hårdare i elektronerna och atomen blir mindre.',
+ p:['Samma antal skal men fler protoner (ökande kärnladdning) åt höger','Kärnan drar hårdare i elektronerna, så atomen blir mindre']},
+
+{id:'pse6', l:'C', t:'PSE', ty:'open',
+ q:'Alkalimetallerna (grupp 1) förekommer aldrig som rena metaller i naturen utan bara i jonföreningar, till exempel natriumklorid. Förklara varför.',
+ m:'Alkalimetallerna har bara en valenselektron som de mycket lätt avger för att få ädelgasstruktur (de bildar joner med laddningen +1). De är därför extremt reaktiva och reagerar lätt med andra ämnen, framför allt halogener, så att de bara finns som joner i jonföreningar som NaCl.',
+ p:['De har en valenselektron som lätt avges (ger ädelgasstruktur, jon med laddningen +1)','Därför är de mycket reaktiva och binder till andra ämnen (ofta halogener) i jonföreningar']},
+
+{id:'pse7', l:'C', t:'PSE', ty:'open',
+ q:'Järn kan bilda både Fe<sup>2+</sup> och Fe<sup>3+</sup>. Förklara vad som är typiskt för övergångsmetallerna (grupp 3–12) och hur det skiljer sig från till exempel natrium.',
+ m:'Övergångsmetallerna kan avge olika antal elektroner (en, två eller tre) och därför bilda joner med olika positiv laddning, utan något givet mönster. Järn kan till exempel bilda både Fe<sup>2+</sup> och Fe<sup>3+</sup>. Natrium (grupp 1) bildar däremot alltid Na<sup>+</sup>, eftersom det bara har en valenselektron.',
+ p:['Övergångsmetaller kan bilda joner med olika positiv laddning (samma metall ger flera joner, till exempel Fe<sup>2+</sup> och Fe<sup>3+</sup>)','Natrium (grupp 1) bildar alltid en sorts jon, Na<sup>+</sup>, eftersom det har en valenselektron']},
+
+{id:'pse8', l:'C', t:'PSE', ty:'open',
+ q:'Varför reagerar ädelgaserna (grupp 18) nästan aldrig med andra ämnen?',
+ m:'Ädelgaserna har redan ett fullt yttersta elektronskal, ädelgasstruktur, vilket är mycket stabilt. De har därför ingen drivkraft att ta upp, avge eller dela elektroner och reagerar normalt inte med andra ämnen.',
+ p:['De har redan ett fullt yttersta skal (ädelgasstruktur)','Därför behöver de inte ta upp, avge eller dela elektroner (de är stabila)']},
+
+{id:'pse9', l:'E', t:'PSE', ty:'open',
+ q:'Skriv den kemiska beteckningen för natrium, kalium, kalcium, magnesium, kisel, fosfor, svavel och klor.',
+ m:'Natrium Na, kalium K, kalcium Ca, magnesium Mg, kisel Si, fosfor P, svavel S och klor Cl.',
+ p:['Na, K, Ca och Mg rätt','Si, P, S och Cl rätt']}
+]);
+
+/* ---------- data, settings, helpers, scoring ---------- */
+var BANK = window.Q.slice();
+var TOPICS = {
+  ATOM: {name: 'Atomen', ref: 'Genomgång 2'},
+  ELEK: {name: 'Elektroner och atommodeller', ref: 'Genomgång 3'},
+  PSE:  {name: 'Periodiska systemet', ref: 'Genomgång 4 och 5'},
+  MAT:  {name: 'Materia och blandningar', ref: 'Genomgång 2'},
+  BIND: {name: 'Kemisk bindning', ref: 'arbetspaketet, kemisk bindning'},
+  LAB:  {name: 'Laboration och arbetssätt', ref: 'laborationerna i arbetspaketet'}
+};
+var TOPIC_ORDER = ['ATOM', 'ELEK', 'PSE', 'MAT', 'BIND', 'LAB'];
+var LS_KEY = 'kemi1-materia-prov-v2';
+var S = {mode: 'train', len: '10'};
+var run = null;
+
+function $(id) { return document.getElementById(id); }
+
+function shuffle(a) {
+  var b = a.slice(), i, j, t;
+  for (i = b.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    t = b[i]; b[i] = b[j]; b[j] = t;
+  }
+  return b;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c];
+  });
+}
+
+function fmtNum(n) { return String(n).replace('.', ','); }
+
+function sep(q) { return q.unit.charAt(0) === '\u00b7' ? '' : ' '; }
+
+function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+
+function loadSettings() {
+  try {
+    var o = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+    if (o && /^(train|test)$/.test(o.mode)) S.mode = o.mode;
+    if (o && /^(10|20|all)$/.test(String(o.len))) S.len = String(o.len);
+  } catch (e) { /* no storage: defaults are fine */ }
+}
+
+function saveSettings() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(S)); } catch (e) { /* ignore */ }
+}
+
+/* ---------- selecting questions ---------- */
+function countFor(len) {
+  return len === 'all' ? BANK.length : Math.min(parseInt(len, 10), BANK.length);
+}
+
+// Round-robin over the topics so a short test covers every area.
+function pick(pool, n) {
+  if (n >= pool.length) return shuffle(pool);
+  var groups = {}, out = [], k = 0, order;
+  shuffle(pool).forEach(function (q) { (groups[q.t] = groups[q.t] || []).push(q); });
+  order = shuffle(Object.keys(groups));
+  while (out.length < n) {
+    var g = groups[order[k % order.length]];
+    if (g.length) out.push(g.shift());
+    k++;
+  }
+  return shuffle(out);
+}
+
+function makeItems(qs) {
+  return qs.map(function (q) {
+    return {
+      q: q,
+      text: '',
+      done: false,   // facit has been shown (and the answer can be graded)
+      g: q.ty === 'open' ? q.p.map(function () { return false; }) : null
+    };
+  });
+}
+
+/* ---------- scoring ---------- */
+function parseNum(s) {
+  s = String(s).replace(/−/g, '-').replace(/\s+/g, '').replace(',', '.');
+  var m = s.match(/^[-+]?\d+(?:\.\d+)?/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function answered(it) { return it.text.trim() !== ''; }
+
+function maxPts(it) { return it.q.ty === 'open' ? it.q.p.length : 1; }
+
+function numOk(it) {
+  if (it.q.ty !== 'num' || !answered(it)) return false;
+  var n = parseNum(it.text);
+  return n !== null && Math.abs(n - it.q.ans) <= it.q.tol + 1e-9;
+}
+
+function pts(it) {
+  if (!it.done || !answered(it)) return 0;
+  if (it.q.ty === 'num') return numOk(it) ? 1 : 0;
+  return it.g.filter(Boolean).length;
+}
+
+function verdict(e, c) {
+  var pe = e && e.n ? e.k / e.n : null, pc = c && c.n ? c.k / c.n : null;
+  if (pe !== null && pc !== null) {
+    if (pe >= 0.8 && pc >= 0.7) return 'Starkt resultat på både E- och C-poängen. Läs igenom det du missade så att det sitter.';
+    if (pe >= 0.8) return 'E-poängen sitter bra. På C-frågorna ska du kunna förklara varför, jämföra och räkna i flera steg, så titta extra noga på facit där.';
+    if (pe >= 0.5) return 'Grunderna börjar sitta. Gå igenom det du missade och försök igen.';
+    return 'Det finns en del att repetera. Börja med områdena som är markerade nedan och kör sedan om i träningsläge.';
+  }
+  var p = pe !== null ? pe : pc;
+  if (p === null) return '';
+  if (p >= 0.8) return 'Starkt resultat. Läs igenom det du missade så att det sitter.';
+  if (p >= 0.5) return 'Du är på god väg. Gå igenom det du missade och försök igen.';
+  return 'Repetera områdena som är markerade nedan och försök igen.';
+}
+
+/* ---------- screens and flow ---------- */
+var SCREENS = ['start', 'quiz', 'result'];
+var QUIT_TEXT = 'Avsluta och gå till start';
+var quitTimer = null;
+
+function show(name) {
+  SCREENS.forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
+  window.scrollTo(0, 0);
+}
+
+/* ----- start screen ----- */
+function syncSetup() {
+  ['mode', 'len'].forEach(function (name) {
+    var radios = document.getElementsByName(name), i;
+    for (i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === S[name]);
+  });
+  $('len-all-text').textContent = 'Alla ' + BANK.length + ' frågor';
+}
+
+function renderTopics() {
+  var counts = {};
+  BANK.forEach(function (q) { counts[q.t] = (counts[q.t] || 0) + 1; });
+  $('topic-list').innerHTML = TOPIC_ORDER.map(function (t) {
+    return '<li><span>' + TOPICS[t].name + '</span><span>' + plural(counts[t], 'fråga', 'frågor') + '</span></li>';
+  }).join('');
+}
+
+function startNew() {
+  begin(pick(BANK, countFor(S.len)), S.mode, 'normal');
+}
+
+function begin(qs, mode, kind) {
+  run = {mode: mode, kind: kind, qs: qs, items: makeItems(qs), i: 0, phase: 'answer', warnGo: null};
+  disarmQuit();
+  show('quiz');
+  renderQ(true);
+}
+
+/* ----- one question ----- */
+function renderQ(focus) {
+  var it = run.items[run.i], q = it.q, n = run.items.length, m = maxPts(it);
+  var phaseName = run.mode === 'train' ? 'Träna' : (run.phase === 'correct' ? 'Rättning' : 'Prov');
+  $('q-count').textContent = 'Fråga ' + (run.i + 1) + ' av ' + n + ' · ' + phaseName;
+  $('q-meta').textContent = TOPICS[q.t].name + ' · Nivå ' + q.l + ' · ' + m + ' poäng';
+  $('q-note').hidden = !(run.mode === 'test' && run.phase === 'correct' && run.i === 0);
+  $('q-title').innerHTML = q.q;
+  renderAnswer(it);
+  $('q-reveal').hidden = !(run.mode === 'train' && !it.done);
+  renderFacit(it);
+  $('q-warn').hidden = true;
+  $('btn-prev').disabled = (run.i === 0);
+  var last = run.i === n - 1, next = $('btn-next');
+  next.textContent = last ? (run.mode === 'test' && run.phase === 'answer' ? 'Lämna in' : 'Se resultat') : 'Nästa →';
+  next.classList.toggle('primary', run.mode === 'test' || it.done);
+  if (focus) {
+    window.scrollTo(0, 0);
+    var field = $('ans-text') || $('ans-num');
+    var touch = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+    if (field && !field.readOnly && !touch) field.focus({preventScroll: true});
+    else $('q-title').focus({preventScroll: true});
+  }
+}
+
+function renderAnswer(it) {
+  var q = it.q, box = $('q-answer'), el;
+  box.innerHTML = '';
+  if (q.ty === 'open') {
+    el = document.createElement('textarea');
+    el.id = 'ans-text';
+    el.rows = 5;
+    el.value = it.text;
+    el.placeholder = it.done ? 'Du skrev inget svar.' : 'Skriv ditt svar här';
+    el.setAttribute('aria-labelledby', 'q-title');
+    el.setAttribute('autocomplete', 'off');
+    el.lang = 'sv';
+    el.readOnly = it.done;
+    box.appendChild(el);
+  } else {
+    var row = document.createElement('div'), u = document.createElement('span'), h = document.createElement('p');
+    row.className = 'numrow';
+    el = document.createElement('input');
+    el.id = 'ans-num';
+    el.type = 'text';
+    el.className = 'num';
+    el.value = it.text;
+    el.placeholder = it.done ? '–' : 'Ditt svar';
+    el.setAttribute('inputmode', 'decimal');
+    el.setAttribute('autocomplete', 'off');
+    el.setAttribute('autocapitalize', 'off');
+    el.setAttribute('spellcheck', 'false');
+    el.setAttribute('aria-labelledby', 'q-title');
+    el.setAttribute('aria-describedby', 'num-hint');
+    el.readOnly = it.done;
+    u.className = 'unit';
+    u.textContent = q.unit;
+    h.className = 'hint';
+    h.id = 'num-hint';
+    h.textContent = 'Skriv ett tal. Komma eller punkt går bra.';
+    row.appendChild(el);
+    row.appendChild(u);
+    box.appendChild(row);
+    box.appendChild(h);
+  }
+}
+
+function gradeSummary(it) { return 'Poäng: ' + pts(it) + ' av ' + maxPts(it); }
+
+function renderFacit(it) {
+  var box = $('q-facit'), q = it.q, html = '';
+  if (!it.done) { box.hidden = true; box.innerHTML = ''; return; }
+  if (q.ty === 'num') {
+    var ok = numOk(it), has = answered(it);
+    html += '<p class="verdict ' + (ok ? 'ok' : 'bad') + '">' + (ok ? '✓ Rätt svar' : (has ? '✗ Fel svar' : 'Du skrev inget svar')) + '</p>';
+    if (!ok) html += '<p><b>Rätt svar:</b> ' + fmtNum(q.ans) + sep(q) + q.unit + '</p>';
+    html += '<h3>Uträkning</h3><div class="model">' + q.m + '</div>';
+  } else {
+    var can = answered(it);
+    html += '<h3>Facit</h3><div class="model">' + q.m + '</div>';
+    if (!can) html += '<p class="muted">Du skrev inget svar, så den här frågan ger 0 poäng.</p>';
+    html += '<fieldset class="grade"><legend>Rätta ditt svar: kryssa i det som ditt svar hade med (1 poäng var)</legend>';
+    q.p.forEach(function (c, i) {
+      html += '<label class="crit' + (can ? '' : ' off') + '" for="crit-' + i + '"><input type="checkbox" id="crit-' + i + '" data-i="' + i + '"' +
+        (it.g[i] && can ? ' checked' : '') + (can ? '' : ' disabled') + '><span>' + c + '</span></label>';
+    });
+    html += '</fieldset>';
+  }
+  html += '<p class="points" id="points" aria-live="polite">' + gradeSummary(it) + '</p>';
+  box.innerHTML = html;
+  box.hidden = false;
+}
+
+/* ----- actions ----- */
+function reveal() {
+  var it = run.items[run.i], h;
+  if (it.done) return;
+  if (it.q.ty === 'num' && answered(it) && parseNum(it.text) === null) {
+    h = $('num-hint');
+    h.textContent = 'Skriv svaret som ett tal, till exempel 12 eller 2,7.';
+    h.classList.add('err');
+    $('ans-num').focus();
+    return;
+  }
+  it.done = true;
+  renderQ(false);
+  var f = $('q-facit');
+  f.focus({preventScroll: true});
+  f.scrollIntoView({block: 'start'});
+}
+
+function warn(text, goLabel, goFn) {
+  $('q-warn-text').textContent = text;
+  $('btn-warn-go').textContent = goLabel;
+  run.warnGo = goFn;
+  $('q-warn').hidden = false;
+  $('q-warn').scrollIntoView({block: 'nearest'});
+}
+
+function firstPending() {
+  var k = 0;
+  run.items.some(function (it, i) {
+    var pending = run.mode === 'train' ? !it.done : !answered(it);
+    if (pending) { k = i; return true; }
+    return false;
+  });
+  return k;
+}
+
+function goNext() {
+  var n = run.items.length, left;
+  if (run.i < n - 1) { run.i++; renderQ(true); return; }
+  if (!$('q-warn').hidden) return;
+  if (run.mode === 'train') {
+    left = run.items.filter(function (it) { return !it.done; }).length;
+    if (left > 0) {
+      warn('Du har inte öppnat facit för ' + plural(left, 'fråga', 'frågor') + '. ' + (left === 1 ? 'Den' : 'De') + ' ger 0 poäng.', 'Se resultat ändå', showResult);
+      return;
+    }
+    showResult();
+  } else if (run.phase === 'answer') {
+    left = run.items.filter(function (it) { return !answered(it); }).length;
+    if (left > 0) {
+      warn(plural(left, 'fråga saknar', 'frågor saknar') + ' svar och ger 0 poäng.', 'Lämna in ändå', startCorrect);
+      return;
+    }
+    startCorrect();
+  } else {
+    showResult();
+  }
+}
+
+function goPrev() {
+  if (run.i > 0) { run.i--; renderQ(true); }
+}
+
+function startCorrect() {
+  run.phase = 'correct';
+  run.items.forEach(function (it) { it.done = true; });
+  run.i = 0;
+  renderQ(true);
+}
+
+function disarmQuit() {
+  var b = $('btn-quit');
+  clearTimeout(quitTimer);
+  b.dataset.armed = '0';
+  b.textContent = QUIT_TEXT;
+}
+
+/* ----- results ----- */
+function criteriaHtml(it) {
+  return '<ul class="critlist">' + it.q.p.map(function (c, i) {
+    var yes = answered(it) && it.g[i];
+    return '<li class="' + (yes ? 'yes' : 'no') + '"><span aria-hidden="true">' + (yes ? '✓' : '✗') + '</span> <span class="sr">' + (yes ? 'Med: ' : 'Saknades: ') + '</span>' + c + '</li>';
+  }).join('') + '</ul>';
+}
+
+function reviewHtml(it, i) {
+  var q = it.q, p = pts(it), m = maxPts(it), has = answered(it);
+  var yours = has ? '<div class="yours">' + escapeHtml(it.text) + (q.ty === 'num' ? sep(q) + escapeHtml(q.unit) : '') + '</div>' : '<p class="muted">Du skrev inget svar.</p>';
+  var body = '<h3>Ditt svar</h3>' + yours;
+  if (q.ty === 'num') {
+    body += '<h3>Rätt svar och uträkning</h3><p>' + fmtNum(q.ans) + sep(q) + q.unit + '. ' + q.m + '</p>';
+  } else {
+    body += '<h3>Facit</h3><p>' + q.m + '</p><h3>Poäng</h3>' + criteriaHtml(it);
+  }
+  return '<details class="rev ' + (p < m ? 'miss' : 'full') + '"' + (p < m ? ' open' : '') + '>' +
+    '<summary><span class="rn">Fråga ' + (i + 1) + ' · ' + TOPICS[q.t].name + ' · Nivå ' + q.l + ' · ' + p + ' av ' + m + ' poäng</span>' + q.q + '</summary>' +
+    '<div class="rb">' + body + '</div></details>';
+}
+
+function showResult() {
+  var items = run.items, tot = 0, got = 0, byL = {E: {n: 0, k: 0}, C: {n: 0, k: 0}}, byT = {}, missed = [];
+  items.forEach(function (it) {
+    var m = maxPts(it), p = pts(it), L = byL[it.q.l], T = byT[it.q.t] || (byT[it.q.t] = {n: 0, k: 0});
+    L.n += m; L.k += p; T.n += m; T.k += p; tot += m; got += p;
+    if (p < m) missed.push(it.q);
+  });
+  $('r-kicker').textContent = 'Resultat · ' + plural(items.length, 'fråga', 'frågor') + ' · ' + (run.kind === 'missed' ? 'omtag av missade frågor' : (run.mode === 'train' ? 'träning' : 'prov'));
+  $('r-title').textContent = got + ' av ' + tot + ' poäng';
+  $('r-levels').innerHTML = ['E', 'C'].filter(function (l) { return byL[l].n; }).map(function (l) {
+    return '<li>' + l + '-poäng: <b>' + byL[l].k + ' av ' + byL[l].n + '</b></li>';
+  }).join('');
+  $('r-msg').textContent = verdict(byL.E, byL.C);
+  $('r-topics').innerHTML = '<thead><tr><th scope="col">Område</th><th scope="col">Poäng</th></tr></thead><tbody>' +
+    TOPIC_ORDER.filter(function (t) { return byT[t]; }).map(function (t) {
+      var T = byT[t];
+      return '<tr><td>' + TOPICS[t].name + (T.k / T.n < 0.7 ? '<span class="rep">Repetera: ' + TOPICS[t].ref + '</span>' : '') + '</td><td>' + T.k + ' av ' + T.n + '</td></tr>';
+    }).join('') + '</tbody>';
+  $('r-review').innerHTML = items.map(reviewHtml).join('');
+  $('rev-missed').checked = false;
+  $('r-review').classList.remove('only-missed');
+  run.missed = missed;
+  $('btn-missed').hidden = missed.length === 0;
+  $('btn-missed').textContent = missed.length === 1 ? 'Träna på frågan jag missade' : 'Träna på de ' + missed.length + ' jag missade';
+  show('result');
+  $('r-title').focus({preventScroll: true});
+}
+
+/* ----- events ----- */
+$('setup').addEventListener('change', function (e) {
+  var t = e.target;
+  if (t && t.name && S.hasOwnProperty(t.name)) { S[t.name] = t.value; saveSettings(); }
+});
+$('setup').addEventListener('submit', function (e) { e.preventDefault(); startNew(); });
+
+$('q-answer').addEventListener('input', function (e) {
+  var t = e.target;
+  if (!t || (t.id !== 'ans-text' && t.id !== 'ans-num')) return;
+  run.items[run.i].text = t.value;
+  if (t.id === 'ans-num') { var h = $('num-hint'); h.textContent = 'Skriv ett tal. Komma eller punkt går bra.'; h.classList.remove('err'); }
+});
+$('q-answer').addEventListener('keydown', function (e) {
+  var t = e.target;
+  if (!t) return;
+  var go = (t.id === 'ans-num' && e.key === 'Enter') || (t.id === 'ans-text' && e.key === 'Enter' && (e.ctrlKey || e.metaKey));
+  if (!go) return;
+  e.preventDefault();
+  if (run.mode === 'train' && !run.items[run.i].done) reveal(); else goNext();
+});
+
+$('q-facit').addEventListener('change', function (e) {
+  var t = e.target;
+  if (!t || !t.matches('input[type=checkbox]')) return;
+  var it = run.items[run.i];
+  it.g[parseInt(t.dataset.i, 10)] = t.checked;
+  $('points').textContent = gradeSummary(it);
+});
+
+$('btn-reveal').addEventListener('click', reveal);
+$('btn-prev').addEventListener('click', goPrev);
+$('btn-next').addEventListener('click', goNext);
+$('btn-warn-back').addEventListener('click', function () { run.i = firstPending(); renderQ(true); });
+$('btn-warn-go').addEventListener('click', function () { if (run.warnGo) run.warnGo(); });
+$('btn-quit').addEventListener('click', function () {
+  var b = $('btn-quit');
+  if (b.dataset.armed === '1') { disarmQuit(); run = null; syncSetup(); show('start'); return; }
+  b.dataset.armed = '1';
+  b.textContent = 'Klicka igen för att avsluta (svaren sparas inte)';
+  quitTimer = setTimeout(disarmQuit, 4000);
+});
+
+$('btn-retry').addEventListener('click', function () {
+  if (run.kind === 'missed') begin(shuffle(run.qs), 'train', 'missed'); else startNew();
+});
+$('btn-missed').addEventListener('click', function () { begin(shuffle(run.missed), 'train', 'missed'); });
+$('btn-settings').addEventListener('click', function () { syncSetup(); show('start'); });
+$('rev-missed').addEventListener('change', function (e) { $('r-review').classList.toggle('only-missed', e.target.checked); });
+
+/* ----- init ----- */
+loadSettings();
+renderTopics();
+syncSetup();
+
+})();
+</script>
+</body>
+</html>
