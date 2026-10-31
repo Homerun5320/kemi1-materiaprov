@@ -149,10 +149,31 @@ details.rev .rb p{margin-bottom:.6rem}
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
 
 /* ---------- kemihjälp och feedback ---------- */
-.helptop{display:flex;justify-content:flex-end;margin-bottom:.3rem}
-.helptop .linkbtn{min-height:44px;padding-block:.5rem}
+body{padding-bottom:96px}
 .helpfoot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line)}
-.helpfoot p{margin:0}
+.helpfoot p{margin:0 0 .6rem}
+
+/* Den flytande knappen: syns på alla skärmar. På smalare skärmar krymper den till bara en ikon när man scrollat ned. */
+.help-fab{
+  position:fixed;z-index:30;
+  right:max(16px,env(safe-area-inset-right,0px));
+  bottom:max(16px,env(safe-area-inset-bottom,0px));
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  min-width:48px;min-height:48px;padding:.6rem 1.15rem .6rem .85rem;
+  border:2px solid var(--accent);border-radius:999px;background:var(--bg);color:var(--accent);
+  font-size:.95rem;font-weight:650;line-height:1.2;white-space:nowrap;
+  box-shadow:0 3px 14px rgba(0,0,0,.22);cursor:pointer;
+}
+.help-fab svg{flex:none;display:block}
+.help-fab-icon circle{fill:var(--bg)}
+@media (hover:hover){.help-fab:hover{background:var(--subtle)}}
+html.help-open .help-fab{visibility:hidden}
+@media (max-width:1140px){
+  .help-fab.mini{width:48px;padding:0}
+  .help-fab.mini .help-fab-text{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+}
+@media (pointer:coarse){body:has(textarea:focus,input[type=text]:focus,input.num:focus) .help-fab{display:none}}
+@media print{.help-fab,.helpfoot{display:none}}
 html.help-open{overflow:hidden;scrollbar-gutter:stable}
 [data-help-open],dialog.help button{-webkit-tap-highlight-color:transparent}
 
@@ -213,7 +234,6 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
 </style>
 </head>
 <body>
-<div class="app helptop" hidden><button class="linkbtn" type="button" data-help-open aria-haspopup="dialog">Fråga om kemin eller ge feedback</button></div>
 <div class="app">
   <main id="main">
 
@@ -296,8 +316,14 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
   </main>
 </div>
 <div class="app helpfoot" hidden>
-  <p class="muted small">Undrar du något om kemin, hittar du ett fel eller saknas något? <button class="linkbtn" type="button" data-help-open aria-haspopup="dialog">Fråga eller ge feedback</button></p>
+  <p class="muted small">Undrar du något om kemin, hittar du ett fel eller saknas något?</p>
+  <button class="btn" type="button" data-help-open aria-haspopup="dialog">Fråga eller ge feedback</button>
 </div>
+
+<button class="help-fab" id="help-fab" type="button" data-help-open aria-haspopup="dialog" title="Fråga eller ge feedback" hidden>
+  <svg class="help-fab-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H10l-5 4v-4a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"/><circle cx="8" cy="10.5" r="1.3"/><circle cx="12" cy="10.5" r="1.3"/><circle cx="16" cy="10.5" r="1.3"/></svg>
+  <span class="help-fab-text">Fråga eller ge feedback</span>
+</button>
 
 <dialog id="help-dlg" class="help" aria-labelledby="help-title">
   <div class="help-head">
@@ -3150,8 +3176,18 @@ var HELP_CFG = {
     });
   });
 
-  // Klart: nu visas länkarna som öppnar rutan.
-  Array.prototype.forEach.call(document.querySelectorAll('.helptop, .helpfoot'), function (el) { el.hidden = false; });
+  // Den flytande knappen visar texten högst upp på sidan och krymper till en ikon när man scrollat ned (bara på smalare skärmar, se CSS).
+  var fab = $('help-fab'), mini = false;
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (!mini && y > 140) { mini = true; fab.classList.add('mini'); }
+    else if (mini && y < 40) { mini = false; fab.classList.remove('mini'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  onScroll();
+
+  // Klart: nu visas knapparna som öppnar rutan.
+  Array.prototype.forEach.call(document.querySelectorAll('.help-fab, .helpfoot'), function (el) { el.hidden = false; });
 })();
 
 }catch(err){/* helper unavailable */}

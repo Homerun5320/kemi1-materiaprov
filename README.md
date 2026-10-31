@@ -6,7 +6,7 @@ Hela sidan ligger i `index.html` och behöver ingen server eller inloggning.
 
 ## Fråga eller ge feedback
 
-Längst upp och längst ned på sidan finns en länk som öppnar en ruta med två flikar.
+Knappen "Fråga eller ge feedback" ligger kvar nere till höger på alla skärmar (och finns också längst ned på sidan). Den öppnar en ruta med två flikar.
 
 **Fråga.** Frågor om kemin besvaras direkt i webbläsaren, med en inbyggd sökning över förklaringar och några räknare (till exempel molekylmassa, antal neutroner och valenselektroner). Det är ingen AI-tjänst: det finns ingen server, ingen API-nyckel och inga kostnader, och det som skrivs i frågefältet lämnar aldrig sidan. Bara frågor om Kemi 1 – materia besvaras. Allt annat får svaret att det ligger utanför.
 
