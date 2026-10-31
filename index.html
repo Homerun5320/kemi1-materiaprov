@@ -326,17 +326,17 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
 </div>
 <div class="app helpfoot" hidden>
   <p class="muted small">Undrar du något om kemin, hittar du ett fel eller saknas något?</p>
-  <button class="btn" type="button" data-help-open aria-haspopup="dialog">Fråga eller ge feedback</button>
+  <button class="btn" type="button" data-help-open aria-haspopup="dialog">Joels AI-hjälp och feedback</button>
 </div>
 
-<button class="help-fab" id="help-fab" type="button" data-help-open aria-haspopup="dialog" title="Fråga eller ge feedback" hidden>
+<button class="help-fab" id="help-fab" type="button" data-help-open aria-haspopup="dialog" title="Joels AI-hjälp och feedback" hidden>
   <svg class="help-fab-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g><g fill="currentColor"><circle cx="12" cy="12" r="2.1"/><circle cx="22" cy="12" r="1.5"/><circle cx="7" cy="20.66" r="1.5"/><circle cx="7" cy="3.34" r="1.5"/></g></svg>
-  <span class="help-fab-text">Fråga eller ge feedback</span>
+  <span class="help-fab-text">Joels AI-hjälp och feedback</span>
 </button>
 
 <dialog id="help-dlg" class="help" aria-labelledby="help-title">
   <div class="help-head">
-    <h2 id="help-title">Fråga eller ge feedback</h2>
+    <h2 id="help-title">Joels AI-hjälp och feedback</h2>
     <button class="help-x" id="help-close" type="button" aria-label="Stäng">&#x2715;</button>
   </div>
   <div class="help-tabs" role="tablist" aria-label="Fråga eller feedback">
@@ -346,7 +346,7 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
   <div class="help-body" id="help-body">
 
     <section role="tabpanel" id="help-panel-ask" aria-labelledby="help-tab-ask">
-      <p class="muted small">Svaren hämtas ur förklaringar i Kemi 1 – materia. Det är ingen AI-chatt, och inget du skriver här skickas någonstans. Kontrollera gärna svaret mot ditt material.</p>
+      <p class="muted small">Joels AI-hjälp svarar med färdiga förklaringar ur Kemi 1 – materia som finns inbyggda i sidan och kan räkna några enkla uppgifter. Den är ingen AI-chatt som skriver egna svar, och inget du skriver här skickas någonstans. Kontrollera gärna svaret mot ditt material.</p>
       <form id="help-form" autocomplete="off" novalidate>
         <label class="sr" for="help-q">Din fråga om kemi</label>
         <div class="help-input">
@@ -2680,13 +2680,13 @@ function metaAnswer(raw, f) {
     return {kind: 'meta', html: 'Varsågod! Fråga gärna mer.', examples: false};
   }
   if (/\b(ar du|du ar)\b.*\b(ai|claude|chatgpt|gpt|robot|bot|manniska|riktig|sonnet|anthropic|openai|gemini|intelligent)\b|vilken (ai|modell)|vem (har )?(gjort|skapat|byggt|skapade|byggde) dig|anvander du (ai|claude|gpt)/.test(f)) {
-    return {kind: 'meta', html: 'Nej, jag är ingen AI-chatt. Jag är en enkel kemihjälp som körs helt i din webbläsare: jag söker i förklaringar som hör till Kemi 1-materialet och räknar enkla uppgifter, och ingenting du skriver skickas någonstans. Därför kan jag missförstå en fråga. Kontrollera i så fall i kursmaterialet eller fråga din lärare.', examples: false};
+    return {kind: 'meta', html: 'Jag heter Joels AI-hjälp. Jag är ingen människa och ingen AI-chatt som skriver egna svar, utan en enkel kemihjälp som körs helt i din webbläsare: jag söker i förklaringar som hör till Kemi 1-materialet och räknar enkla uppgifter, och ingenting du skriver skickas någonstans. Därför kan jag missförstå en fråga. Kontrollera i så fall i kursmaterialet eller fråga din lärare.', examples: false};
   }
   if (/\b(prov|provet|delprov|delprovet|tenta|tentan)\b/.test(f) && /kommer|ingar|ska jag (plugga|kunna|lasa)|vad ska|vilka fragor/.test(f)) {
     return {kind: 'meta', html: 'Det vet jag inte, men det här materialet handlar om atomen och grundämnena, elektronerna och skalen, periodiska systemet, materia och blandningar, kemisk bindning och laborationer. Öva på frågorna i quizet och använd frågorna här för det du är osäker på.', examples: true};
   }
   if (/\b(vem|vad) ar du\b|\bvad kan du\b|vad kan man fraga|vad ska jag fraga|exempel pa fragor|hur funkar (du|det har|den har)|hur fungerar (du|det har|den har)|^(hjalp|help|hjalp mig|hjalp oss)$/.test(f)) {
-    return {kind: 'meta', html: 'Jag är en enkel kemihjälp för Kemi 1 – materia. Jag svarar på frågor om atomen, elektronerna, periodiska systemet, materia och blandningar, kemisk bindning och laborationer, och jag kan räkna ut saker som protoner, neutroner, valenselektroner och molekylmassa. Frågor om annat än kemi svarar jag inte på. Prova ett exempel nedan.', examples: true};
+    return {kind: 'meta', html: 'Jag är Joels AI-hjälp, en enkel kemihjälp för Kemi 1 – materia. Jag svarar på frågor om atomen, elektronerna, periodiska systemet, materia och blandningar, kemisk bindning och laborationer, och jag kan räkna ut saker som protoner, neutroner, valenselektroner och molekylmassa. Frågor om annat än kemi svarar jag inte på. Prova ett exempel nedan.', examples: true};
   }
   return null;
 }
@@ -3195,7 +3195,7 @@ var HELP_CFG = {
     text = String(text).replace(/\s+/g, ' ').trim();
     if (!text) { input.focus(); return; }
     try { r = helpAnswer(text); } catch (err) { r = null; }
-    if (!r) r = {kind: 'off', html: 'Något gick fel i kemihjälpen. Försök formulera frågan på ett annat sätt.', chips: []};
+    if (!r) r = {kind: 'off', html: 'Något gick fel i Joels AI-hjälp. Försök formulera frågan på ett annat sätt.', chips: []};
     addTurn(echo || text, r);
   }
 
