@@ -4,6 +4,10 @@
 
 Hela sidan ligger i `index.html` och behöver ingen server eller inloggning.
 
+## Välj vad du vill öva på
+
+På startsidan kryssar du i vilka områden du vill öva på (atomen, elektroner och atommodeller, periodiska systemet, materia och blandningar, kemisk bindning, laboration och arbetssätt) och väljer läge och antal frågor. Frågorna dras bara från de områden du har valt. Har de valda områdena färre frågor än 10 eller 20 tonas de alternativen ned, och då tas alla frågor i områdena med. Valen sparas i webbläsaren på din egen enhet och går inte att nå av någon annan. Provet innehåller både uppgifter och begreppsfrågor, till exempel "Vad menas med sublimering?".
+
 ## Fråga eller ge feedback
 
 Knappen "Fråga eller ge feedback" ligger kvar nere till höger på alla skärmar (och finns också längst ned på sidan). Den öppnar en ruta med två flikar.

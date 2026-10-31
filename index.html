@@ -69,9 +69,12 @@ fieldset{border:0;padding:0;min-width:0;margin-bottom:1.25rem}
 legend{padding:0;margin-bottom:.35rem;font-weight:650}
 .choice{display:flex;align-items:flex-start;gap:.65rem;padding:.4rem 0;cursor:pointer}
 .choice input{flex:none;width:1.15rem;height:1.15rem;margin:.28rem 0 0;accent-color:var(--accent)}
-.topics{list-style:none;padding:0}
-.topics li{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px solid var(--line)}
-.topics li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.choice .cnt{margin-left:auto;padding-left:1rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.choice.off{color:var(--muted);cursor:default}
+.areas-tools{display:flex;flex-wrap:wrap;gap:0 1.3rem;margin:0 0 .15rem}
+.areas-tools .linkbtn{padding:.35rem 0}
+.sum{margin:-.2rem 0 .9rem;font-variant-numeric:tabular-nums}
+.formnote{margin-top:1.5rem}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem 1.15rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text);font-weight:600;line-height:1.2;cursor:pointer}
@@ -165,7 +168,6 @@ body{padding-bottom:96px}
   box-shadow:0 3px 14px rgba(0,0,0,.22);cursor:pointer;
 }
 .help-fab svg{flex:none;display:block}
-.help-fab-icon circle{fill:var(--bg)}
 @media (hover:hover){.help-fab:hover{background:var(--subtle)}}
 html.help-open .help-fab{visibility:hidden}
 @media (max-width:1140px){
@@ -250,18 +252,25 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
           <label class="choice" for="mode-train"><input type="radio" name="mode" id="mode-train" value="train"><span><b>Träna</b> – facit efter varje fråga</span></label>
           <label class="choice" for="mode-test"><input type="radio" name="mode" id="mode-test" value="test"><span><b>Prov</b> – skriv alla svar först, rätta i slutet</span></label>
         </fieldset>
+        <fieldset id="areas">
+          <legend>Områden att öva på</legend>
+          <p class="areas-tools">
+            <button class="linkbtn" id="areas-all" type="button">Markera alla</button>
+            <button class="linkbtn" id="areas-none" type="button">Avmarkera alla</button>
+          </p>
+          <div id="area-list"></div>
+        </fieldset>
         <fieldset>
           <legend>Antal frågor</legend>
           <label class="choice" for="len-10"><input type="radio" name="len" id="len-10" value="10"><span>10 slumpade frågor</span></label>
           <label class="choice" for="len-20"><input type="radio" name="len" id="len-20" value="20"><span>20 slumpade frågor</span></label>
           <label class="choice" for="len-all"><input type="radio" name="len" id="len-all" value="all"><span id="len-all-text">Alla frågor</span></label>
         </fieldset>
+        <p class="muted small sum" id="sel-sum" aria-live="polite"></p>
         <button class="btn primary" id="btn-start" type="submit">Starta</button>
       </form>
 
-      <h2 class="section">Det här ingår</h2>
-      <ul class="topics" id="topic-list"></ul>
-      <p class="muted small">Skriv formler som vanlig text, till exempel H2O, Na+ eller 1s2 2s2.</p>
+      <p class="muted small formnote">Skriv formler som vanlig text, till exempel H2O, Na+ eller 1s2 2s2.</p>
     </section>
 
     <!-- QUESTION -->
@@ -321,7 +330,7 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
 </div>
 
 <button class="help-fab" id="help-fab" type="button" data-help-open aria-haspopup="dialog" title="Fråga eller ge feedback" hidden>
-  <svg class="help-fab-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H10l-5 4v-4a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"/><circle cx="8" cy="10.5" r="1.3"/><circle cx="12" cy="10.5" r="1.3"/><circle cx="16" cy="10.5" r="1.3"/></svg>
+  <svg class="help-fab-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g><g fill="currentColor"><circle cx="12" cy="12" r="2.1"/><circle cx="22" cy="12" r="1.5"/><circle cx="7" cy="20.66" r="1.5"/><circle cx="7" cy="3.34" r="1.5"/></g></svg>
   <span class="help-fab-text">Fråga eller ge feedback</span>
 </button>
 
@@ -434,6 +443,135 @@ window.Q = (window.Q || []).concat([
  q:'En svavelatom har masstal 32 och väger därför ungefär 32 u. Hur mycket väger den i gram? (1 u = 1,66·10<sup>−24</sup> g.) Svara som ett tal gånger 10<sup>−23</sup> g.',
  ans:5.3, tol:0.1, unit:'·10⁻²³ g',
  m:'32 · 1,66·10<sup>−24</sup> g = 53,12·10<sup>−24</sup> g ≈ 5,3·10<sup>−23</sup> g.'}
+]);
+
+/* BEGREPPSFRÅGOR: ATOMEN och ELEKTRONER (Genomgång 2 och 3). Samma format som de andra frågefilerna. */
+window.Q = (window.Q || []).concat([
+{id:'bg-atom1', l:'E', t:'ATOM', ty:'open',
+ q:'Vad är ett grundämne? Vad är det som skiljer atomerna i två olika grundämnen åt?',
+ m:'Ett grundämne består av bara en sorts atomer, alltså atomer med samma antal protoner. Atomerna i olika grundämnen skiljer sig åt i antalet protoner, det vill säga i atomnumret. Ändras antalet protoner blir det ett annat grundämne.',
+ p:['Ett grundämne består av bara en sorts atomer (alla med samma antal protoner)','Olika grundämnen har olika antal protoner (olika atomnummer)']},
+
+{id:'bg-atom2', l:'E', t:'ATOM', ty:'open',
+ q:'Vad menas med att en atom är oladdad (neutral)? Förklara med protoner och elektroner.',
+ m:'I en oladdad atom är antalet elektroner lika med antalet protoner. Protonerna är positiva (+1) och elektronerna negativa (−1), så laddningarna tar ut varandra och atomen blir neutral. Neutronerna har ingen laddning och påverkar inte detta. Om antalet elektroner ändras blir atomen en jon.',
+ p:['Det finns lika många elektroner som protoner','De positiva och negativa laddningarna tar ut varandra, så nettoladdningen är noll']},
+
+{id:'bg-atom3', l:'E', t:'ATOM', ty:'open',
+ q:'Vad kallas protonerna och neutronerna tillsammans, och hur hänger det ihop med atomens masstal?',
+ m:'Protoner och neutroner kallas nukleoner. De sitter i atomkärnan. Antalet nukleoner är lika med atomens masstal: A = Z + N.',
+ p:['Protoner och neutroner kallas nukleoner','Masstalet är antalet nukleoner i kärnan (protoner + neutroner)']},
+
+{id:'bg-elek1', l:'E', t:'ELEK', ty:'open',
+ q:'Vad är en orbital, och hur många elektroner kan som mest finnas i en orbital?',
+ m:'En orbital är ett område runt kärnan där det är troligast att hitta elektroner. I en orbital får det plats högst två elektroner, som snurrar åt motsatta håll.',
+ p:['En orbital är ett område runt kärnan där det är troligast att hitta en elektron','Högst två elektroner (som snurrar åt motsatta håll) får plats i en orbital']},
+
+{id:'bg-elek2', l:'C', t:'ELEK', ty:'open',
+ q:'Orbitalerna kallas s, p, d och f. Hur många orbitaler finns det av varje sort, och hur många elektroner rymmer de? Hur många elektroner kan som mest finnas i det yttersta skalet, och varför?',
+ m:'Det finns 1 s-orbital (2 elektroner), 3 p-orbitaler (6 elektroner), 5 d-orbitaler (10 elektroner) och 7 f-orbitaler (14 elektroner), eftersom varje orbital rymmer två elektroner. Det yttersta skalet har som mest en s-orbital och tre p-orbitaler, alltså 2 + 6 = 8 elektroner.',
+ p:['s: 1 orbital (2 elektroner) och p: 3 orbitaler (6 elektroner)','d: 5 orbitaler (10 elektroner) och f: 7 orbitaler (14 elektroner)','Yttersta skalet har högst en s-orbital och tre p-orbitaler, alltså 2 + 6 = 8 elektroner']},
+
+{id:'bg-elek3', l:'E', t:'ELEK', ty:'open',
+ q:'Vad säger oktettregeln? Hur många elektroner nöjer sig väte och helium med i sitt yttersta skal?',
+ m:'Oktettregeln säger att atomer strävar efter åtta elektroner i det yttersta skalet, som ädelgaserna. Väte och helium nöjer sig med två, eftersom deras enda skal blir fullt med två elektroner. Det är samma sak som att ha ädelgasstruktur.',
+ p:['Atomer strävar efter åtta elektroner i yttersta skalet (ädelgasstruktur)','Väte och helium nöjer sig med två elektroner, eftersom deras enda skal då är fullt']},
+
+{id:'bg-elek4', l:'E', t:'ELEK', ty:'open',
+ q:'Vad är en elektronformel (Lewis-formel)? Beskriv hur elektronformeln för klor ser ut.',
+ m:'En elektronformel visar valenselektronerna som prickar runt grundämnets kemiska tecken, en prick för varje valenselektron. Klor har sju valenselektroner, så elektronformeln är tecknet Cl med sju prickar runt sig: tre par och en ensam prick.',
+ p:['Valenselektronerna ritas som prickar runt grundämnets kemiska tecken (en prick per valenselektron)','Klor: tecknet Cl med sju prickar, eftersom klor har sju valenselektroner']}
+]);
+
+/* BEGREPPSFRÅGOR: PERIODISKA SYSTEMET och MATERIA (Genomgång 2, 4 och 5). */
+window.Q = (window.Q || []).concat([
+{id:'bg-pse1', l:'E', t:'PSE', ty:'open',
+ q:'Vem brukar räknas som det periodiska systemets upphovsman, och hur ordnade han grundämnena?',
+ m:'Dmitrij Mendelejev. Han sorterade grundämnena efter ökande atommassa och upptäckte att ämnen med liknande egenskaper återkom med jämna mellanrum (periodiskt). De ämnena placerade han under varandra, och det blev det periodiska systemet. I dagens system är grundämnena ordnade efter ökande atomnummer.',
+ p:['Dmitrij Mendelejev (efternamnet räcker)','Han ordnade grundämnena efter ökande atommassa','Ämnen med liknande egenskaper återkom med jämna mellanrum och placerades under varandra']},
+
+{id:'bg-pse2', l:'E', t:'PSE', ty:'open',
+ q:'Vad heter grupperna 1, 2, 17 och 18 i periodiska systemet? Vad kallas grupperna 3–12 tillsammans?',
+ m:'Grupp 1 är alkalimetallerna (väte räknas inte dit) och grupp 2 de alkaliska jordartsmetallerna. Grupp 17 är halogenerna och grupp 18 ädelgaserna. Grupperna 3–12 kallas övergångsmetallerna.',
+ p:['Grupp 1: alkalimetallerna och grupp 2: de alkaliska jordartsmetallerna','Grupp 17: halogenerna och grupp 18: ädelgaserna','Grupp 3–12: övergångsmetallerna']},
+
+{id:'bg-pse3', l:'E', t:'PSE', ty:'open',
+ q:'Vad heter grupperna 13, 14, 15 och 16, och hur många valenselektroner har atomerna i varje grupp?',
+ m:'Grupp 13 är borgruppen (3 valenselektroner), grupp 14 kolgruppen (4), grupp 15 kvävegruppen (5) och grupp 16 syregruppen (6). Antalet valenselektroner är alltså gruppnumret minus 10.',
+ p:['Grupp 13: borgruppen (3 valenselektroner) och grupp 14: kolgruppen (4)','Grupp 15: kvävegruppen (5 valenselektroner) och grupp 16: syregruppen (6)']},
+
+{id:'bg-pse4', l:'E', t:'PSE', ty:'open',
+ q:'Vilka grundämnen kallas halogener? Hur många valenselektroner har de, och vilken sorts jon bildar de?',
+ m:'Halogenerna är grupp 17: fluor, klor, brom, jod och astat. De har sju valenselektroner och tar gärna upp en elektron för att få ädelgasstruktur, så de bildar joner med laddningen −1, till exempel Cl<sup>−</sup>. De är mycket reaktiva och bildar lätt salter med alkalimetaller. I fri form förekommer de som molekyler med två atomer, till exempel Cl<sub>2</sub>.',
+ p:['Grupp 17: fluor, klor, brom, jod (och astat)','Sju valenselektroner','De tar upp en elektron och bildar joner med laddningen −1, till exempel Cl<sup>−</sup>']},
+
+{id:'bg-mat1', l:'E', t:'MAT', ty:'open',
+ q:'Vad är ett rent ämne? Ge ett exempel på ett rent ämne som är ett grundämne och ett som är en kemisk förening.',
+ m:'Ett rent ämne består av ett grundämne eller en typ av kemisk förening. Exempel på grundämnen är guld och syre (O<sub>2</sub>), och exempel på kemiska föreningar är vatten (H<sub>2</sub>O) och natriumklorid (NaCl). Allt som består av flera sorters ämnen är en blandning.',
+ p:['Ett rent ämne är ett grundämne eller en typ av kemisk förening (inte en blandning)','Ett rätt exempel på vardera, till exempel guld eller O<sub>2</sub> och H<sub>2</sub>O eller NaCl']},
+
+{id:'bg-mat2', l:'E', t:'MAT', ty:'open',
+ q:'Vad menas med sublimering? Ge ett exempel på ett ämne som sublimerar.',
+ m:'Sublimering är en övergång direkt mellan fast fas och gasfas (och tvärtom), utan att ämnet blir flytande. Exempel: jod och torris (fast koldioxid, CO<sub>2</sub>).',
+ p:['Övergång direkt mellan fast form och gas, utan att ämnet blir flytande','Ett rätt exempel, till exempel jod eller torris (CO<sub>2</sub>)']},
+
+{id:'bg-mat3', l:'E', t:'MAT', ty:'open',
+ q:'Vad är en legering? Nämn två exempel och vad de består av.',
+ m:'En legering är en fast homogen blandning av metaller. Exempel: brons (koppar och tenn), mässing (koppar och zink) och stål (järn med lite kol).',
+ p:['En legering är en fast, homogen blandning av metaller','Två rätta exempel med innehåll, till exempel brons (koppar och tenn), mässing (koppar och zink) eller stål (järn med lite kol)']},
+
+{id:'bg-mat4', l:'E', t:'MAT', ty:'open',
+ q:'Vad används destillation till, och vilken egenskap hos ämnena bygger metoden på? Beskriv kort hur den går till.',
+ m:'Destillation separerar vätskor med olika kokpunkter och används också för att få rent (destillerat) vatten från saltvatten. Blandningen värms, och ämnet med lägst kokpunkt förångas först. Ångan kyls i en kylare, kondenserar till vätska och samlas upp.',
+ p:['Metoden bygger på att ämnena har olika kokpunkter (det med lägst kokpunkt förångas först)','Ångan kyls så att den kondenserar till vätska som samlas upp','Ett rätt användningsexempel, till exempel rent vatten ur saltvatten']},
+
+{id:'bg-mat5', l:'E', t:'MAT', ty:'open',
+ q:'Vad är en lösning? Vad kallas ämnet som löses och ämnet som det löses i? Ge ett exempel.',
+ m:'En lösning är en homogen blandning där ett ämne, det lösta ämnet, har lösts i ett lösningsmedel, oftast vatten. Exempel: koksalt (löst ämne) i vatten (lösningsmedel).',
+ p:['En lösning är en homogen blandning där ett ämne är löst i ett annat','Löst ämne och lösningsmedel med ett rätt exempel, till exempel koksalt i vatten']},
+
+{id:'bg-mat6', l:'E', t:'MAT', ty:'open',
+ q:'Vad menas med en mättad lösning, och vad är löslighet?',
+ m:'I en mättad lösning kan man inte lösa något mer av ämnet. Löslighet är koncentrationen i en mättad lösning, alltså hur mycket av ett ämne som kan lösas i 1 dm<sup>3</sup> lösningsmedel.',
+ p:['Mättad lösning: det går inte att lösa något mer av ämnet','Löslighet: hur mycket av ämnet som kan lösas, alltså koncentrationen i en mättad lösning (till exempel per 1 dm<sup>3</sup> lösningsmedel)']},
+
+{id:'bg-mat7', l:'C', t:'MAT', ty:'open',
+ q:'Vad är en molekyl? Är alla molekyler kemiska föreningar? Motivera med exempel.',
+ m:'En molekyl är två eller flera atomer som hålls ihop av kovalenta bindningar. Atomerna kan vara av samma grundämne, till exempel i O<sub>2</sub> och H<sub>2</sub>, eller av olika grundämnen, till exempel i H<sub>2</sub>O och CO<sub>2</sub>. Av molekylerna är det bara de med atomer från minst två olika grundämnen som är kemiska föreningar, så O<sub>2</sub> är en molekyl men inte en förening.',
+ p:['En molekyl är två eller flera atomer som hålls ihop av kovalenta bindningar','Inte alla molekyler är föreningar: ett exempel på en molekyl av ett grundämne (till exempel O<sub>2</sub>) och ett på en förening (till exempel H<sub>2</sub>O)']}
+]);
+
+/* BEGREPPSFRÅGOR: KEMISK BINDNING och LABORATION (arbetspaketet). */
+window.Q = (window.Q || []).concat([
+{id:'bg-bind1', l:'E', t:'BIND', ty:'open',
+ q:'Vad menas med en polär kovalent bindning? Vad avgör att bindningen blir polär, och vilken laddning får atomerna?',
+ m:'I en polär kovalent bindning delas elektronparet ojämnt mellan atomerna. Det händer när skillnaden i elektronegativitet är större än 0 men mindre än 1,8. Elektronparet dras då mer mot atomen med högst elektronegativitet, som får en liten negativ delladdning (δ<sup>−</sup>), medan den andra atomen får en liten positiv (δ<sup>+</sup>). Exempel: bindningarna i H<sub>2</sub>O.',
+ p:['Elektronparet delas ojämnt, eftersom atomerna har olika elektronegativitet (skillnad mellan 0 och 1,8)','Atomen med högst elektronegativitet får en liten negativ delladdning (δ<sup>−</sup>) och den andra en liten positiv (δ<sup>+</sup>)']},
+
+{id:'bg-bind2', l:'E', t:'BIND', ty:'open',
+ q:'Jonföreningar som natriumklorid består inte av enskilda molekyler. Vad menas i stället med en formelenhet? Vilken formelenhet har natriumklorid och kalciumklorid?',
+ m:'Formelenheten är den minsta enhet som upprepas i jonkristallen och visar förhållandet mellan jonerna. Den positiva jonen skrivs alltid först. I natriumklorid är varannan jon natrium och varannan klorid, så formelenheten är NaCl. Kalciumklorid har en kalciumjon och två kloridjoner: CaCl<sub>2</sub>.',
+ p:['Formelenheten är den minsta enhet som upprepas i jonkristallen (den visar förhållandet mellan jonerna)','NaCl för natriumklorid och CaCl<sub>2</sub> för kalciumklorid']},
+
+{id:'bg-bind3', l:'C', t:'BIND', ty:'open',
+ q:'Vad är en vätebindning? Mellan vilka atomer uppstår den, och vilken egenskap hos vatten beror på vätebindningar?',
+ m:'Vätebindning är en stark dipol-dipolbindning mellan molekyler. En väteatom som är bunden till kväve, syre eller fluor (N, O eller F) blir så positiv att den dras till ett fritt elektronpar på en N-, O- eller F-atom i en annan molekyl. Vätebindningarna mellan vattenmolekylerna ger vatten dess höga kokpunkt.',
+ p:['Vätebindning är en bindning mellan molekyler (en stark dipol-dipolbindning)','En väteatom bunden till N, O eller F dras till ett fritt elektronpar på en N-, O- eller F-atom i en annan molekyl','Vätebindningar ger vatten dess höga kokpunkt']},
+
+{id:'bg-bind4', l:'C', t:'BIND', ty:'open',
+ q:'Vad är en dipol? Varför säger man att vatten är ett polärt ämne?',
+ m:'En dipol är en osymmetrisk molekyl med en sida där positiv laddning överväger och en sida där negativ laddning överväger, alltså två poler. Ett polärt ämne består av dipoler. Vatten är polärt eftersom bindningarna mellan syre och väte är polära (syre drar hårdare i elektronerna) och molekylen är osymmetrisk, så att laddningarna inte tar ut varandra. Ett opolärt ämne har en symmetrisk struktur och inga permanenta delladdningar.',
+ p:['En dipol är en osymmetrisk molekyl med två poler: en sida med överskott av positiv laddning och en med överskott av negativ','Vatten är polärt eftersom bindningarna är polära och molekylen är osymmetrisk, så att laddningarna inte tar ut varandra']},
+
+{id:'bg-lab1', l:'E', t:'LAB', ty:'open',
+ q:'Vad ska en slutsats i en laborationsrapport innehålla, och vad är felkällor? Ge två exempel på felkällor.',
+ m:'Slutsatsen är svaret på frågeställningen, grundat på resultaten, och den säger om hypotesen stämde. Felkällor är sådant som kan ha gjort resultatet osäkert, till exempel avläsningsfel i mätglaset, förluster vid överhällning, att något inte var torrt eller att vågen visade lite fel. Man bör beskriva hur felkällorna påverkar resultatet och hur försöket kan förbättras.',
+ p:['Slutsatsen svarar på frågeställningen utifrån resultaten och säger om hypotesen stämde','Felkällor är sådant som kan ha gjort resultatet osäkert','Två rimliga exempel på felkällor, till exempel avläsningsfel i mätglas, förluster vid överhällning, något som inte var torrt eller en våg som visar fel']},
+
+{id:'bg-lab2', l:'E', t:'LAB', ty:'open',
+ q:'Vad är en riskbedömning, och när görs den? Nämn tre sorters faror man kan behöva ta hänsyn till i ett kemilabb.',
+ m:'En riskbedömning görs före laborationen. Då går man igenom vilka kemikalier och moment som kan vara farliga och hur man skyddar sig. Exempel på faror är att något är frätande, brandfarligt, giftigt, hälsoskadligt, varmt eller skarpt (glas). I arbetspaketet anges risken för varje laboration, till exempel att metanol är brandfarlig och giftig vid inandning och att saltsyra, natriumhydroxid och silvernitrat är frätande.',
+ p:['Görs före laborationen: man går igenom vad som kan vara farligt och hur man skyddar sig','Tre rimliga faror, till exempel frätande, brandfarligt, giftigt, hälsoskadligt, varmt eller skarpt glas']}
 ]);
 
 /* KEMISK BINDNING (arbetspaketet, intramolekylära bindningar) */
@@ -658,7 +796,7 @@ var TOPICS = {
 };
 var TOPIC_ORDER = ['ATOM', 'ELEK', 'PSE', 'MAT', 'BIND', 'LAB'];
 var LS_KEY = 'kemi1-materia-prov-v2';
-var S = {mode: 'train', len: '10'};
+var S = {mode: 'train', len: '10', topics: TOPIC_ORDER.slice()};   // topics = the areas to practise
 var run = null;
 
 function $(id) { return document.getElementById(id); }
@@ -689,6 +827,13 @@ function loadSettings() {
     var o = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
     if (o && /^(train|test)$/.test(o.mode)) S.mode = o.mode;
     if (o && /^(10|20|all)$/.test(String(o.len))) S.len = String(o.len);
+    if (o && Array.isArray(o.topics)) {
+      // keep only known areas that really have questions; an empty or broken list means "all areas"
+      var keep = TOPIC_ORDER.filter(function (t) {
+        return o.topics.indexOf(t) !== -1 && BANK.some(function (q) { return q.t === t; });
+      });
+      if (keep.length) S.topics = keep;
+    }
   } catch (e) { /* no storage: defaults are fine */ }
 }
 
@@ -697,8 +842,22 @@ function saveSettings() {
 }
 
 /* ---------- selecting questions ---------- */
-function countFor(len) {
-  return len === 'all' ? BANK.length : Math.min(parseInt(len, 10), BANK.length);
+function poolFor(topics) {
+  return BANK.filter(function (q) { return topics.indexOf(q.t) !== -1; });
+}
+
+// total = how many questions the chosen areas hold
+function countFor(len, total) {
+  return len === 'all' ? total : Math.min(parseInt(len, 10), total);
+}
+
+// an option such as "20 questions" only makes sense if the chosen areas hold that many
+function lenFits(len, total) {
+  return len === 'all' || parseInt(len, 10) <= total;
+}
+
+function effLen(total) {
+  return lenFits(S.len, total) ? S.len : 'all';
 }
 
 // Round-robin over the topics so a short test covers every area.
@@ -775,24 +934,45 @@ function show(name) {
 }
 
 /* ----- start screen ----- */
+// Shows the saved choices: mode, areas and number of questions. The number options that the chosen
+// areas cannot fill are greyed out, and Starta is blocked while no area is chosen.
 function syncSetup() {
+  var total = poolFor(S.topics).length, n = S.topics.length, eff = effLen(total);
   ['mode', 'len'].forEach(function (name) {
-    var radios = document.getElementsByName(name), i;
-    for (i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === S[name]);
+    var radios = document.getElementsByName(name), want = name === 'len' ? eff : S[name], i;
+    for (i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === want);
   });
-  $('len-all-text').textContent = 'Alla ' + BANK.length + ' frågor';
+  TOPIC_ORDER.forEach(function (t) { $('area-' + t).checked = (S.topics.indexOf(t) !== -1); });
+  ['10', '20'].forEach(function (len) {
+    var r = $('len-' + len), fits = lenFits(len, total);
+    r.disabled = !fits;
+    r.parentNode.classList.toggle('off', !fits);
+  });
+  $('len-all-text').textContent = total ? 'Alla ' + plural(total, 'fråga', 'frågor') : 'Alla frågor';
+  $('sel-sum').textContent = n === 0 ? 'Inget område är valt. Välj minst ett för att kunna starta.' :
+    (n === TOPIC_ORDER.length ? 'Alla områden valda' : n + ' av ' + TOPIC_ORDER.length + ' områden valda') + ' · ' + plural(total, 'fråga', 'frågor');
+  $('btn-start').disabled = (n === 0);
 }
 
 function renderTopics() {
   var counts = {};
   BANK.forEach(function (q) { counts[q.t] = (counts[q.t] || 0) + 1; });
-  $('topic-list').innerHTML = TOPIC_ORDER.map(function (t) {
-    return '<li><span>' + TOPICS[t].name + '</span><span>' + plural(counts[t], 'fråga', 'frågor') + '</span></li>';
+  $('area-list').innerHTML = TOPIC_ORDER.map(function (t) {
+    return '<label class="choice" for="area-' + t + '"><input type="checkbox" name="area" id="area-' + t + '" value="' + t + '">' +
+      '<span>' + TOPICS[t].name + '</span><span class="cnt">' + plural(counts[t] || 0, 'fråga', 'frågor') + '</span></label>';
   }).join('');
 }
 
+function setAreas(list) {
+  S.topics = list;
+  saveSettings();
+  syncSetup();
+}
+
 function startNew() {
-  begin(pick(BANK, countFor(S.len)), S.mode, 'normal');
+  var pool = poolFor(S.topics);
+  if (!pool.length) { syncSetup(); return; }
+  begin(pick(pool, countFor(effLen(pool.length), pool.length)), S.mode, 'normal');
 }
 
 function begin(qs, mode, kind) {
@@ -1025,8 +1205,16 @@ function showResult() {
 /* ----- events ----- */
 $('setup').addEventListener('change', function (e) {
   var t = e.target;
-  if (t && t.name && S.hasOwnProperty(t.name)) { S[t.name] = t.value; saveSettings(); }
+  if (!t) return;
+  if (t.name === 'area') {
+    setAreas(TOPIC_ORDER.filter(function (k) { return $('area-' + k).checked; }));
+  } else if (t.name === 'mode' || t.name === 'len') {
+    S[t.name] = t.value;
+    saveSettings();
+  }
 });
+$('areas-all').addEventListener('click', function () { setAreas(TOPIC_ORDER.slice()); });
+$('areas-none').addEventListener('click', function () { setAreas([]); });
 $('setup').addEventListener('submit', function (e) { e.preventDefault(); startNew(); });
 
 $('q-answer').addEventListener('input', function (e) {
