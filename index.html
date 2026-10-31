@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kemi 1 Materiaprov</title>
-<meta name="description" content="Övningsprov i Kemi 1, materia, delprov 1 (E–C). Svara med egna ord och rätta själv mot facit.">
+<meta name="description" content="Övningsprov, begreppskort och sammanfattning i Kemi 1, materia, delprov 1 (E–C).">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Kemi 1 Materiaprov">
-<meta property="og:description" content="Övningsprov i Kemi 1, materia, delprov 1 (E–C). Svara med egna ord och rätta själv mot facit.">
+<meta property="og:description" content="Övningsprov, begreppskort och sammanfattning i Kemi 1, materia, delprov 1 (E–C).">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b57d0'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EK1%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -143,6 +143,74 @@ details.rev .rb p{margin-bottom:.6rem}
 .critlist li{padding:.15rem 0}
 .only-missed details.rev.full{display:none}
 
+/* ---------- flikar ---------- */
+.modes{display:flex;gap:.25rem;width:max-content;max-width:100%;padding:.25rem;margin:0 0 1.4rem;border:1px solid var(--line);border-radius:999px}
+.mode{min-height:40px;padding:.4rem 1rem;border:0;border-radius:999px;background:none;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer}
+.mode[aria-current=page]{background:var(--accent);color:var(--accent-ink)}
+@media (hover:hover){.mode:not([aria-current]):hover{background:var(--subtle);color:var(--text)}}
+
+/* ---------- begreppskort ---------- */
+.knote{color:var(--muted);font-size:.9rem}
+.kchk{margin-top:.35rem}
+.kprog{margin-top:1.25rem}
+.flash{margin:0 0 1rem;cursor:pointer;perspective:1400px}
+.flash-in{display:grid;transition:transform .4s ease;transform-style:preserve-3d}
+.flash.flipped .flash-in{transform:rotateY(180deg)}
+.face{grid-area:1/1;display:flex;flex-direction:column;justify-content:center;min-height:12rem;padding:1.3rem 1.2rem;border:1px solid var(--line);border-radius:12px;background:var(--bg);box-shadow:0 2px 10px rgba(0,0,0,.07);-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.face.back{transform:rotateY(180deg);background:var(--subtle);cursor:default}
+.kterm{margin:0;font-size:1.6rem;line-height:1.25;font-weight:650;text-align:center;overflow-wrap:anywhere}
+.kterm.kask{font-size:1.2rem;text-align:left}
+.face.back .kterm{margin-bottom:.6rem;font-size:1.2rem;text-align:left}
+.kq{margin:0 0 .5rem;color:var(--muted);font-size:.9rem}
+.kdef{line-height:1.55}
+.kc{margin:.8rem 0 0;padding-top:.6rem;border-top:1px solid var(--line);font-size:.95rem}
+.kc-l{font-weight:650}
+.blank{display:inline-block;min-width:3.2em;height:1em;vertical-align:-.15em;border-bottom:2px solid var(--muted)}
+.kform{display:flex;gap:.5rem;margin:0 0 .8rem}
+.kform input{flex:1 1 auto;min-width:0;min-height:44px;padding:.55rem .8rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--text)}
+.kform input[readonly]{background:var(--subtle)}
+.kbtns{margin-bottom:.4rem}
+.kbtns .btn{flex:1 1 0}
+.khint{margin:.6rem 0 0}
+.kmiss{padding-left:1.2rem;margin-bottom:1.2rem}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.mcol{display:flex;flex-direction:column;gap:.5rem}
+.mbtn{min-height:48px;padding:.5rem .7rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font-weight:500;line-height:1.3;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.mbtn[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.mbtn.done{border-color:var(--ok);color:var(--muted);opacity:.55;cursor:default}
+.mbtn.wrong{border-color:var(--bad);box-shadow:inset 0 0 0 2px var(--bad);animation:kshake .3s}
+@keyframes kshake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media (hover:hover){.mbtn:not(.done):hover{background:var(--subtle)}}
+
+/* ---------- läs ---------- */
+.toc ol{margin:0 0 1rem;padding-left:1.4rem}
+.toc li{padding:.15rem 0}
+a{color:var(--accent)}
+.las{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.las h2{font-size:1.3rem}
+.las h2 .muted{font-size:1rem;font-weight:400}
+.las h3{margin-top:1.2rem}
+.las ul{padding-left:1.2rem}
+.las li{margin-bottom:.35rem}
+.ex{margin:0 0 1rem;padding:.8rem 1rem;background:var(--subtle);border-radius:6px}
+.ex p{margin:0 0 .3rem}
+.ex p:last-child{margin:0}
+.tblwrap{overflow-x:auto;margin:0 0 1rem}
+.tblwrap .tbl{margin:0}
+.ltbl td,.ltbl th{padding-right:.8rem}
+.ltbl.grp td:last-child,.ltbl.grp th:last-child{white-space:nowrap}
+.el20 td{white-space:nowrap;font-size:.95rem}
+.lasgo{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin-top:1rem}
+.lcheck{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem}
+.lcheck .chk{align-items:flex-start;line-height:1.45}
+.lcheck .chk input{flex:none;margin-top:.2rem}
+
+@media (max-width:480px){
+  .modes{width:100%}
+  .mode{flex:1 1 auto;padding:.4rem .5rem;font-size:.92rem}
+  .kterm{font-size:1.4rem}
+  .face{min-height:11rem;padding:1.1rem 1rem}
+}
 @media (max-width:480px){
   body{font-size:16.5px;padding-block:20px 56px}
   h1{font-size:1.55rem}
@@ -240,6 +308,12 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
 <div class="app">
   <main id="main">
 
+    <nav class="modes" id="modes" aria-label="Välj del">
+      <button type="button" class="mode" id="go-prov" aria-current="page">Övningsprov</button>
+      <button type="button" class="mode" id="go-kort">Begreppskort</button>
+      <button type="button" class="mode" id="go-las">Läs</button>
+    </nav>
+
     <!-- START -->
     <section id="screen-start" aria-labelledby="start-h">
       <p class="kicker">Kemi 1 · Materia · Delprov 1, nivå E–C</p>
@@ -322,6 +396,332 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
         <div id="r-review"></div>
       </div>
     </section>
+
+    <!-- BEGREPPSKORT: VAL -->
+    <section id="screen-kort-start" hidden aria-labelledby="kort-h">
+      <p class="kicker">Kemi 1 · Materia · Begrepp till E/C-provet</p>
+      <h1 id="kort-h">Begreppskort</h1>
+      <p>Öva på begreppen, grupperna i periodiska systemet och annat du ska kunna utantill. Kort du inte kan kommer tillbaka tills du kan dem. Varje kort har en förklaring för E och ofta en fördjupning för C.</p>
+
+      <form id="kort-setup" novalidate>
+        <fieldset>
+          <legend>Sätt att öva</legend>
+          <label class="choice" for="km-flip"><input type="radio" name="kmode" id="km-flip" value="flip"><span><b>Begreppet först</b> – vänd kortet och se förklaringen</span></label>
+          <label class="choice" for="km-rev"><input type="radio" name="kmode" id="km-rev" value="rev"><span><b>Förklaringen först</b> – kom på vilket begrepp det är</span></label>
+          <label class="choice" for="km-type"><input type="radio" name="kmode" id="km-type" value="type"><span><b>Skriv svaret</b> – skriv begreppet och få det rättat</span></label>
+          <label class="choice" for="km-match"><input type="radio" name="kmode" id="km-match" value="match"><span><b>Para ihop</b> – grupper, grundämnen, joner och lågfärger</span></label>
+        </fieldset>
+        <fieldset id="kort-decks">
+          <legend>Kortlekar</legend>
+          <p class="areas-tools">
+            <button class="linkbtn" id="kd-all" type="button">Markera alla</button>
+            <button class="linkbtn" id="kd-none" type="button">Avmarkera alla</button>
+          </p>
+          <div id="kd-list"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Antal kort</legend>
+          <label class="choice" for="kl-20"><input type="radio" name="klen" id="kl-20" value="20"><span>20 kort</span></label>
+          <label class="choice" for="kl-40"><input type="radio" name="klen" id="kl-40" value="40"><span>40 kort</span></label>
+          <label class="choice" for="kl-all"><input type="radio" name="klen" id="kl-all" value="all"><span id="kl-all-text">Alla kort</span></label>
+          <label class="chk kchk" for="k-only"><input type="checkbox" id="k-only"> Bara kort jag inte kan än</label>
+        </fieldset>
+        <p class="muted small sum" id="k-sum" aria-live="polite"></p>
+        <button class="btn primary" id="k-start" type="submit">Börja öva</button>
+      </form>
+      <p class="muted small kprog"><span id="k-prog"></span> <button class="linkbtn" id="k-reset" type="button">Börja om från noll</button></p>
+    </section>
+
+    <!-- BEGREPPSKORT: ÖVNING -->
+    <section id="screen-kort" hidden aria-label="Begreppskort">
+      <p class="count" id="k-count"></p>
+      <p class="meta" id="k-meta"></p>
+      <div id="k-cardview">
+        <div class="flash" id="k-card">
+          <div class="flash-in">
+            <div class="face front" id="k-front"></div>
+            <div class="face back" id="k-back" aria-live="polite"></div>
+          </div>
+        </div>
+        <form id="k-form" class="kform" novalidate hidden>
+          <label class="sr" for="k-input">Ditt svar</label>
+          <input id="k-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" lang="sv" placeholder="Skriv svaret">
+          <button class="btn primary" id="k-check" type="submit">Rätta</button>
+        </form>
+        <p class="verdict" id="k-verdict" aria-live="polite" hidden></p>
+        <div class="row kbtns" id="k-flip-row"><button class="btn primary" id="k-flip" type="button">Vänd kortet</button></div>
+        <div class="row kbtns" id="k-grade-row" hidden>
+          <button class="btn" id="k-no" type="button">Kunde inte</button>
+          <button class="btn" id="k-yes" type="button">Kunde</button>
+        </div>
+        <p class="muted small khint" id="k-hint"></p>
+      </div>
+      <div id="k-match" hidden>
+        <p class="muted small">Tryck på något i vänstra kolumnen och sedan på det som hör ihop med det i högra.</p>
+        <div class="match">
+          <div class="mcol" id="km-left"></div>
+          <div class="mcol" id="km-right"></div>
+        </div>
+        <p class="sr" id="km-live" aria-live="polite"></p>
+      </div>
+      <p class="quit"><button class="linkbtn" id="k-quit" type="button">Avsluta</button></p>
+    </section>
+
+    <!-- BEGREPPSKORT: RESULTAT -->
+    <section id="screen-kort-slut" hidden aria-labelledby="ks-title">
+      <p class="kicker" id="ks-kicker">Begreppskort</p>
+      <h1 class="score" id="ks-title" tabindex="-1"></h1>
+      <p id="ks-msg"></p>
+      <ul class="kmiss" id="ks-list"></ul>
+      <div class="row">
+        <button class="btn primary" id="ks-again" type="button">Öva på dem igen</button>
+        <button class="btn" id="ks-new" type="button">Ny omgång</button>
+        <button class="btn" id="ks-setup" type="button">Ändra val</button>
+      </div>
+    </section>
+
+    <!-- LÄS -->
+    <section id="screen-las" hidden aria-labelledby="las-h">
+      <p class="kicker">Kemi 1 · Materia · Sammanfattning</p>
+      <h1 id="las-h" tabindex="-1">Läs</h1>
+      <p>En sammanfattning med egna ord av genomgång 2–5 och arbetspaketet, i samma ordning som lektionerna. Läs ett avsnitt och öva sedan på begreppen med korten.</p>
+      <p class="muted small">Lärarens egna bilder och texter finns i ert kursmaterial. Kontrollera gärna där om något verkar oklart.</p>
+
+      <nav class="toc" aria-label="Innehåll">
+        <ol>
+          <li><a href="#las-1">Atomen och aggregationstillstånd (genomgång 2)</a></li>
+          <li><a href="#las-2">Elektroner (genomgång 3)</a></li>
+          <li><a href="#las-3">Periodiska systemet (genomgång 4)</a></li>
+          <li><a href="#las-4">Grupperna i periodiska systemet (genomgång 5)</a></li>
+          <li><a href="#las-5">Blandningar, separation och analys</a></li>
+          <li><a href="#las-6">Kemisk bindning (arbetspaketet)</a></li>
+          <li><a href="#las-7">Laborationer och arbetssätt</a></li>
+          <li><a href="#las-8">Checklista: vad ska du kunna?</a></li>
+        </ol>
+      </nav>
+
+      <article class="las" id="las-1" aria-labelledby="las-1-h">
+        <h2 id="las-1-h">1. Atomen och aggregationstillstånd <span class="muted">(genomgång 2)</span></h2>
+        <h3>Atomens delar</h3>
+        <p>En atom har en <b>kärna</b> med <b>protoner</b> (p<sup>+</sup>) och <b>neutroner</b> (n), som tillsammans kallas <b>nukleoner</b>. Runt kärnan rör sig <b>elektroner</b> (e<sup>−</sup>) i ett eller flera skal.</p>
+        <h3>Grundregler</h3>
+        <ul>
+          <li><b>Atomnummer</b> (Z) = antalet protoner. Det avgör vilket grundämne atomen är, och alla atomer i ett grundämne har samma atomnummer.</li>
+          <li>I en oladdad atom är antalet elektroner lika med antalet protoner.</li>
+          <li><b>Masstal</b> (A) = antalet protoner + antalet neutroner: A = Z + N. Masstalet ger ungefär atomens massa i enheten <b>u</b>, där 1&nbsp;u = 1,66&nbsp;·&nbsp;10<sup>−24</sup>&nbsp;g.</li>
+          <li>I beteckningen skrivs masstalet uppe till vänster och atomnumret nere till vänster: <sup>32</sup><sub>16</sub>S.</li>
+        </ul>
+        <div class="ex">
+          <p><b>Exempel: svavel-32</b></p>
+          <p>Protoner: 16 (atomnumret). Neutroner: 32 − 16 = 16. Elektroner: 16, fördelade 2, 8, 6 på skalen K, L och M. Massa: 32 u = 32&nbsp;·&nbsp;1,66&nbsp;·&nbsp;10<sup>−24</sup>&nbsp;g = 53,12&nbsp;·&nbsp;10<sup>−24</sup>&nbsp;g.</p>
+        </div>
+        <h3>Isotoper och atommassa</h3>
+        <p>Ett grundämne har alltid samma antal protoner, men antalet neutroner kan variera. Varianterna kallas <b>isotoper</b>, till exempel kol-12, kol-13 och kol-14 med 6, 7 och 8 neutroner. Atommassan i periodiska systemet är ett medelvärde av isotoperna, vägt efter hur vanliga de är, och därför sällan ett heltal.</p>
+        <h3>Kemins alfabet och ord</h3>
+        <p>Grundämnena är kemins bokstäver: varje grundämne består av en enda sorts atomer och har en egen beteckning, till exempel H (väte), O (syre), Ne (neon) och Ag (silver). Atomerna sätts ihop till ”ord”, alltså molekyler och föreningar, till exempel CO<sub>2</sub>. Helium finns som enskilda atomer (He), medan väte sitter ihop två och två (H<sub>2</sub>).</p>
+        <p>En <b>kemisk förening</b> innehåller atomer från olika grundämnen, till exempel H<sub>2</sub>O och NaCl. Syrgas, O<sub>2</sub>, är alltså ingen förening. Hur atomerna binds ihop påverkar ämnets egenskaper.</p>
+        <h3>Aggregationsformer</h3>
+        <p>Ämnen kan vara <b>fasta</b>, <b>flytande</b> eller i <b>gasform</b>. Formen visar hur mycket partiklarna rör sig: när ämnet värms ökar energin och rörelsen, när det kyls minskar de. Ett byte av form kallas <b>fasövergång</b>, och då ändras volym och densitet.</p>
+        <ul>
+          <li>Smältning: fast → flytande. Stelning: flytande → fast.</li>
+          <li>Ångbildning: flytande → gas. Kondensering: gas → flytande.</li>
+          <li>Sublimering: fast → gas utan vätskefas (jod, torris).</li>
+          <li>Vatten: smältpunkt och fryspunkt 0 °C, kokpunkt 100 °C.</li>
+        </ul>
+        <h3>Ämnens indelning</h3>
+        <p>Ett <b>rent ämne</b> består av ett grundämne eller en enda sorts kemisk förening. En <b>blandning</b> består av flera ämnen och är antingen <b>homogen</b> (delarna går inte att urskilja, till exempel luft och saltvatten) eller <b>heterogen</b> (delarna går att urskilja, till exempel sand och vatten).</p>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="ATOM">Öva begreppen: Atomen</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-2" aria-labelledby="las-2-h">
+        <h2 id="las-2-h">2. Elektroner <span class="muted">(genomgång 3)</span></h2>
+        <h3>Elementarpartiklarna</h3>
+        <div class="tblwrap">
+          <table class="tbl ltbl">
+            <thead><tr><th scope="col">Partikel</th><th scope="col">Tecken</th><th scope="col">Massa</th><th scope="col">Laddning</th></tr></thead>
+            <tbody>
+              <tr><td>Proton</td><td>p<sup>+</sup></td><td>1,007 u</td><td>+1</td></tr>
+              <tr><td>Neutron</td><td>n</td><td>1,008 u</td><td>0</td></tr>
+              <tr><td>Elektron</td><td>e<sup>−</sup></td><td>0,0005 u</td><td>−1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Elektronen väger så lite att den inte räknas med i masstalet.</p>
+        <h3>Atommodeller</h3>
+        <p>Ingen kan se en atom, så man använder modeller. De har ändrats när nya experiment visat saker som den gamla modellen inte kunde förklara:</p>
+        <ul>
+          <li><b>Dalton (1803):</b> en massiv, odelbar kula.</li>
+          <li><b>Thomson (1904):</b> ”plum pudding”, en positiv massa med elektroner instuckna.</li>
+          <li><b>Rutherford (1911):</b> en liten, positivt laddad kärna och i övrigt mest tomrum.</li>
+          <li><b>Bohr (1913):</b> elektronerna rör sig i bestämda skal runt kärnan (planetmodellen).</li>
+          <li><b>Schrödinger (1926):</b> orbitalmodellen, den bästa modell vi har i dag.</li>
+        </ul>
+        <h3>Bohrs modell: skal och energinivåer</h3>
+        <p>Varje elektron har en bestämd energi. Elektronerna finns i skal, energinivåer, som heter K, L, M, N (nivå 1, 2, 3, 4). Ett skal rymmer högst 2n<sup>2</sup> elektroner: K 2, L 8, M 18 och N 32. Normalt fylls den lägsta energinivån först.</p>
+        <h3>Valenselektroner och ädelgasstruktur</h3>
+        <p>Elektronerna i det yttersta skalet kallas <b>valenselektroner</b>. Det är de som avges, tas upp eller delas i kemiska reaktioner. Ett fullt yttersta skal kallas <b>ädelgasstruktur</b> (åtta elektroner, eller två för väte och helium) och är mycket stabilt. Atomer som inte har det kan avge eller ta upp elektroner och blir då <b>joner</b>.</p>
+        <h3>Excitation och jonisering</h3>
+        <p>Får atomen energi kan en elektron hoppa upp till en högre energinivå. Atomen är då <b>exciterad</b> och instabil. När elektronen faller tillbaka till grundtillståndet sänds energin ut som ljus, och det är därför olika ämnen ger olika <b>lågfärger</b>. Är energin tillräckligt stor lämnar elektronen atomen helt: atomen <b>joniseras</b>. Energin som krävs kallas <b>joniseringsenergi</b>. Exempel: Na → Na<sup>+</sup>. Natriumjonen är positiv eftersom den har 11 protoner men bara 10 elektroner.</p>
+        <h3>Orbitaler</h3>
+        <p>Den bästa modellen beskriver elektronerna med <b>orbitaler</b>, områden där det är troligast att hitta högst två elektroner. Det finns s-, p-, d- och f-orbitaler (1, 3, 5 och 7 av varje, plats för 2, 6, 10 och 14 elektroner). De fylls efter stigande energi: 1s, 2s, 2p, 3s, 3p, 4s, 3d … Natrium har elektronkonfigurationen 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>.</p>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="ELEK">Öva begreppen: Elektroner och atommodeller</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-3" aria-labelledby="las-3-h">
+        <h2 id="las-3-h">3. Periodiska systemet <span class="muted">(genomgång 4)</span></h2>
+        <p>Periodiska systemet är kanske kemistens viktigaste verktyg. Var ett grundämne står säger något om dess fysikaliska och kemiska egenskaper och om dess elektronstruktur.</p>
+        <h3>Mendelejev</h3>
+        <p>Dmitrij Mendelejev sorterade grundämnena efter ökande atommassa och såg att ämnen med liknande egenskaper återkom med jämna mellanrum. Dem placerade han under varandra. Hans system kom 1869 (i genomgången står 1870). I dag ordnas grundämnena efter atomnummer.</p>
+        <h3>Perioder och grupper</h3>
+        <ul>
+          <li>Tabellen har 18 kolumner, <b>grupper</b>, och 7 rader, <b>perioder</b>.</li>
+          <li>Periodens nummer = antalet elektronskal. I period 1 fylls K-skalet, i period 2 L-skalet och så vidare. För varje steg åt höger tillkommer en proton och en elektron.</li>
+          <li>Ämnen i samma grupp har lika många valenselektroner och därför liknande egenskaper. Grupp 1 har en, grupp 2 två, och i grupp 13–17 visar entalssiffran antalet.</li>
+        </ul>
+        <h3>Metaller, ickemetaller och halvmetaller</h3>
+        <ul>
+          <li><b>Metaller</b> (till vänster och i mitten): fasta vid rumstemperatur utom kvicksilver, formbara och leder värme och ström.</li>
+          <li><b>Ickemetaller</b> (till höger): saknar metallegenskaper. Många är gaser, några fasta (kol, svavel, jod) och brom är flytande.</li>
+          <li><b>Halvmetaller</b> (metalloider): har både metalliska och icke-metalliska egenskaper, till exempel kisel.</li>
+        </ul>
+        <h3>Atomradie</h3>
+        <p>Atomen blir <b>större nedåt i en grupp</b>, eftersom den får fler skal. Den blir <b>mindre åt höger i en period</b>, eftersom antalet skal är detsamma men fler protoner drar elektronerna närmare kärnan.</p>
+        <h3>De 20 första grundämnena</h3>
+        <div class="tblwrap">
+          <table class="tbl ltbl el20">
+            <tbody>
+              <tr><td>1 H väte</td><td>2 He helium</td><td>3 Li litium</td><td>4 Be beryllium</td></tr>
+              <tr><td>5 B bor</td><td>6 C kol</td><td>7 N kväve</td><td>8 O syre</td></tr>
+              <tr><td>9 F fluor</td><td>10 Ne neon</td><td>11 Na natrium</td><td>12 Mg magnesium</td></tr>
+              <tr><td>13 Al aluminium</td><td>14 Si kisel</td><td>15 P fosfor</td><td>16 S svavel</td></tr>
+              <tr><td>17 Cl klor</td><td>18 Ar argon</td><td>19 K kalium</td><td>20 Ca kalcium</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="PSE">Öva begreppen: Periodiska systemet</button> <button class="btn" type="button" data-kdeck="EL20">Öva de 20 första grundämnena</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-4" aria-labelledby="las-4-h">
+        <h2 id="las-4-h">4. Grupperna i periodiska systemet <span class="muted">(genomgång 5)</span></h2>
+        <div class="tblwrap">
+          <table class="tbl ltbl grp">
+            <thead><tr><th scope="col">Grupp</th><th scope="col">Namn och ämnen</th><th scope="col">Valens­elektroner</th><th scope="col">Jon</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><b>Alkalimetallerna</b> (inte väte): Li, Na, K, Rb, Cs, Fr</td><td>1</td><td>+1</td></tr>
+              <tr><td>2</td><td><b>Alkaliska jordartsmetallerna</b>: Be, Mg, Ca, Sr, Ba, Ra</td><td>2</td><td>+2</td></tr>
+              <tr><td>3–12</td><td><b>Övergångsmetallerna</b>, till exempel Fe, Cu, Zn</td><td>1–3</td><td>+1 till +3</td></tr>
+              <tr><td>13</td><td><b>Borgruppen</b>: B, Al …</td><td>3</td><td>Al<sup>3+</sup></td></tr>
+              <tr><td>14</td><td><b>Kolgruppen</b>: C, Si …</td><td>4</td><td>–</td></tr>
+              <tr><td>15</td><td><b>Kvävegruppen</b>: N, P …</td><td>5</td><td>N<sup>3−</sup></td></tr>
+              <tr><td>16</td><td><b>Syregruppen</b>: O, S …</td><td>6</td><td>−2</td></tr>
+              <tr><td>17</td><td><b>Halogenerna</b>: F, Cl, Br, I, At</td><td>7</td><td>−1</td></tr>
+              <tr><td>18</td><td><b>Ädelgaserna</b>: He, Ne, Ar, Kr, Xe, Rn</td><td>8 (He 2)</td><td>–</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><b>Grupp 1:</b> mjuka och grå, har var sin lågfärg och reagerar mycket kraftigt. De finns bara i jonföreningar i naturen, till exempel NaCl, och bildar salter med halogenerna.</li>
+          <li><b>Grupp 2:</b> reagerar gärna med grupp 16 och 17.</li>
+          <li><b>Grupp 3–12:</b> passar inte riktigt in i mönstret. De har en, två eller tre valenselektroner utan perfekt regel och kan bilda olika joner, till exempel Fe<sup>2+</sup> och Fe<sup>3+</sup>. Egenskaperna ändras inte särskilt mycket inom en period.</li>
+          <li><b>Grupp 13–15:</b> inte särskilt reaktiva, eftersom de måste avge eller ta upp så många elektroner.</li>
+          <li><b>Grupp 16:</b> behöver bara ta upp två elektroner och är därför mer reaktiv än grupp 13–15.</li>
+          <li><b>Grupp 17:</b> mycket reaktiva och reagerar lätt med grupp 1 och 2. Giftiga i fri form, och klorgas användes i första världskriget.</li>
+          <li><b>Grupp 18:</b> har redan ädelgasstruktur och reagerar i stort sett inte med andra ämnen.</li>
+        </ul>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="GRP">Öva grupperna</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-5" aria-labelledby="las-5-h">
+        <h2 id="las-5-h">5. Blandningar, separation och analys</h2>
+        <p>En blandning kan separeras med fysikaliska metoder, eftersom ämnena har kvar sina egenskaper. En kemisk förening kan inte det. En <b>lösning</b> är en homogen blandning där ett ämne är löst i ett annat (koksalt i vatten), och en <b>legering</b> är en fast homogen blandning av metaller (brons, mässing, stål).</p>
+        <h3>Separationsmetoder</h3>
+        <ul>
+          <li><b>Heterogena blandningar:</b> silning, filtrering (fast ämne från vätska) och dekantering (häll av vätskan från bottensatsen).</li>
+          <li><b>Homogena blandningar:</b> indunstning och avdunstning (det lösta ämnet blir kvar) och destillation (vätskor med olika kokpunkter skiljs åt).</li>
+          <li><b>Sand och salt:</b> lös saltet i vatten, filtrera bort sanden och indunsta saltvattnet.</li>
+        </ul>
+        <h3>Analysmetoder (glöm inte!)</h3>
+        <ul>
+          <li><b>Kromatografi:</b> ämnena följer med ett lösningsmedel olika snabbt, till exempel genom ett filterpapper, och skiljs åt.</li>
+          <li><b>Masspektrometri:</b> partiklarna joniseras och sorteras efter massa. Visar till exempel molekylers massa och vilka isotoper ett grundämne har.</li>
+          <li><b>NMR</b> (kärnmagnetisk resonans): ett starkt magnetfält och radiovågor visar hur atomerna sitter ihop i en molekyl.</li>
+        </ul>
+        <h3>Organiskt eller oorganiskt, och densitet</h3>
+        <p><b>Organiska ämnen</b> är kolföreningar, oftast med bindningar mellan kol och väte (metan, etanol). Övriga ämnen är <b>oorganiska</b>, och koldioxid räknas dit. <b>Densitet</b> är massa per volym, ρ = m / V, oftast i g/cm<sup>3</sup>.</p>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="MAT">Öva begreppen: Materia och blandningar</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-6" aria-labelledby="las-6-h">
+        <h2 id="las-6-h">6. Kemisk bindning <span class="muted">(arbetspaketet)</span></h2>
+        <p>Atomer binder till varandra för att få ädelgasstruktur. Hur de binds avgör ämnets egenskaper. Bindningar mellan molekyler (vätebindning och liknande) kommer i planeringen efter E/C-provet.</p>
+        <h3>Tre sorters bindningar</h3>
+        <ul>
+          <li><b>Jonbindning</b> (metall + ickemetall): metallen avger elektroner och ickemetallen tar upp dem, och de positiva och negativa jonerna dras till varandra. Ger hög smält- och kokpunkt men spröda kristaller. Fast jonförening leder inte ström eftersom jonerna sitter fast, men en lösning eller smälta gör det.</li>
+          <li><b>Kovalent bindning</b> (ickemetall + ickemetall): atomerna delar elektronpar och får en gemensam ädelgasstruktur. Den är <b>ren</b> om elektronparet delas lika och <b>polär</b> om det delas ojämnt, så att atomerna får små delladdningar, δ<sup>+</sup> och δ<sup>−</sup>.</li>
+          <li><b>Metallbindning</b> (metall + metall): valenselektronerna är delokaliserade och rör sig fritt, och därför leder metaller ström och är böjliga.</li>
+        </ul>
+        <h3>Elektronegativitet</h3>
+        <p>En atoms förmåga att dra till sig elektroner, 0–4 på Paulingskalan. Den ökar åt höger och uppåt, och fluor har högst. Skillnaden mellan atomerna avgör bindningen: 0 ger ren kovalent, mellan 0 och 1,8 polär kovalent och över 1,8 jonbindning.</p>
+        <h3>Formler</h3>
+        <ul>
+          <li><b>Summaformel:</b> antalet atomer av varje slag, till exempel C<sub>2</sub>H<sub>6</sub>.</li>
+          <li><b>Strukturformel:</b> visar bindningarna som streck (fria elektronpar ritas inte).</li>
+          <li><b>Empirisk formel:</b> det minsta heltalsförhållandet, CH<sub>3</sub> för etan (tre väteatomer per kolatom).</li>
+          <li><b>Elektronformel</b> (Lewis-formel): valenselektronerna som prickar runt tecknet.</li>
+          <li><b>Formelenhet:</b> den minsta enhet som upprepas i en jonkristall, positiva jonen först: NaCl, CaCl<sub>2</sub>.</li>
+          <li><b>Sammansatta joner:</b> OH<sup>−</sup>, SO<sub>4</sub><sup>2−</sup>, NO<sub>3</sub><sup>−</sup>, NH<sub>4</sub><sup>+</sup>, PO<sub>4</sub><sup>3−</sup> och CO<sub>3</sub><sup>2−</sup>.</li>
+          <li><b>Molekylmassa</b> och <b>formelmassa:</b> summan av atommassorna, till exempel CO<sub>2</sub> = 12,0 + 2 · 16,0 = 44,0 u.</li>
+        </ul>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="BIND">Öva begreppen: Kemisk bindning</button> <button class="btn" type="button" data-kdeck="JON">Öva sammansatta joner</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-7" aria-labelledby="las-7-h">
+        <h2 id="las-7-h">7. Laborationer och arbetssätt</h2>
+        <h3>Att arbeta naturvetenskapligt</h3>
+        <ul>
+          <li>En <b>naturvetenskaplig frågeställning</b> går att besvara med mätningar, observationer eller experiment.</li>
+          <li>En <b>hypotes</b> är ett testbart påstående som skrivs före försöket, med en förklaring till varför.</li>
+          <li><b>Slutsatsen</b> svarar på frågeställningen utifrån resultaten och säger om hypotesen stämde.</li>
+          <li><b>Felkällor</b> är sådant som kan ha gjort resultatet osäkert, till exempel avläsningsfel eller förluster vid överhällning.</li>
+          <li><b>Modeller</b> förenklar verkligheten och ändras när nya experiment visar något nytt.</li>
+        </ul>
+        <h3>Säkerhet</h3>
+        <p>Skyddsglasögon och labbrock, uppsatt hår, aldrig mat eller dryck i labbet, läs varningstexterna och vet var ögondusch, brandfilt och släckare finns. Före varje laboration görs en <b>riskbedömning</b>.</p>
+        <h3>Laborationerna</h3>
+        <ul>
+          <li><b>Mätteknik:</b> vollpipetten är noggrannast, sedan graderad pipett och mätglas. Bägarens gradering är bara ungefärlig. Läs av vid meniskens nedre kant.</li>
+          <li><b>Separation:</b> sand och salt skiljs åt med lösning, filtrering och indunstning.</li>
+          <li><b>Lågreaktioner:</b> litium karminröd, natrium gul, kalium rödviolett, cesium blåviolett, kalcium orange, strontium röd, barium grön och koppar blågrön.</li>
+          <li><b>Densitet:</b> ρ = m / V. En isbit smälter ofta långsammare i saltvatten än i sötvatten, eftersom smältvattnet lägger sig som ett kallt lager ovanpå det tyngre saltvattnet.</li>
+        </ul>
+        <p class="lasgo"><button class="btn" type="button" data-kdeck="LAB">Öva begreppen: Laboration</button> <button class="btn" type="button" data-kdeck="LAG">Öva lågfärgerna</button> <button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+
+      <article class="las" id="las-8" aria-labelledby="las-8-h">
+        <h2 id="las-8-h">8. Checklista: vad ska du kunna?</h2>
+        <p class="muted small">Bocka av det du kan. Bockarna sparas bara i den här webbläsaren. <span id="lc-count"></span></p>
+        <div class="lcheck" id="lc-list">
+          <label class="chk"><input type="checkbox" data-lc="1"> Namn och beteckning på de 20 första grundämnena</label>
+          <label class="chk"><input type="checkbox" data-lc="2"> Hur atomen är uppbyggd: protoner, neutroner, elektroner och nukleoner</label>
+          <label class="chk"><input type="checkbox" data-lc="3"> Atomnummer, masstal, isotoper och atommassa, och hur många protoner, neutroner och elektroner en atom eller jon har</label>
+          <label class="chk"><input type="checkbox" data-lc="4"> Aggregationsformerna och fasövergångarna</label>
+          <label class="chk"><input type="checkbox" data-lc="5"> Rena ämnen och blandningar (homogena och heterogena), föreningar, organiska och oorganiska ämnen</label>
+          <label class="chk"><input type="checkbox" data-lc="6"> Elementarpartiklarna och varför elektronen inte räknas i masstalet</label>
+          <label class="chk"><input type="checkbox" data-lc="7"> Atommodellerna från Dalton till orbitalmodellen</label>
+          <label class="chk"><input type="checkbox" data-lc="8"> Elektronskal (2n<sup>2</sup>), valenselektroner, ädelgasstruktur och oktettregeln</label>
+          <label class="chk"><input type="checkbox" data-lc="9"> Excitation, jonisering och varför ämnen ger olika lågfärger</label>
+          <label class="chk"><input type="checkbox" data-lc="10"> Orbitaler och elektronkonfiguration</label>
+          <label class="chk"><input type="checkbox" data-lc="11"> Perioder och grupper, metaller, ickemetaller och halvmetaller, atomradie</label>
+          <label class="chk"><input type="checkbox" data-lc="12"> Grupperna 1–18: namn, valenselektroner, joner och egenskaper</label>
+          <label class="chk"><input type="checkbox" data-lc="13"> Separationsmetoder samt kromatografi, masspektrometri och NMR</label>
+          <label class="chk"><input type="checkbox" data-lc="14"> Jonbindning, kovalent bindning och metallbindning, och elektronegativitet</label>
+          <label class="chk"><input type="checkbox" data-lc="15"> Formler: summaformel, strukturformel, empirisk formel, elektronformel, formelenhet och sammansatta joner</label>
+          <label class="chk"><input type="checkbox" data-lc="16"> Frågeställning, hypotes, slutsats, felkällor och säkerhet i labbet</label>
+        </div>
+        <p class="lasgo"><button class="linkbtn" type="button" data-top>Till innehållet</button></p>
+      </article>
+    </section>
+
 
   </main>
 </div>
@@ -985,12 +1385,17 @@ function verdict(e, c) {
 }
 
 /* ---------- screens and flow ---------- */
-var SCREENS = ['start', 'quiz', 'result'];
+var SCREENS = ['start', 'quiz', 'result', 'kort-start', 'kort', 'kort-slut', 'las'];
+var TABS = {'start': 'go-prov', 'kort-start': 'go-kort', 'las': 'go-las'};   // flikarna syns bara på de här skärmarna
 var QUIT_TEXT = 'Avsluta och gå till start';
 var quitTimer = null;
 
 function show(name) {
   SCREENS.forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
+  $('modes').hidden = !TABS[name];
+  Object.keys(TABS).forEach(function (k) {
+    if (k === name) $(TABS[k]).setAttribute('aria-current', 'page'); else $(TABS[k]).removeAttribute('aria-current');
+  });
   window.scrollTo(0, 0);
 }
 
@@ -1325,6 +1730,934 @@ $('rev-missed').addEventListener('change', function (e) { $('r-review').classLis
 loadSettings();
 renderTopics();
 syncSetup();
+
+/* BEGREPPSKORT 1: ATOMEN och ELEKTRONER OCH ATOMMODELLER.
+   f = framsida (begreppet), b = baksida (förklaring, E), c = fördjupning (C), a = godkända svar när man skriver,
+   q = fråga när man skriver svaret, s = kort svar för "Para ihop". Bara <sub> och <sup> används som HTML. */
+window.KORT = (window.KORT || []).concat([
+{id:'a-atom', d:'ATOM', f:'Atom', a:['atom','atomer'],
+ b:'Den minsta byggstenen som ger materia dess egenskaper. Den består av en kärna med protoner och neutroner och av elektroner som rör sig i skal runt kärnan.',
+ c:'I en oladdad atom är antalet elektroner lika med antalet protoner, så laddningarna tar ut varandra.'},
+{id:'a-proton', d:'ATOM', f:'Proton', a:['proton','protoner'],
+ b:'En positivt laddad partikel (+1) i atomkärnan. Den väger ungefär 1 u.',
+ c:'Antalet protoner är atomnumret och avgör vilket grundämne atomen är. Ändras antalet protoner blir det ett annat grundämne.'},
+{id:'a-neutron', d:'ATOM', f:'Neutron', a:['neutron','neutroner'],
+ b:'En oladdad partikel i atomkärnan. Den väger ungefär 1 u.',
+ c:'Neutronerna hjälper till att hålla ihop kärnan, eftersom protonerna annars skulle stöta bort varandra. Antalet räknas ut med N = A − Z.'},
+{id:'a-elektron', d:'ATOM', f:'Elektron', a:['elektron','elektroner'],
+ b:'En negativt laddad partikel (−1) som rör sig i skal runt kärnan. Den väger nästan ingenting, ungefär 0,0005 u.',
+ c:'Elektronerna i det yttersta skalet, valenselektronerna, avgör hur atomen reagerar och binder till andra atomer.'},
+{id:'a-nukleon', d:'ATOM', f:'Nukleon', a:['nukleon','nukleoner'],
+ b:'Samlingsnamn för partiklarna i atomkärnan, alltså protoner och neutroner.',
+ c:'Masstalet är antalet nukleoner i kärnan.'},
+{id:'a-elementar', d:'ATOM', f:'Elementarpartiklar', a:['elementarpartiklar','elementarpartikel','elementarpartiklarna'],
+ b:'Atomens tre byggdelar: protonen (+1, 1,007 u), neutronen (0, 1,008 u) och elektronen (−1, 0,0005 u).',
+ c:'Elektronens massa är så liten att den inte räknas med i masstalet.'},
+{id:'a-atomnummer', d:'ATOM', f:'Atomnummer', a:['atomnummer','atomnumret'],
+ b:'Antalet protoner i atomkärnan. Betecknas Z. Varje grundämne har ett eget atomnummer.',
+ c:'Atomnumret skrivs nere till vänster om tecknet, till exempel <sub>16</sub>S. I en oladdad atom är det också antalet elektroner.'},
+{id:'a-masstal', d:'ATOM', f:'Masstal', a:['masstal','masstalet'],
+ b:'Summan av antalet protoner och neutroner: A = Z + N. Masstalet är alltid ett heltal.',
+ c:'Masstalet skrivs uppe till vänster om tecknet, till exempel <sup>32</sup>S. Antalet neutroner blir N = A − Z.'},
+{id:'a-isotop', d:'ATOM', f:'Isotop', a:['isotop','isotoper'],
+ b:'Atomer av samma grundämne, alltså med samma antal protoner, men med olika antal neutroner. Exempel: kol-12, kol-13 och kol-14.',
+ c:'Isotoperna har olika masstal. Att de flesta grundämnen är blandningar av isotoper är skälet till att atommassan sällan är ett heltal.'},
+{id:'a-atommassa', d:'ATOM', f:'Atommassa', a:['atommassa','atommassan'],
+ b:'Hur mycket en atom väger, i enheten u. Värdet i periodiska systemet är ett medelvärde av grundämnets isotoper, vägt efter hur vanliga de är.',
+ c:'Därför är atommassan oftast inte ett heltal: klor har 35,45 u eftersom naturligt klor är en blandning av klor-35 och klor-37.'},
+{id:'a-u', d:'ATOM', f:'Enheten u', a:['u','enheten u','atommassenhet','atommassenheten'], q:'Vilken enhet används för atomers massa, där 1 enhet = 1,66 · 10<sup>−24</sup> g?',
+ b:'Enheten för atomers massa: 1&nbsp;u = 1,66&nbsp;·&nbsp;10<sup>−24</sup>&nbsp;g. En proton eller en neutron väger ungefär 1 u.',
+ c:'En atom med masstal 32 väger ungefär 32 u, alltså 32&nbsp;·&nbsp;1,66&nbsp;·&nbsp;10<sup>−24</sup>&nbsp;g ≈ 5,3&nbsp;·&nbsp;10<sup>−23</sup>&nbsp;g.'},
+{id:'a-jon', d:'ATOM', f:'Jon', a:['jon','joner'],
+ b:'En atom, eller en grupp atomer, som har avgett eller tagit upp elektroner och därför är elektriskt laddad, till exempel Na<sup>+</sup> och O<sup>2−</sup>.',
+ c:'Avger atomen elektroner blir det fler protoner än elektroner och jonen blir positiv. Tar den upp elektroner blir den negativ. Atomer bildar joner för att få ädelgasstruktur.'},
+{id:'a-grundamne', d:'ATOM', f:'Grundämne', a:['grundämne','grundämnen'],
+ b:'Ett ämne som bara innehåller en sorts atomer, alltså atomer med samma antal protoner.',
+ c:'Ett grundämne kan finnas som enskilda atomer (ädelgaserna), som molekyler av samma sort (O<sub>2</sub>) eller som många metallatomer som sitter ihop med metallbindning.'},
+{id:'a-beteckning', d:'ATOM', f:'Kemisk beteckning', a:['kemisk beteckning','beteckning','kemiskt tecken'],
+ b:'Förkortningen av ett grundämnes namn, till exempel Na för natrium och Fe för järn. Sättet att beteckna ämnen kommer från den svenske kemisten Jöns Jacob Berzelius.',
+ c:'I formler sätts beteckningarna ihop med siffror som visar hur många atomer av varje slag som ingår, till exempel H<sub>2</sub>O.'},
+
+{id:'e-skal', d:'ELEK', f:'Elektronskal', a:['elektronskal','skal','elektronskalen'],
+ b:'Energinivåer på olika avstånd från kärnan där elektronerna finns. Skalen heter K, L, M, N … och rymmer som mest 2n<sup>2</sup> elektroner: 2, 8, 18 och 32.',
+ c:'Periodens nummer visar hur många skal atomen har. Elektronerna fyller normalt de lägsta energinivåerna först.'},
+{id:'e-valens', d:'ELEK', f:'Valenselektron', a:['valenselektron','valenselektroner'],
+ b:'En elektron i atomens yttersta skal.',
+ c:'Valenselektronerna avges, tas upp eller delas när atomer bildar joner och bindningar, så de avgör ämnets kemiska egenskaper. Gruppen i periodiska systemet visar hur många de är.'},
+{id:'e-adelgasstruktur', d:'ELEK', f:'Ädelgasstruktur', a:['ädelgasstruktur'],
+ b:'Fullt yttersta skal: åtta valenselektroner, eller två för väte och helium. Det är ett mycket stabilt tillstånd.',
+ c:'Atomer når ädelgasstruktur genom att avge eller ta upp elektroner (bilda joner) eller genom att dela elektroner (kovalent bindning).'},
+{id:'e-oktett', d:'ELEK', f:'Oktettregeln', a:['oktettregeln','oktettregel','oktett'],
+ b:'Atomer strävar efter att få åtta elektroner i det yttersta skalet, som ädelgaserna.',
+ c:'Med regeln kan man förutsäga joner: syre har sex valenselektroner, tar upp två och bildar O<sup>2−</sup>. Natrium avger sin enda valenselektron och bildar Na<sup>+</sup>.'},
+{id:'e-orbital', d:'ELEK', f:'Orbital', a:['orbital','orbitaler'],
+ b:'Ett område runt kärnan där det är troligast att hitta elektroner. En orbital rymmer högst två elektroner, som snurrar åt motsatta håll.',
+ c:'Det finns s-, p-, d- och f-orbitaler: 1, 3, 5 och 7 av varje, alltså plats för 2, 6, 10 och 14 elektroner. Det yttersta skalet har högst en s- och tre p-orbitaler, alltså åtta elektroner.'},
+{id:'e-konfig', d:'ELEK', f:'Elektronkonfiguration', a:['elektronkonfiguration','elektronkonfigurationen'],
+ b:'Hur en atoms elektroner är fördelade på orbitalerna, till exempel natrium: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>.',
+ c:'Orbitalerna fylls efter stigande energi: 1s, 2s, 2p, 3s, 3p, 4s, 3d … Därför har kalcium skalen 2, 8, 8, 2 och inte 2, 8, 10.'},
+{id:'e-exciterad', d:'ELEK', f:'Exciterad atom', a:['exciterad','exciterad atom','excitation','exciteras'],
+ b:'När atomen tillförs energi lyfts en elektron till en högre energinivå, längre från kärnan. Atomen är då exciterad.',
+ c:'När elektronen faller tillbaka sänds energin ut som ljus med en färg som är typisk för grundämnet. Det är därför olika ämnen ger olika lågfärger.'},
+{id:'e-grundtillstand', d:'ELEK', f:'Grundtillstånd', a:['grundtillstånd','grundtillståndet'],
+ b:'Atomens tillstånd när alla elektroner är på så låga energinivåer som möjligt.',
+ c:'En exciterad atom är instabil och faller tillbaka till grundtillståndet, och då sänds energi ut som ljus.'},
+{id:'e-jonisering', d:'ELEK', f:'Jonisering', a:['jonisering','joniseras'],
+ b:'När en elektron får så mycket energi att den lämnar atomen helt, så att en jon bildas.',
+ c:'Skillnaden mot excitation: vid excitation stannar elektronen kvar i atomen på en högre nivå, vid jonisering lämnar den atomen.'},
+{id:'e-joniseringsenergi', d:'ELEK', f:'Joniseringsenergi', a:['joniseringsenergi','joniseringsenergin'],
+ b:'Den energi som krävs för att få loss en elektron från en atom.',
+ c:'Den minskar nedåt i en grupp, eftersom valenselektronerna sitter längre från kärnan, och ökar åt höger i en period. Därför avger alkalimetallerna sin elektron så lätt.'},
+{id:'e-dalton', d:'ELEK', f:'Daltons atommodell (1803)', a:['dalton','daltons atommodell','daltons modell'],
+ b:'Atomen är en massiv, odelbar kula utan inre delar.',
+ c:'Den första moderna atommodellen. Den räckte inte när man upptäckte att atomen innehåller laddade partiklar.'},
+{id:'e-thomson', d:'ELEK', f:'Thomsons atommodell (1904)', a:['thomson','thomsons atommodell','thomsons modell','plum pudding','plum pudding-modellen','russinkaksmodellen'],
+ b:'”Plum pudding”: atomen är en positivt laddad massa med negativa elektroner instuckna, som russin i en kaka.',
+ c:'Thomson hade upptäckt elektronen. Modellen fick ge vika när Rutherford visade att den positiva laddningen sitter i en liten kärna.'},
+{id:'e-rutherford', d:'ELEK', f:'Rutherfords atommodell (1911)', a:['rutherford','rutherfords atommodell','rutherfords modell','kärnmodellen'],
+ b:'Kärnmodellen: atomen är mest tomrum, med en liten, positivt laddad kärna där nästan all massa finns och elektroner runt omkring.',
+ c:'Han sköt alfapartiklar mot en tunn guldfolie. De flesta gick rakt igenom, men några studsade tillbaka, vilket Thomsons modell inte kunde förklara.'},
+{id:'e-bohr', d:'ELEK', f:'Bohrs atommodell (1913)', a:['bohr','bohrs atommodell','bohrs modell','planetmodellen'],
+ b:'Planetmodellen: elektronerna rör sig i bestämda skal (energinivåer) runt kärnan.',
+ c:'Den förklarar till exempel lågfärger och fungerar bra för små atomer, men räcker inte för större atomer. Där behövs orbitalmodellen.'},
+{id:'e-orbitalmodellen', d:'ELEK', f:'Orbitalmodellen (Schrödinger 1926)', a:['orbitalmodellen','kvantmodellen','schrödinger','schrödingers modell'],
+ b:'Kvantmodellen: elektronerna beskrivs som områden, orbitaler, där de troligast finns, i stället för som banor.',
+ c:'Det är den bästa modell vi har i dag. Den förklarar varför elektronerna i större atomer fylls på i en viss ordning.'}
+]);
+
+/* BEGREPPSKORT 2: PERIODISKA SYSTEMET, GRUPPERNA och DE 20 FÖRSTA GRUNDÄMNENA. */
+window.KORT = (window.KORT || []).concat([
+{id:'p-system', d:'PSE', f:'Periodiska systemet', a:['periodiska systemet','det periodiska systemet','periodiskt system'],
+ b:'En tabell över grundämnena, ordnade efter ökande atomnummer, med 18 grupper (kolumner) och 7 perioder (rader).',
+ c:'Platsen i systemet visar elektronstrukturen och därmed egenskaperna: perioden ger antalet elektronskal och gruppen antalet valenselektroner.'},
+{id:'p-mendelejev', d:'PSE', f:'Mendelejev', a:['mendelejev','dmitrij mendelejev'], q:'Vem ordnade grundämnena efter ökande atommassa 1869 och lade grunden till det periodiska systemet?',
+ b:'Dmitrij Mendelejev ordnade 1869 grundämnena efter ökande atommassa och såg att ämnen med liknande egenskaper återkom med jämna mellanrum. Dem placerade han under varandra.',
+ c:'Han lämnade tomma platser för grundämnen som ännu inte var upptäckta och kunde förutsäga deras egenskaper. I dag ordnas systemet efter atomnummer.'},
+{id:'p-period', d:'PSE', f:'Period', a:['period','perioder','perioden'],
+ b:'En vågrät rad i periodiska systemet. Det finns sju perioder.',
+ c:'Periodens nummer anger antalet elektronskal. För varje steg åt höger tillkommer en proton och en elektron.'},
+{id:'p-grupp', d:'PSE', f:'Grupp', a:['grupp','grupper','gruppen'],
+ b:'En lodrät kolumn i periodiska systemet. Det finns 18 grupper.',
+ c:'Ämnen i samma grupp har lika många valenselektroner och därför liknande kemiska egenskaper. I grupp 13–17 anger entalssiffran antalet valenselektroner.'},
+{id:'p-atomradie', d:'PSE', f:'Atomradie', a:['atomradie','atomradien'],
+ b:'Atomens storlek.',
+ c:'Den ökar nedåt i en grupp, eftersom antalet skal ökar. Den minskar åt höger i en period, eftersom fler protoner drar elektronerna närmare medan antalet skal är detsamma.'},
+{id:'p-metall', d:'PSE', f:'Metall', a:['metall','metaller'],
+ b:'Grundämnen till vänster och i mitten av periodiska systemet. De är böjliga, leder ström och värme bra och har metallglans. Alla är fasta vid rumstemperatur utom kvicksilver.',
+ c:'De flesta grundämnen är metaller. Metaller avger gärna elektroner och bildar positiva joner.'},
+{id:'p-ickemetall', d:'PSE', f:'Ickemetall', a:['ickemetall','ickemetaller','icke-metall'],
+ b:'Grundämnen till höger i periodiska systemet. De leder i regel inte ström och saknar metallglans. Många är gaser, men kol, svavel och jod är fasta och brom är flytande.',
+ c:'Ickemetaller binder ihop sig till molekyler med kovalenta bindningar, eller tar upp elektroner och bildar negativa joner tillsammans med metaller.'},
+{id:'p-halvmetall', d:'PSE', f:'Halvmetall', a:['halvmetall','halvmetaller','metalloid','metalloider'],
+ b:'Grundämnen mellan metallerna och ickemetallerna, till exempel kisel och germanium. De har vissa men inte alla egenskaper som metaller har.',
+ c:'Vissa har metallegenskaper bara vid vissa temperaturer. De kallas också metalloider.'},
+{id:'p-adelgas', d:'PSE', f:'Ädelgas', a:['ädelgas','ädelgaser','ädelgaserna'],
+ b:'Grundämnena i grupp 18: helium, neon, argon, krypton, xenon och radon. De finns som enskilda atomer.',
+ c:'De har redan ett fullt yttersta skal (ädelgasstruktur) och reagerar därför nästan aldrig med andra ämnen.'},
+{id:'p-halogen', d:'PSE', f:'Halogen', a:['halogen','halogener','halogenerna'],
+ b:'Grundämnena i grupp 17: fluor, klor, brom, jod och astat. De har sju valenselektroner.',
+ c:'De tar gärna upp en elektron och bildar joner med laddningen −1. De är mycket reaktiva, finns som molekyler med två atomer (Cl<sub>2</sub>) och bildar salter med alkalimetallerna.'},
+{id:'p-alkali', d:'PSE', f:'Alkalimetall', a:['alkalimetall','alkalimetaller','alkalimetallerna'],
+ b:'Grundämnena i grupp 1 utom väte: litium, natrium, kalium, rubidium, cesium och francium. De har en valenselektron.',
+ c:'De avger gärna elektronen och bildar joner med laddningen +1. De är så reaktiva att de bara finns i föreningar i naturen, och reaktiviteten ökar nedåt i gruppen.'},
+{id:'p-jordalkali', d:'PSE', f:'Alkalisk jordartsmetall', a:['alkalisk jordartsmetall','alkaliska jordartsmetaller','jordartsmetall','jordartsmetaller'],
+ b:'Grundämnena i grupp 2: beryllium, magnesium, kalcium, strontium, barium och radium. De har två valenselektroner.',
+ c:'De avger två elektroner och bildar joner med laddningen +2, till exempel Mg<sup>2+</sup> och Ca<sup>2+</sup>. De finns i naturen i jonföreningar.'},
+{id:'p-overgang', d:'PSE', f:'Övergångsmetall', a:['övergångsmetall','övergångsmetaller','övergångsmetallerna'],
+ b:'Metallerna i grupp 3–12, till exempel järn, koppar och zink.',
+ c:'De kan bilda joner med olika laddning utan något enkelt mönster, till exempel Fe<sup>2+</sup> och Fe<sup>3+</sup>, eftersom elektronerna fylls på i skalen på ett mer invecklat sätt.'},
+{id:'p-borgruppen', d:'PSE', f:'Borgruppen', a:['borgruppen'],
+ b:'Grupp 13. Atomerna har tre valenselektroner.',
+ c:'Gruppen är inte särskilt reaktiv, eftersom många elektroner måste avges eller tas upp. Aluminium bildar Al<sup>3+</sup>.'},
+{id:'p-kolgruppen', d:'PSE', f:'Kolgruppen', a:['kolgruppen'],
+ b:'Grupp 14. Atomerna har fyra valenselektroner.',
+ c:'Det är svårt att avge eller ta upp fyra elektroner, så ämnena binder oftast kovalent.'},
+{id:'p-kvavegruppen', d:'PSE', f:'Kvävegruppen', a:['kvävegruppen'],
+ b:'Grupp 15. Atomerna har fem valenselektroner.',
+ c:'De behöver ta upp tre elektroner för att få ädelgasstruktur, till exempel N<sup>3−</sup>.'},
+{id:'p-syregruppen', d:'PSE', f:'Syregruppen', a:['syregruppen'],
+ b:'Grupp 16. Atomerna har sex valenselektroner.',
+ c:'De tar gärna upp två elektroner och bildar joner med laddningen −2, till exempel O<sup>2−</sup> och S<sup>2−</sup>. Gruppen är mer reaktiv än grupp 13–15.'},
+{id:'p-vate', d:'PSE', f:'Väte', a:['väte','vätgas'], q:'Vilket grundämne står i grupp 1 men räknas inte som alkalimetall?',
+ b:'Väte står i grupp 1 men är inte en alkalimetall. Det är en ickemetall och en gas, H<sub>2</sub>, med en proton och en elektron.',
+ c:'Väte har bara ett skal, så det får ädelgasstruktur (som helium) med två elektroner.'},
+{id:'p-reaktivitet', d:'PSE', f:'Reaktivitet i periodiska systemet', a:['reaktivitet','reaktiviteten'],
+ b:'Hur lätt ett ämne reagerar. Ämnen som bara behöver avge eller ta upp en eller två elektroner (grupp 1, 2, 16 och 17) är mest reaktiva.',
+ c:'Alkalimetallerna blir mer reaktiva nedåt i gruppen (elektronen sitter längre från kärnan och lossnar lättare), medan halogenerna blir mindre reaktiva nedåt. Ädelgaserna reagerar normalt inte alls.'},
+
+{id:'g-1', d:'GRP', f:'Grupp 1', s:'Alkalimetallerna', q:'Vad kallas grupp 1 (utom väte)?', a:['alkalimetallerna','alkalimetaller','alkalimetall'],
+ b:'Alkalimetallerna (väte räknas inte dit): Li, Na, K, Rb, Cs och Fr. En valenselektron, bildar joner med laddningen +1. Mjuka och mycket reaktiva.'},
+{id:'g-2', d:'GRP', f:'Grupp 2', s:'Alkaliska jordartsmetallerna', q:'Vad kallas grupp 2?', a:['alkaliska jordartsmetallerna','alkaliska jordartsmetaller','jordartsmetaller'],
+ b:'De alkaliska jordartsmetallerna: Be, Mg, Ca, Sr, Ba och Ra. Två valenselektroner, bildar joner med laddningen +2.'},
+{id:'g-3-12', d:'GRP', f:'Grupp 3–12', s:'Övergångsmetallerna', q:'Vad kallas grupperna 3–12?', a:['övergångsmetallerna','övergångsmetaller'],
+ b:'Övergångsmetallerna, till exempel Fe, Cu och Zn. De kan bilda joner med olika laddning, till exempel Fe<sup>2+</sup> och Fe<sup>3+</sup>.'},
+{id:'g-13', d:'GRP', f:'Grupp 13', s:'Borgruppen', q:'Vad kallas grupp 13?', a:['borgruppen'],
+ b:'Borgruppen: B, Al, Ga, In och Tl. Tre valenselektroner. Aluminium bildar Al<sup>3+</sup>.'},
+{id:'g-14', d:'GRP', f:'Grupp 14', s:'Kolgruppen', q:'Vad kallas grupp 14?', a:['kolgruppen'],
+ b:'Kolgruppen: C, Si, Ge, Sn och Pb. Fyra valenselektroner, binder oftast kovalent.'},
+{id:'g-15', d:'GRP', f:'Grupp 15', s:'Kvävegruppen', q:'Vad kallas grupp 15?', a:['kvävegruppen'],
+ b:'Kvävegruppen: N, P, As, Sb och Bi. Fem valenselektroner, kan bilda joner med laddningen −3 (N<sup>3−</sup>).'},
+{id:'g-16', d:'GRP', f:'Grupp 16', s:'Syregruppen', q:'Vad kallas grupp 16?', a:['syregruppen'],
+ b:'Syregruppen: O, S, Se, Te och Po. Sex valenselektroner, bildar joner med laddningen −2 (O<sup>2−</sup>, S<sup>2−</sup>).'},
+{id:'g-17', d:'GRP', f:'Grupp 17', s:'Halogenerna', q:'Vad kallas grupp 17?', a:['halogenerna','halogener'],
+ b:'Halogenerna: F, Cl, Br, I och At. Sju valenselektroner, bildar joner med laddningen −1. Mycket reaktiva.'},
+{id:'g-18', d:'GRP', f:'Grupp 18', s:'Ädelgaserna', q:'Vad kallas grupp 18?', a:['ädelgaserna','ädelgaser'],
+ b:'Ädelgaserna: He, Ne, Ar, Kr, Xe och Rn. Fullt yttersta skal, så de reagerar nästan aldrig.'},
+
+{id:'el-1', d:'EL20', f:'H', s:'Väte', q:'Vilket grundämne har beteckningen H?', a:['väte'], b:'Väte (atomnummer 1)'},
+{id:'el-2', d:'EL20', f:'He', s:'Helium', q:'Vilket grundämne har beteckningen He?', a:['helium'], b:'Helium (atomnummer 2)'},
+{id:'el-3', d:'EL20', f:'Li', s:'Litium', q:'Vilket grundämne har beteckningen Li?', a:['litium'], b:'Litium (atomnummer 3)'},
+{id:'el-4', d:'EL20', f:'Be', s:'Beryllium', q:'Vilket grundämne har beteckningen Be?', a:['beryllium'], b:'Beryllium (atomnummer 4)'},
+{id:'el-5', d:'EL20', f:'B', s:'Bor', q:'Vilket grundämne har beteckningen B?', a:['bor'], b:'Bor (atomnummer 5)'},
+{id:'el-6', d:'EL20', f:'C', s:'Kol', q:'Vilket grundämne har beteckningen C?', a:['kol'], b:'Kol (atomnummer 6)'},
+{id:'el-7', d:'EL20', f:'N', s:'Kväve', q:'Vilket grundämne har beteckningen N?', a:['kväve'], b:'Kväve (atomnummer 7)'},
+{id:'el-8', d:'EL20', f:'O', s:'Syre', q:'Vilket grundämne har beteckningen O?', a:['syre'], b:'Syre (atomnummer 8)'},
+{id:'el-9', d:'EL20', f:'F', s:'Fluor', q:'Vilket grundämne har beteckningen F?', a:['fluor'], b:'Fluor (atomnummer 9)'},
+{id:'el-10', d:'EL20', f:'Ne', s:'Neon', q:'Vilket grundämne har beteckningen Ne?', a:['neon'], b:'Neon (atomnummer 10)'},
+{id:'el-11', d:'EL20', f:'Na', s:'Natrium', q:'Vilket grundämne har beteckningen Na?', a:['natrium'], b:'Natrium (atomnummer 11)'},
+{id:'el-12', d:'EL20', f:'Mg', s:'Magnesium', q:'Vilket grundämne har beteckningen Mg?', a:['magnesium'], b:'Magnesium (atomnummer 12)'},
+{id:'el-13', d:'EL20', f:'Al', s:'Aluminium', q:'Vilket grundämne har beteckningen Al?', a:['aluminium'], b:'Aluminium (atomnummer 13)'},
+{id:'el-14', d:'EL20', f:'Si', s:'Kisel', q:'Vilket grundämne har beteckningen Si?', a:['kisel'], b:'Kisel (atomnummer 14)'},
+{id:'el-15', d:'EL20', f:'P', s:'Fosfor', q:'Vilket grundämne har beteckningen P?', a:['fosfor'], b:'Fosfor (atomnummer 15)'},
+{id:'el-16', d:'EL20', f:'S', s:'Svavel', q:'Vilket grundämne har beteckningen S?', a:['svavel'], b:'Svavel (atomnummer 16)'},
+{id:'el-17', d:'EL20', f:'Cl', s:'Klor', q:'Vilket grundämne har beteckningen Cl?', a:['klor'], b:'Klor (atomnummer 17)'},
+{id:'el-18', d:'EL20', f:'Ar', s:'Argon', q:'Vilket grundämne har beteckningen Ar?', a:['argon'], b:'Argon (atomnummer 18)'},
+{id:'el-19', d:'EL20', f:'K', s:'Kalium', q:'Vilket grundämne har beteckningen K?', a:['kalium'], b:'Kalium (atomnummer 19)'},
+{id:'el-20', d:'EL20', f:'Ca', s:'Kalcium', q:'Vilket grundämne har beteckningen Ca?', a:['kalcium'], b:'Kalcium (atomnummer 20)'}
+]);
+
+/* BEGREPPSKORT 3: MATERIA OCH BLANDNINGAR. */
+window.KORT = (window.KORT || []).concat([
+{id:'m-materia', d:'MAT', f:'Materia', a:['materia'],
+ b:'Allt som har massa och tar plats. All materia är uppbyggd av atomer.',
+ c:'Materia delas in i grundämnen och kemiska föreningar, rena ämnen och blandningar, organiska och oorganiska ämnen, och grundämnena i metaller, halvmetaller och ickemetaller.'},
+{id:'m-rent', d:'MAT', f:'Rent ämne', a:['rent ämne','rena ämnen'],
+ b:'Ett ämne som består av ett enda grundämne eller en enda sorts kemisk förening, till exempel guld, O<sub>2</sub>, H<sub>2</sub>O eller NaCl.',
+ c:'Alla ämnen är antingen rena ämnen eller blandningar.'},
+{id:'m-forening', d:'MAT', f:'Kemisk förening', a:['kemisk förening','förening','kemiska föreningar'],
+ b:'Ett ämne av två eller flera grundämnen som har reagerat med varandra och bundits ihop, till exempel H<sub>2</sub>O och NaCl.',
+ c:'En förening kan inte delas upp med fysikaliska metoder, bara med en ny kemisk reaktion. O<sub>2</sub> är ingen förening, eftersom den bara innehåller ett grundämne.'},
+{id:'m-blandning', d:'MAT', f:'Kemisk blandning', a:['kemisk blandning','blandning','blandningar'],
+ b:'Två eller flera ämnen som är blandade men har kvar sina egenskaper.',
+ c:'Ämnena i en blandning kan separeras med fysikaliska metoder, till exempel filtrering eller destillation. Saltvatten är en blandning, NaCl är en förening.'},
+{id:'m-homogen', d:'MAT', f:'Homogen blandning', a:['homogen blandning','homogen'],
+ b:'En blandning där delarna inte går att urskilja, varken med blotta ögat eller i mikroskop, till exempel saltvatten och luft.',
+ c:'Separeras till exempel med destillation, indunstning eller avdunstning. Legeringar är homogena blandningar av metaller.'},
+{id:'m-heterogen', d:'MAT', f:'Heterogen blandning', a:['heterogen blandning','heterogen'],
+ b:'En blandning där delarna går att urskilja med blotta ögat eller i mikroskop, till exempel sand och vatten eller olja och vatten.',
+ c:'Separeras till exempel med silning, filtrering eller dekantering.'},
+{id:'m-losning', d:'MAT', f:'Lösning', a:['lösning','lösningar'],
+ b:'En homogen blandning där ett ämne, det lösta ämnet, har lösts i ett lösningsmedel, oftast vatten. Exempel: koksalt i vatten.',
+ c:'Det lösta ämnet går inte att se och går inte att filtrera bort, men kan fås tillbaka genom indunstning.'},
+{id:'m-legering', d:'MAT', f:'Legering', a:['legering','legeringar'],
+ b:'En fast homogen blandning av metaller, till exempel brons (koppar och tenn), mässing (koppar och zink) och stål (järn med lite kol).'},
+{id:'m-organisk', d:'MAT', f:'Organiskt ämne', a:['organiskt ämne','organiska ämnen','organisk','organiskt'],
+ b:'En kolförening, oftast med bindningar mellan kol och väte, till exempel metan (CH<sub>4</sub>) och etanol.',
+ c:'Koldioxid (CO<sub>2</sub>) räknas som oorganiskt trots att det innehåller kol. Kolföreningarna går ni igenom mer längre fram i kursen.'},
+{id:'m-oorganisk', d:'MAT', f:'Oorganiskt ämne', a:['oorganiskt ämne','oorganiska ämnen','oorganisk','oorganiskt'],
+ b:'Ämnen som inte är organiska, till exempel NaCl, H<sub>2</sub>O och CO<sub>2</sub>.'},
+{id:'m-aggregation', d:'MAT', f:'Aggregationstillstånd', a:['aggregationstillstånd','aggregationsform','fas','faser'],
+ b:'Den form ett ämne har: fast, flytande eller gas.',
+ c:'Formen beror på hur mycket partiklarna rör sig: lite i fast form, mer i flytande och mest i gas. När ämnet värms ökar rörelsen, när det kyls minskar den.'},
+{id:'m-fast', d:'MAT', f:'Fast fas', a:['fast fas','fast form','fast'],
+ b:'Partiklarna sitter tätt på fasta platser med starka sammanhållande krafter och kan bara vibrera. Den minst energirika fasen.'},
+{id:'m-flytande', d:'MAT', f:'Flytande fas', a:['flytande fas','vätskefas','flytande','vätska'],
+ b:'Partiklarna ligger tätt men kan röra sig förbi varandra, med sammanhållande krafter mellan sig. En vätska kan inte pressas ihop.'},
+{id:'m-gas', d:'MAT', f:'Gasfas', a:['gasfas','gas','gasform'],
+ b:'Partiklarna rör sig fritt och oberoende av varandra, med stora avstånd. Den mest energirika fasen. En gas kan pressas ihop.'},
+{id:'m-smaltning', d:'MAT', f:'Smältning', a:['smältning','smälter'],
+ b:'Fast → flytande. Ämnet tar upp energi.'},
+{id:'m-stelning', d:'MAT', f:'Stelning', a:['stelning','stelnar','frysning'],
+ b:'Flytande → fast. Ämnet avger energi.'},
+{id:'m-angbildning', d:'MAT', f:'Ångbildning', a:['ångbildning','förångning'],
+ b:'Flytande → gas (förångning). Ämnet tar upp energi.'},
+{id:'m-kondensering', d:'MAT', f:'Kondensering', a:['kondensering','kondensation','kondenserar'],
+ b:'Gas → flytande. Ämnet avger energi.'},
+{id:'m-sublimering', d:'MAT', f:'Sublimering', a:['sublimering','sublimerar'],
+ b:'Fast → gas (eller gas → fast) utan att ämnet blir flytande, till exempel jod och torris (fast koldioxid).'},
+{id:'m-fasovergang', d:'MAT', f:'Fasövergång', a:['fasövergång','fasövergångar'],
+ b:'När ett ämne byter aggregationstillstånd, till exempel smältning eller kondensering.',
+ c:'Vid en fasövergång ändras ämnets volym och densitet, men det är fortfarande samma ämne.'},
+{id:'m-smaltpunkt', d:'MAT', f:'Smältpunkt', a:['smältpunkt','smältpunkten'],
+ b:'Den temperatur där ett ämne går från fast till flytande form. Vatten: 0 °C.',
+ c:'Fryspunkten är samma temperatur, sett åt andra hållet (flytande → fast).'},
+{id:'m-fryspunkt', d:'MAT', f:'Fryspunkt', a:['fryspunkt','fryspunkten'],
+ b:'Den temperatur där ett ämne går från flytande till fast form. Den är samma som smältpunkten, för vatten 0 °C.'},
+{id:'m-kokpunkt', d:'MAT', f:'Kokpunkt', a:['kokpunkt','kokpunkten'],
+ b:'Den temperatur där ett ämne går från flytande form till gas. Vatten: 100 °C vid normalt lufttryck.',
+ c:'Ju starkare krafterna mellan partiklarna är, desto högre är kokpunkten.'},
+{id:'m-avdunstning', d:'MAT', f:'Avdunstning', a:['avdunstning','avdunstar'],
+ b:'När partiklar med hög energi lämnar vätskeytan och blir gas, utan att vätskan kokar.',
+ c:'Det kostar energi, så vätskan och det den sitter på kyls av. Ämnen med låg kokpunkt avdunstar snabbare.'},
+{id:'m-filtrering', d:'MAT', f:'Filtrering', a:['filtrering','filtrera'],
+ b:'Separerar ett fast, olösligt ämne från en vätska med hjälp av ett filterpapper, till exempel sand från saltvatten.',
+ c:'Vätskan som går igenom kallas filtrat. Filtrering fungerar på heterogena blandningar, inte på lösningar.'},
+{id:'m-indunstning', d:'MAT', f:'Indunstning', a:['indunstning','indunsta'],
+ b:'Vätskan värms bort så att det lösta ämnet blir kvar, till exempel salt ur saltvatten.',
+ c:'Värm inte för hårt, och lyft bort bägaren precis innan allt vatten är borta.'},
+{id:'m-destillation', d:'MAT', f:'Destillation', a:['destillation','destillera'],
+ b:'Separerar vätskor med olika kokpunkter: blandningen värms, ämnet med lägst kokpunkt förångas först, kyls och kondenserar och samlas upp.',
+ c:'Används också för att få rent, destillerat vatten ur saltvatten.'},
+{id:'m-dekantering', d:'MAT', f:'Dekantering', a:['dekantering','dekantera'],
+ b:'Vätskan hälls försiktigt av från det som har sjunkit till botten.'},
+{id:'m-silning', d:'MAT', f:'Silning', a:['silning','sila'],
+ b:'Större fasta partiklar skiljs från en vätska med en sil, till exempel pasta från vatten.'},
+{id:'m-kromatografi', d:'MAT', f:'Kromatografi', a:['kromatografi'],
+ b:'Separerar ämnen i en blandning genom att de följer med ett lösningsmedel olika snabbt genom till exempel ett filterpapper.',
+ c:'Används till exempel för att se vilka färgämnen en tuschpenna innehåller.'},
+{id:'m-densitet', d:'MAT', f:'Densitet', a:['densitet','densiteten'],
+ b:'Massa per volym: ρ = m / V, oftast i g/cm<sup>3</sup>.',
+ c:'När ämnen blandas ändras densiteten. En saltlösning har högre densitet än rent vatten, och etanol och vatten tar tillsammans lite mindre plats än var för sig.'},
+{id:'m-masspektrometri', d:'MAT', f:'Masspektrometri', a:['masspektrometri','masspektrometer'],
+ b:'En analysmetod där partiklarna joniseras och sorteras efter massa. Används för att bestämma molekylers massa och vilka isotoper ett grundämne har.'},
+{id:'m-nmr', d:'MAT', f:'NMR', a:['nmr','kärnmagnetisk resonans'],
+ b:'Kärnmagnetisk resonans: en analysmetod med starkt magnetfält och radiovågor som visar hur atomerna sitter ihop i en molekyl.'}
+]);
+
+/* BEGREPPSKORT 4: KEMISK BINDNING (inom molekyler och jonföreningar), LABORATION, SAMMANSATTA JONER och LÅGFÄRGER. */
+window.KORT = (window.KORT || []).concat([
+{id:'k-bindning', d:'BIND', f:'Kemisk bindning', a:['kemisk bindning','bindning','kemiska bindningar'],
+ b:'Det som håller ihop atomer eller joner. De tre huvudtyperna är jonbindning, kovalent bindning och metallbindning.',
+ c:'Bindningstypen avgör ämnets egenskaper, till exempel smältpunkt, om det leder ström och om det är sprött eller böjligt.'},
+{id:'k-intra', d:'BIND', f:'Intramolekylär bindning', a:['intramolekylär bindning','intramolekylär','intramolekylära bindningar'],
+ b:'Bindning inom en molekyl, alltså kovalent bindning mellan atomerna i molekylen.',
+ c:'Den är stark. Bindningar mellan molekyler (intermolekylära) är mycket svagare.'},
+{id:'k-jonbindning', d:'BIND', f:'Jonbindning', a:['jonbindning','jonbindningar'],
+ b:'Bindning mellan en metall och en ickemetall: metallen avger elektroner och ickemetallen tar upp dem, och de positiva och negativa jonerna dras till varandra.',
+ c:'Skillnaden i elektronegativitet är större än 1,8. Bindningen är stark och ger hög smält- och kokpunkt, men kristallerna är spröda och går sönder vid slag.'},
+{id:'k-jonforening', d:'BIND', f:'Jonförening', a:['jonförening','jonföreningar','salt'],
+ b:'En förening av joner som sitter ihop med jonbindning i en kristall, till exempel natriumklorid, NaCl.',
+ c:'I fast form leder den inte ström, eftersom jonerna sitter fast. Löst i vatten eller som smälta leder den ström, eftersom jonerna då kan röra sig.'},
+{id:'k-kovalent', d:'BIND', f:'Kovalent bindning', a:['kovalent bindning','kovalent','molekylbindning'],
+ b:'Bindning mellan ickemetaller där atomerna delar på elektronpar och på så sätt får en gemensam ädelgasstruktur. Kallas också molekylbindning.',
+ c:'Den är en stark bindning inom molekylen. Den kan vara ren (lika delning) eller polär (ojämn delning).'},
+{id:'k-ren', d:'BIND', f:'Ren kovalent bindning', a:['ren kovalent bindning','opolär kovalent bindning'],
+ b:'Kovalent bindning där elektronparet delas lika, eftersom skillnaden i elektronegativitet är 0. Exempel: H<sub>2</sub>, O<sub>2</sub> och Cl<sub>2</sub>.',
+ c:'Oftast två atomer av samma grundämne, alltså grundämnen som sitter ihop med kovalenta bindningar, till exempel vätgas, syrgas och diamant.'},
+{id:'k-polar', d:'BIND', f:'Polär kovalent bindning', a:['polär kovalent bindning','polär bindning'],
+ b:'Kovalent bindning där elektronparet delas ojämnt, eftersom skillnaden i elektronegativitet är större än 0 men mindre än 1,8.',
+ c:'Atomen med högst elektronegativitet får en liten negativ delladdning (δ<sup>−</sup>) och den andra en liten positiv (δ<sup>+</sup>). Exempel: H–Cl och O–H i vatten.'},
+{id:'k-en', d:'BIND', f:'Elektronegativitet', a:['elektronegativitet','elektronegativiteten'],
+ b:'En atoms förmåga att dra till sig elektroner i en bindning. Den saknar enhet och går från 0 till 4 (Paulingskalan).',
+ c:'Den ökar åt höger och uppåt i periodiska systemet, och fluor har högst. Skillnaden avgör bindningstypen: 0 ger ren kovalent, mellan 0 och 1,8 polär kovalent och över 1,8 jonbindning.'},
+{id:'k-metallbindning', d:'BIND', f:'Metallbindning', a:['metallbindning','metallbindningar'],
+ b:'Bindning mellan metallatomer: atomerna sitter så tätt att valenselektronerna kan röra sig fritt mellan dem.',
+ c:'De fria (delokaliserade) elektronerna gör att metaller leder ström och är böjliga. Ju fler valenselektroner som delas, desto högre smältpunkt och hårdare metall.'},
+{id:'k-delokaliserade', d:'BIND', f:'Delokaliserade elektroner', a:['delokaliserade elektroner','delokaliserad','delokaliserade'],
+ b:'Elektroner som kan röra sig fritt mellan atomerna, som valenselektronerna i en metall.',
+ c:'Därför leder metaller elektrisk ström.'},
+{id:'k-molekyl', d:'BIND', f:'Molekyl', a:['molekyl','molekyler'],
+ b:'Två eller flera atomer som hålls ihop av kovalenta bindningar, till exempel O<sub>2</sub>, H<sub>2</sub>O och CO<sub>2</sub>.',
+ c:'Atomerna kan vara av samma grundämne (O<sub>2</sub>) eller av olika (H<sub>2</sub>O). Bara molekyler med olika grundämnen är kemiska föreningar.'},
+{id:'k-sammansatt', d:'BIND', f:'Sammansatt jon', a:['sammansatt jon','sammansatta joner'],
+ b:'En liten grupp ickemetallatomer som tillsammans har en laddning, till exempel OH<sup>−</sup>, SO<sub>4</sub><sup>2−</sup>, NO<sub>3</sub><sup>−</sup> och NH<sub>4</sub><sup>+</sup>.',
+ c:'Behövs flera av samma sammansatta jon i en formel sätts parentes runt den, till exempel Ca(OH)<sub>2</sub>.'},
+{id:'k-formelenhet', d:'BIND', f:'Formelenhet', a:['formelenhet','formelenheten'],
+ b:'Den minsta enhet som upprepas i en jonkristall, till exempel NaCl och CaCl<sub>2</sub>. Den positiva jonen skrivs först.',
+ c:'Man säger formelenhet i stället för molekyl eller summaformel, eftersom en jonförening inte består av molekyler.'},
+{id:'k-summaformel', d:'BIND', f:'Summaformel', a:['summaformel','summaformeln'],
+ b:'Visar hur många atomer av varje grundämne som finns i en molekyl, till exempel H<sub>2</sub>O och C<sub>2</sub>H<sub>6</sub> (etan).'},
+{id:'k-strukturformel', d:'BIND', f:'Strukturformel', a:['strukturformel','strukturformeln'],
+ b:'Visar hur atomerna i en molekyl sitter ihop: varje elektronpar i en bindning ritas som ett streck. Fria elektronpar ritas inte ut.'},
+{id:'k-molekylformel', d:'BIND', f:'Molekylformel', a:['molekylformel','molekylformeln'],
+ b:'I arbetspaketet: en ritad formel där både elektronparen i bindningarna (streck) och de fria elektronparen (streck eller två prickar) syns.'},
+{id:'k-empirisk', d:'BIND', f:'Empirisk formel', a:['empirisk formel','empiriska formeln'],
+ b:'Det minsta heltalsförhållandet mellan atomerna, till exempel CH<sub>3</sub> för etan (C<sub>2</sub>H<sub>6</sub>) och C<sub>2</sub>H<sub>5</sub> för butan (C<sub>4</sub>H<sub>10</sub>).',
+ c:'För vatten är den samma som summaformeln, H<sub>2</sub>O. För etan går det tre väteatomer på varje kolatom.'},
+{id:'k-elektronformel', d:'BIND', f:'Elektronformel (Lewis-formel)', a:['elektronformel','lewisformel','lewis-formel','elektronformeln'],
+ b:'Visar valenselektronerna som prickar runt grundämnets tecken, till exempel Cl med sju prickar.',
+ c:'Prickarna sätts ut en i taget: höger, vänster, ovanför och under, och sedan i par.'},
+{id:'k-fria-par', d:'BIND', f:'Fritt elektronpar', a:['fritt elektronpar','fria elektronpar'],
+ b:'Ett elektronpar som inte ingår i någon bindning, till exempel de två paren på syreatomen i vatten.'},
+{id:'k-molekylmassa', d:'BIND', f:'Molekylmassa', a:['molekylmassa','molekylmassan'],
+ b:'Summan av atommassorna i en molekyl, till exempel CO<sub>2</sub>: 12,0 + 2 · 16,0 = 44,0 u.'},
+{id:'k-formelmassa', d:'BIND', f:'Formelmassa', a:['formelmassa','formelmassan'],
+ b:'Summan av atommassorna i en formelenhet för en jonförening, till exempel NaCl: 23,0 + 35,5 = 58,5 u.',
+ c:'Den heter formelmassa i stället för molekylmassa, eftersom jonföreningar inte består av molekyler.'},
+
+{id:'l-fragestallning', d:'LAB', f:'Naturvetenskaplig frågeställning', a:['naturvetenskaplig frågeställning','frågeställning'],
+ b:'En fråga som går att undersöka och besvara med observationer, mätningar eller experiment.',
+ c:'Exempel: ”Hur påverkar salt hur fort is smälter?” En åsiktsfråga, som ”Är saltvatten äckligt?”, går inte att mäta och är inte naturvetenskaplig.'},
+{id:'l-hypotes', d:'LAB', f:'Hypotes', a:['hypotes','hypotesen'],
+ b:'Ett testbart påstående om vad du tror ska hända i ett experiment, skrivet före försöket och med en förklaring till varför.',
+ c:'Den formuleras gärna ”Om … så … eftersom …”. Efter försöket jämför man resultatet med hypotesen, och hypotesen kan visa sig vara fel.'},
+{id:'l-slutsats', d:'LAB', f:'Slutsats', a:['slutsats','slutsatsen'],
+ b:'Svaret på frågeställningen, grundat på resultaten. Den säger om hypotesen stämde.'},
+{id:'l-felkalla', d:'LAB', f:'Felkälla', a:['felkälla','felkällor'],
+ b:'Något som kan ha gjort resultatet osäkert, till exempel avläsningsfel, förluster vid överhällning, något som inte var torrt eller en våg som visar fel.',
+ c:'I rapporten beskriver man hur felkällorna påverkar resultatet och hur försöket kan förbättras.'},
+{id:'l-risk', d:'LAB', f:'Riskbedömning', a:['riskbedömning','riskbedömningen'],
+ b:'En genomgång före laborationen av vad som kan vara farligt, till exempel frätande, brandfarligt, giftigt, varmt eller glas, och hur man skyddar sig.'},
+{id:'l-rapport', d:'LAB', f:'Labbrapport', a:['labbrapport','laborationsrapport'],
+ b:'En rapport om en laboration med syfte eller frågeställning, hypotes, material, genomförande, resultat, diskussion med felkällor och slutsats.',
+ c:'Den ska vara skriven så att någon annan kan upprepa försöket.'},
+{id:'l-modell', d:'LAB', f:'Modell', a:['modell','modeller'],
+ b:'En förenklad bild av verkligheten som hjälper oss att förstå och förutsäga, till exempel en atommodell.',
+ c:'Modeller och teorier ändras när nya experiment visar något som de inte kan förklara, till exempel när Bohrs modell byggdes ut till orbitalmodellen.'},
+{id:'l-matning', d:'LAB', f:'Vollpipett', a:['vollpipett','vollpipetten'], q:'Vilket redskap ger den noggrannaste volymen när man ska mäta upp till exempel 20 ml?',
+ b:'Det noggrannaste redskapet för att mäta upp en bestämd volym, till exempel 20 ml. Sedan kommer graderad pipett och mätglas, och bägarens gradering är bara en grov uppskattning.',
+ c:'Man väljer redskap efter hur noggrant det behöver vara. Noggrannheten kan kontrolleras genom att väga vattnet, eftersom 1 cm<sup>3</sup> vatten väger ungefär 1 g.'},
+{id:'l-menisk', d:'LAB', f:'Menisk', a:['menisk','menisken'],
+ b:'Den buktande vätskeytan i ett mätglas. Man läser av vid menisken nedre kant, med ögonen i samma höjd som vätskeytan.'},
+
+{id:'j-oh', d:'JON', f:'Hydroxidjon', s:'OH<sup>−</sup>', q:'Vilken formel har hydroxidjonen? (Skriv till exempel OH-)', a:['OH-'], b:'OH<sup>−</sup>'},
+{id:'j-so4', d:'JON', f:'Sulfatjon', s:'SO<sub>4</sub><sup>2−</sup>', q:'Vilken formel har sulfatjonen? (Skriv till exempel SO4 2-)', a:['SO4 2-'], b:'SO<sub>4</sub><sup>2−</sup>'},
+{id:'j-no3', d:'JON', f:'Nitratjon', s:'NO<sub>3</sub><sup>−</sup>', q:'Vilken formel har nitratjonen?', a:['NO3-'], b:'NO<sub>3</sub><sup>−</sup>'},
+{id:'j-nh4', d:'JON', f:'Ammoniumjon', s:'NH<sub>4</sub><sup>+</sup>', q:'Vilken formel har ammoniumjonen?', a:['NH4+'], b:'NH<sub>4</sub><sup>+</sup>'},
+{id:'j-po4', d:'JON', f:'Fosfatjon', s:'PO<sub>4</sub><sup>3−</sup>', q:'Vilken formel har fosfatjonen?', a:['PO4 3-'], b:'PO<sub>4</sub><sup>3−</sup>'},
+{id:'j-co3', d:'JON', f:'Karbonatjon', s:'CO<sub>3</sub><sup>2−</sup>', q:'Vilken formel har karbonatjonen?', a:['CO3 2-'], b:'CO<sub>3</sub><sup>2−</sup>'},
+
+{id:'lf-li', d:'LAG', f:'Litium (Li)', s:'Karminröd', q:'Vilken lågfärg ger litium?', a:['karminröd','karminrött','karminröd låga'], b:'Karminröd låga'},
+{id:'lf-na', d:'LAG', f:'Natrium (Na)', s:'Gul', q:'Vilken lågfärg ger natrium?', a:['gul','gult','gul låga'], b:'Gul låga'},
+{id:'lf-k', d:'LAG', f:'Kalium (K)', s:'Rödviolett', q:'Vilken lågfärg ger kalium?', a:['rödviolett','rödvioletta','lila','violett'], b:'Rödviolett låga'},
+{id:'lf-cs', d:'LAG', f:'Cesium (Cs)', s:'Blåviolett', q:'Vilken lågfärg ger cesium?', a:['blåviolett','blåvioletta'], b:'Blåviolett låga'},
+{id:'lf-ca', d:'LAG', f:'Kalcium (Ca)', s:'Orange', q:'Vilken lågfärg ger kalcium?', a:['orange','orangeröd','tegelröd'], b:'Orange låga'},
+{id:'lf-sr', d:'LAG', f:'Strontium (Sr)', s:'Röd', q:'Vilken lågfärg ger strontium?', a:['röd','rött','röd låga'], b:'Röd låga'},
+{id:'lf-ba', d:'LAG', f:'Barium (Ba)', s:'Grön', q:'Vilken lågfärg ger barium?', a:['grön','grönt','äppelgrön'], b:'Grön låga'},
+{id:'lf-cu', d:'LAG', f:'Koppar (Cu)', s:'Blågrön', q:'Vilken lågfärg ger koppar?', a:['blågrön','blågrönt','grönblå'], b:'Blågrön låga'}
+]);
+
+/* BEGREPPSKORT 5: LÖSNINGAR OCH BINDNINGAR MELLAN MOLEKYLER. Enligt planeringen kommer de efter E/C-provet, så leken är inte vald från början. */
+window.KORT = (window.KORT || []).concat([
+{id:'i-inter', d:'INTER', f:'Intermolekylär bindning', a:['intermolekylär bindning','intermolekylär','intermolekylära krafter','bindning mellan molekyler'],
+ b:'En bindning, eller kraft, mellan molekyler. Den är mycket svagare än bindningarna inom molekylerna.',
+ c:'Ju starkare krafterna mellan molekylerna är, desto högre kokpunkt har ämnet. De tre typerna är van der Waals-krafter, dipol-dipolbindning och vätebindning.'},
+{id:'i-dipol', d:'INTER', f:'Dipol', a:['dipol','dipoler'],
+ b:'En osymmetrisk molekyl med en sida där positiv laddning överväger och en sida där negativ laddning överväger, alltså två poler.',
+ c:'Vatten är en dipol: bindningarna är polära och molekylen är osymmetrisk, så laddningarna tar inte ut varandra.'},
+{id:'i-polart', d:'INTER', f:'Polärt ämne', a:['polärt ämne','polär','polära ämnen','polärt'],
+ b:'Ett ämne vars molekyler är dipoler, till exempel vatten.'},
+{id:'i-opolart', d:'INTER', f:'Opolärt ämne', a:['opolärt ämne','opolär','opolära ämnen','opolärt'],
+ b:'Ett ämne vars molekyler är symmetriska och saknar fasta delladdningar, till exempel olja och koldioxid.'},
+{id:'i-dipoldipol', d:'INTER', f:'Dipol-dipolbindning', a:['dipol-dipolbindning','dipoldipolbindning','dipol-dipol'],
+ b:'En kraft mellan polära molekyler: den positiva sidan av en molekyl dras till den negativa sidan av en annan.',
+ c:'Den är starkare än van der Waals-krafter men mycket svagare än kovalenta bindningar.'},
+{id:'i-vatebindning', d:'INTER', f:'Vätebindning', a:['vätebindning','vätebindningar'],
+ b:'En stark dipol-dipolbindning mellan molekyler där väte är bundet till kväve, syre eller fluor (N, O eller F). Vätet dras till ett fritt elektronpar på en N-, O- eller F-atom i en annan molekyl.',
+ c:'Vätebindningar ger vatten dess höga kokpunkt. I arbetspaketet står klor i stället för kväve, men det är N, O och F som gäller.'},
+{id:'i-vdw', d:'INTER', f:'Van der Waals-kraft', a:['van der waals-kraft','van der waals','van der waals-krafter','van der waalskraft'],
+ b:'En svag kraft mellan opolära molekyler. Den uppstår när elektronerna för ett ögonblick fördelas ojämnt, så att det bildas tillfälliga laddningar.',
+ c:'Den är den svagaste kraften mellan molekyler, så opolära ämnen har ofta låga kokpunkter. Kraften blir större ju större molekylerna är.'},
+{id:'i-likaloser', d:'INTER', f:'Lika löser lika', a:['lika löser lika'],
+ b:'Ämnen med liknande uppbyggnad kan blandas: polära ämnen löser sig i polära (till exempel vatten) och opolära i opolära.',
+ c:'Därför blandas inte olja (opolär) och vatten (polärt).'},
+{id:'i-hydratisering', d:'INTER', f:'Hydratisering', a:['hydratisering','hydratiseras','hydratiserad'],
+ b:'När en jonförening löses i vatten omges jonerna av vattenmolekyler: syret (negativ sida) vänds mot de positiva jonerna och vätena (positiv sida) mot de negativa.',
+ c:'Jonerna kan då röra sig fritt, så lösningen leder ström.'},
+{id:'i-hydratiseringsenergi', d:'INTER', f:'Hydratiseringsenergi', a:['hydratiseringsenergi','hydratiseringsenergin'],
+ b:'Energi som hör ihop med att ett ämne löses i vatten, när vattenmolekylerna binder till jonerna (hydratiserar dem).',
+ c:'Arbetspaketet beskriver den som energin som går åt för att lösa upp ett ämne i vatten. Egentligen frigörs energi när vattenmolekylerna binder till jonerna, medan det krävs energi för att bryta isär kristallen.'},
+{id:'i-kristallvatten', d:'INTER', f:'Kristallvatten', a:['kristallvatten'],
+ b:'Vattenmolekyler som sitter inne i en kristall mellan jonerna, till exempel i blått kopparsulfat.',
+ c:'De tränger in i hålrum mellan jonerna, eller följer med metalljoner som har bundit vatten till sig.'},
+{id:'i-loslighet', d:'INTER', f:'Löslighet', a:['löslighet','lösligheten'],
+ b:'Hur mycket av ett ämne som kan lösas i en viss mängd lösningsmedel, alltså koncentrationen i en mättad lösning.',
+ c:'Lösligheten beror på temperaturen. För de flesta fasta ämnen ökar den när vattnet blir varmare.'},
+{id:'i-mattad', d:'INTER', f:'Mättad lösning', a:['mättad lösning','mättad'],
+ b:'En lösning där det inte går att lösa något mer av ämnet.'},
+{id:'i-fallning', d:'INTER', f:'Fällning', a:['fällning','fällningen','fällningar'],
+ b:'Ett fast ämne som bildas när två lösningar blandas och jonerna bildar en jonförening som inte löser sig i vatten, till exempel gul silverjodid eller vit bariumsulfat.',
+ c:'Fällningen kan skiljas från lösningen med filtrering.'}
+]);
+
+/* ---------- Begreppskort: lekarna och rena hjälpfunktioner (ingen DOM, testas också i Node) ---------- */
+var KORT = (window.KORT || []).slice();
+var KDECKS = [
+  {id: 'ATOM', name: 'Atomen', on: true},
+  {id: 'ELEK', name: 'Elektroner och atommodeller', on: true},
+  {id: 'PSE', name: 'Periodiska systemet', on: true},
+  {id: 'MAT', name: 'Materia och blandningar', on: true},
+  {id: 'BIND', name: 'Kemisk bindning', on: true},
+  {id: 'LAB', name: 'Laboration och arbetssätt', on: true},
+  {id: 'GRP', name: 'Grupperna i periodiska systemet', on: true, fact: true},
+  {id: 'EL20', name: 'De 20 första grundämnena', on: true, fact: true},
+  {id: 'JON', name: 'Sammansatta joner', on: true, fact: true, formula: true},
+  {id: 'LAG', name: 'Lågfärger', on: true, fact: true},
+  {id: 'INTER', name: 'Lösningar och bindningar mellan molekyler', note: 'kommer efter E/C-provet', on: false}
+];
+var KDECK = {};
+KDECKS.forEach(function (d) { KDECK[d.id] = d; });
+
+var K_LETTERS = 'A-Za-zÅÄÖåäöÉéÜü';
+
+function kStripTags(html) { return String(html).replace(/<[^>]*>/g, ''); }
+
+// Gör om ett svar till en jämförbar form: små bokstäver, upphöjda/nedsänkta siffror som vanliga, inga skiljetecken, inget "en/ett" först.
+function kNorm(s) {
+  var sub = '₀₁₂₃₄₅₆₇₈₉', sup = '⁰¹²³⁴⁵⁶⁷⁸⁹';
+  s = String(s).toLowerCase()
+    .replace(/[₀₁₂₃₄₅₆₇₈₉]/g, function (c) { return String(sub.indexOf(c)); })
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, function (c) { return String(sup.indexOf(c)); })
+    .replace(/⁺/g, '+').replace(/[⁻−–—]/g, '-');
+  s = s.replace(/[^0-9a-zåäöéü+\- ]/g, ' ').replace(/\s+/g, ' ').trim();
+  return s.replace(/^(en|ett|de|den|det) /, '');
+}
+
+function kLev(a, b) {
+  var m = a.length, n = b.length, prev = [], cur, i, j;
+  if (!m) return n;
+  if (!n) return m;
+  for (j = 0; j <= n; j++) prev[j] = j;
+  for (i = 1; i <= m; i++) {
+    cur = [i];
+    for (j = 1; j <= n; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[n];
+}
+
+function kBaseTerm(card) { return kStripTags(card.f).replace(/\s*\([^)]*\)\s*/g, ' ').trim(); }
+
+function kAnswers(card) { return card.a && card.a.length ? card.a : [kBaseTerm(card)]; }
+
+// Rättar ett skrivet svar. Små stavfel och böjningar (isotoper, halogenerna) godkänns, formler måste stämma.
+function kCheck(card, input) {
+  var formula = KDECK[card.d] && KDECK[card.d].formula, u = kNorm(input), list = kAnswers(card), i, a, A, B, L, d;
+  if (!u) return false;
+  for (i = 0; i < list.length; i++) {
+    a = kNorm(list[i]);
+    A = u.replace(/ /g, '');
+    B = a.replace(/ /g, '');
+    if (formula) { if (A === B) return true; continue; }
+    if (u === a || A === B) return true;
+    if (B.length >= 5 && A.indexOf(B) === 0 && A.length - B.length <= 4) return true;
+    if (A.length >= 5 && B.indexOf(A) === 0 && B.length - A.length <= 3) return true;
+    L = B.length;
+    d = kLev(A, B);
+    if ((L >= 5 && d <= 1) || (L >= 9 && d <= 2)) return true;
+  }
+  return false;
+}
+
+// Orden som ska döljas när förklaringen visas först: begreppet själv (och dess andra namn).
+function kMaskWords(card) {
+  var f = kStripTags(card.f), words = [kBaseTerm(card)], m = f.match(/\(([^)]*)\)/), deck = KDECK[card.d] || {};
+  if (m && !/^\d+$/.test(m[1].trim()) && !/^[A-Z][a-z]?$/.test(m[1].trim())) words.push(m[1]);
+  if (!deck.fact && card.a) words = words.concat(card.a);
+  return words.filter(function (w) { return w && String(w).trim(); });
+}
+
+function kEsc(s) { return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function kMask(html, words) {
+  var TOKEN = '\u0001', parts = String(html).split(/(<[^>]+>)/), i;
+  words = words.map(function (w) { return String(w).toLowerCase().trim(); })
+    .sort(function (a, b) { return b.length - a.length; });
+  for (i = 0; i < parts.length; i += 2) {
+    words.forEach(function (w) {
+      var re, core;
+      if (w.length <= 3) {
+        re = new RegExp('(^|[^' + K_LETTERS + '0-9])(' + kEsc(w) + ')(?![' + K_LETTERS + '0-9])', 'gi');
+      } else {
+        core = w.length >= 7 ? w.slice(0, w.length - 2) : w;
+        re = new RegExp('(^|[^' + K_LETTERS + '])(' + kEsc(core).replace(/ /g, '\\s+') + '[' + K_LETTERS + '-]*)', 'gi');
+      }
+      parts[i] = parts[i].replace(re, '$1' + TOKEN);
+    });
+  }
+  return parts.join('').split(TOKEN).join('<span class="blank"><span class="sr">(dolt ord)</span></span>');
+}
+
+// Det man ser när man ska komma på svaret själv (förklaringen först eller skriv svaret).
+function kPrompt(card, mode) {
+  if (mode === 'type' && card.q) return card.q;
+  return kMask(card.b, kMaskWords(card));
+}
+
+/* ---------- Begreppskort, Läs och flikarna ---------- */
+var KLS = 'kemi1-kort-v1', LCLS = 'kemi1-las-v1';
+var KS = {mode: 'flip', len: '20', only: false, tab: 'start', st: {},
+  sel: KDECKS.filter(function (d) { return d.on; }).map(function (d) { return d.id; })};
+var KREVQ = {GRP: 'Vilken grupp är det?', EL20: 'Vilken beteckning har grundämnet?', JON: 'Vad heter jonen?', LAG: 'Vilket grundämne ger den här lågfärgen?'};
+var KMODES = {flip: 'begreppet först', rev: 'förklaringen först', type: 'skriv svaret', match: 'para ihop'};
+var krun = null, kResetTimer = null, kMatchTimer = null;
+var kTouch = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+
+function kLoad() {
+  try {
+    var o = JSON.parse(localStorage.getItem(KLS) || 'null'), sel;
+    if (!o) return;
+    if (/^(flip|rev|type|match)$/.test(o.mode)) KS.mode = o.mode;
+    if (/^(20|40|all)$/.test(String(o.len))) KS.len = String(o.len);
+    KS.only = o.only === true;
+    if (/^(start|kort-start|las)$/.test(o.tab)) KS.tab = o.tab;
+    if (Array.isArray(o.sel)) {
+      sel = KDECKS.map(function (d) { return d.id; }).filter(function (id) { return o.sel.indexOf(id) !== -1; });
+      if (sel.length) KS.sel = sel;
+    }
+    if (o.st && typeof o.st === 'object') {
+      KORT.forEach(function (c) { if (o.st[c.id] === 1 || o.st[c.id] === 0) KS.st[c.id] = o.st[c.id]; });
+    }
+  } catch (e) { /* inget sparat: standardvalen gäller */ }
+}
+
+function kSave() { try { localStorage.setItem(KLS, JSON.stringify(KS)); } catch (e) { /* ignore */ } }
+
+function kPool() {
+  return KORT.filter(function (c) {
+    return KS.sel.indexOf(c.d) !== -1 && (KS.mode !== 'match' || !!c.s) && !(KS.only && KS.st[c.id] === 1);
+  });
+}
+
+function kEffLen(total) { return KS.len === 'all' || parseInt(KS.len, 10) <= total ? KS.len : 'all'; }
+
+/* ----- val ----- */
+function kRenderDecks() {
+  $('kd-list').innerHTML = KDECKS.map(function (d) {
+    return '<label class="choice" for="kd-' + d.id + '"><input type="checkbox" name="kdeck" id="kd-' + d.id + '" value="' + d.id + '">' +
+      '<span>' + d.name + (d.note ? ' <span class="knote">(' + d.note + ')</span>' : '') + '</span>' +
+      '<span class="cnt" id="kdc-' + d.id + '"></span></label>';
+  }).join('');
+}
+
+function kSync() {
+  var pool = kPool(), total = pool.length, eff = kEffLen(total), known = 0, nsel = 0, i, radios;
+  [['kmode', KS.mode], ['klen', eff]].forEach(function (p) {
+    radios = document.getElementsByName(p[0]);
+    for (i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === p[1]);
+  });
+  KDECKS.forEach(function (d) {
+    var box = $('kd-' + d.id), cards = KORT.filter(function (c) { return c.d === d.id; }),
+      kn = cards.filter(function (c) { return KS.st[c.id] === 1; }).length,
+      usable = KS.mode !== 'match' || cards.some(function (c) { return !!c.s; });
+    box.checked = usable && KS.sel.indexOf(d.id) !== -1;
+    box.disabled = !usable;
+    box.parentNode.classList.toggle('off', !usable);
+    if (usable && box.checked) nsel++;
+    $('kdc-' + d.id).textContent = usable ? cards.length + ' kort' + (kn ? ' · kan ' + kn : '') : 'inte i Para ihop';
+  });
+  ['20', '40'].forEach(function (len) {
+    var r = $('kl-' + len), fits = parseInt(len, 10) <= total;
+    r.disabled = !fits;
+    r.parentNode.classList.toggle('off', !fits);
+  });
+  $('kl-all-text').textContent = total ? 'Alla ' + total + ' kort' : 'Alla kort';
+  $('k-only').checked = KS.only;
+  $('k-sum').textContent = total ? plural(nsel, 'lek vald', 'lekar valda') + ' · ' + total + ' kort' + (KS.only ? ' som du inte kan än' : '') :
+    (nsel ? 'Du kan redan alla kort i de valda lekarna. Bocka ur ”Bara kort jag inte kan än” för att öva på dem igen.' : 'Ingen lek är vald. Välj minst en för att kunna börja.');
+  $('k-start').disabled = !total;
+  KORT.forEach(function (c) { if (KS.st[c.id] === 1) known++; });
+  $('k-prog').textContent = 'Du kan ' + known + ' av ' + KORT.length + ' kort.';
+  kDisarmReset();
+}
+
+function kDisarmReset() {
+  clearTimeout(kResetTimer);
+  $('k-reset').dataset.armed = '0';
+  $('k-reset').textContent = 'Börja om från noll';
+}
+
+/* ----- en omgång med kort ----- */
+function kStart(list) {
+  var pool = list || kPool(), n;
+  if (!pool.length) { kSync(); return; }
+  n = list ? pool.length : (kEffLen(pool.length) === 'all' ? pool.length : parseInt(KS.len, 10));
+  if (KS.mode === 'match' && !list) { kMatchStart(shuffle(pool), n); return; }
+  pool = shuffle(pool).slice(0, n);
+  krun = {mode: KS.mode, queue: pool.slice(), total: pool.length, done: 0, first: {}, fails: {}, order: [], card: null, flipped: false};
+  $('k-cardview').hidden = false;
+  $('k-match').hidden = true;
+  $('k-form').hidden = KS.mode !== 'type';
+  $('k-hint').textContent = kTouch ? '' : (KS.mode === 'type' ? 'Tangentbord: Enter rättar, sedan 1 = kunde inte och 2 = kunde.' : 'Tangentbord: mellanslag vänder kortet, 1 = kunde inte och 2 = kunde.');
+  show('kort');
+  kNext();
+}
+
+function kAnswerHtml(c) { return KDECK[c.d].fact ? c.s : kBaseTerm(c); }
+
+function kNext() {
+  var c, deck, front;
+  if (!krun.queue.length) { kFinish(); return; }
+  c = krun.card = krun.queue[0];
+  deck = KDECK[c.d];
+  krun.flipped = false;
+  $('k-count').textContent = krun.done + ' av ' + krun.total + ' klara';
+  $('k-meta').textContent = deck.name + (krun.fails[c.id] ? ' · igen' : '');
+  if (krun.mode === 'flip') front = '<p class="kterm">' + c.f + '</p>';
+  else if (krun.mode === 'type' && c.q) front = '<p class="kq">Skriv svaret</p><p class="kterm kask">' + c.q + '</p>';
+  else front = '<p class="kq">' + (KREVQ[c.d] || 'Vilket begrepp beskrivs?') + '</p><div class="kdef">' + kPrompt(c, krun.mode) + '</div>';
+  $('k-front').innerHTML = front;
+  $('k-back').innerHTML = '';
+  $('k-card').classList.remove('flipped');
+  $('k-front').setAttribute('aria-hidden', 'false');
+  $('k-back').setAttribute('aria-hidden', 'true');
+  $('k-flip-row').hidden = krun.mode === 'type';
+  $('k-grade-row').hidden = true;
+  $('k-verdict').hidden = true;
+  $('k-yes').textContent = 'Kunde';
+  $('k-no').textContent = 'Kunde inte';
+  $('k-yes').classList.add('primary');
+  $('k-no').classList.remove('primary');
+  if (krun.mode === 'type') {
+    $('k-input').value = '';
+    $('k-input').readOnly = false;
+    $('k-check').disabled = false;
+    if (!kTouch) $('k-input').focus({preventScroll: true});
+  } else if (!kTouch) {
+    $('k-flip').focus({preventScroll: true});
+  }
+}
+
+function kFlip() {
+  var c = krun && krun.card, html;
+  if (!c || krun.flipped) return;
+  krun.flipped = true;
+  html = '<p class="kterm">' + c.f + '</p><div class="kdef">' + c.b + '</div>' +
+    (c.c ? '<p class="kc"><span class="kc-l">Fördjupning (C):</span> ' + c.c + '</p>' : '');
+  $('k-back').innerHTML = html;
+  $('k-card').classList.add('flipped');
+  $('k-front').setAttribute('aria-hidden', 'true');
+  $('k-back').setAttribute('aria-hidden', 'false');
+  $('k-flip-row').hidden = true;
+  $('k-grade-row').hidden = false;
+  if (krun.mode !== 'type' && !kTouch) $('k-yes').focus({preventScroll: true});
+}
+
+function kGrade(ok) {
+  var c = krun && krun.card, pos;
+  if (!c || !krun.flipped) return;
+  krun.queue.shift();
+  if (krun.order.indexOf(c) === -1) krun.order.push(c);
+  if (ok) {
+    KS.st[c.id] = 1;
+    if (!krun.fails[c.id]) krun.first[c.id] = true;
+    krun.done++;
+  } else {
+    KS.st[c.id] = 0;
+    krun.fails[c.id] = (krun.fails[c.id] || 0) + 1;
+    if (krun.fails[c.id] >= 4) {
+      krun.done++;   // efter fyra försök går kortet vidare, så att omgången alltid tar slut
+    } else {
+      pos = krun.fails[c.id] >= 3 ? krun.queue.length : Math.min(krun.queue.length, 3 + Math.floor(Math.random() * 3));
+      krun.queue.splice(pos, 0, c);
+    }
+  }
+  kSave();
+  kNext();
+}
+
+function kFinish() {
+  var missed = krun.order.filter(function (c) { return krun.fails[c.id]; }), first = Object.keys(krun.first).length;
+  $('ks-kicker').textContent = 'Begreppskort · ' + KMODES[krun.mode];
+  $('ks-title').textContent = first + ' av ' + krun.total + ' direkt';
+  $('ks-msg').textContent = missed.length ?
+    'Du kunde ' + first + ' av ' + krun.total + ' kort på första försöket. De här övade du extra på:' :
+    'Du kunde alla kort på första försöket.';
+  $('ks-list').innerHTML = missed.map(function (c) { return '<li>' + c.f + (KDECK[c.d].fact ? ' – ' + c.s : '') + '</li>'; }).join('');
+  $('ks-list').hidden = !missed.length;
+  $('ks-again').hidden = !missed.length;
+  $('ks-again').textContent = missed.length === 1 ? 'Öva på det kortet igen' : 'Öva på de ' + missed.length + ' igen';
+  krun.missed = missed;
+  show('kort-slut');
+  $('ks-title').focus({preventScroll: true});
+}
+
+/* ----- para ihop ----- */
+// Varje omgång tar kort från en enda lek, så att till exempel "Na" (grundämnen) och "Natrium (Na)" (lågfärger) aldrig blandas ihop.
+function kMatchStart(pool, n) {
+  var by = {}, rounds = [], chosen = [], count = 0;
+  pool.forEach(function (c) { (by[c.d] = by[c.d] || []).push(c); });
+  Object.keys(by).forEach(function (d) {
+    var list = by[d], r = [], i, last;
+    for (i = 0; i < list.length; i += 6) r.push(list.slice(i, i + 6));
+    last = r[r.length - 1];
+    if (r.length > 1 && last.length < 3) { r.pop(); r[r.length - 1] = r[r.length - 1].concat(last); }
+    rounds = rounds.concat(r);
+  });
+  shuffle(rounds).forEach(function (r) { if (count < n) { chosen.push(r); count += r.length; } });
+  krun = {mode: 'match', rounds: chosen, r: 0, pick: null, wrong: 0, pairs: 0, total: count, left: 0};
+  $('k-cardview').hidden = true;
+  $('k-match').hidden = false;
+  show('kort');
+  kMatchRound();
+}
+
+function kMatchRound() {
+  var cards = krun.rounds[krun.r], btn = function (c, side) {
+    return '<button type="button" class="mbtn" data-id="' + c.id + '" data-side="' + side + '" aria-pressed="false">' + (side === 'l' ? c.f : c.s) + '</button>';
+  };
+  krun.pick = null;
+  krun.left = cards.length;
+  krun.deck = KDECK[cards[0].d].name;
+  $('k-count').textContent = 'Omgång ' + (krun.r + 1) + ' av ' + krun.rounds.length;
+  $('k-meta').textContent = krun.deck + (krun.wrong ? ' · ' + plural(krun.wrong, 'fel', 'fel') + ' hittills' : '');
+  $('km-left').innerHTML = shuffle(cards).map(function (c) { return btn(c, 'l'); }).join('');
+  $('km-right').innerHTML = shuffle(cards).map(function (c) { return btn(c, 'r'); }).join('');
+}
+
+function kMatchClick(b) {
+  var other, a;
+  if (!krun || krun.mode !== 'match' || b.disabled) return;
+  if (!krun.pick || krun.pick.dataset.side === b.dataset.side) {
+    if (krun.pick) krun.pick.setAttribute('aria-pressed', 'false');
+    krun.pick = b;
+    b.setAttribute('aria-pressed', 'true');
+    return;
+  }
+  other = krun.pick;
+  krun.pick = null;
+  other.setAttribute('aria-pressed', 'false');
+  if (other.dataset.id === b.dataset.id) {
+    [other, b].forEach(function (x) { x.classList.add('done'); x.disabled = true; });
+    krun.pairs++;
+    krun.left--;
+    a = KORT.filter(function (c) { return c.id === b.dataset.id; })[0];
+    $('km-live').textContent = 'Rätt: ' + kStripTags(a.f) + ' hör ihop med ' + kStripTags(a.s) + '.';
+    if (!krun.left) {
+      clearTimeout(kMatchTimer);
+      kMatchTimer = setTimeout(function () {
+        if (!krun || krun.mode !== 'match') return;
+        krun.r++;
+        if (krun.r < krun.rounds.length) kMatchRound(); else kMatchFinish();
+      }, 450);
+    }
+  } else {
+    krun.wrong++;
+    $('k-meta').textContent = krun.deck + ' · ' + plural(krun.wrong, 'fel', 'fel') + ' hittills';
+    $('km-live').textContent = 'Fel, de hör inte ihop. Försök igen.';
+    [other, b].forEach(function (x) {
+      x.classList.remove('wrong');
+      void x.offsetWidth;
+      x.classList.add('wrong');
+      setTimeout(function () { x.classList.remove('wrong'); }, 700);
+    });
+  }
+}
+
+function kMatchFinish() {
+  $('ks-kicker').textContent = 'Begreppskort · para ihop';
+  $('ks-title').textContent = krun.pairs + ' par klara';
+  $('ks-msg').textContent = krun.wrong ? 'Du parade ihop ' + krun.pairs + ' par med ' + plural(krun.wrong, 'fel', 'fel') + ' på vägen.' : 'Du parade ihop alla ' + krun.pairs + ' par utan fel.';
+  $('ks-list').innerHTML = '';
+  $('ks-list').hidden = true;
+  $('ks-again').hidden = true;
+  krun.missed = [];
+  show('kort-slut');
+  $('ks-title').focus({preventScroll: true});
+}
+
+/* ----- Läs ----- */
+function lcLoad() {
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(LCLS) || '{}') || {}; } catch (e) { saved = {}; }
+  Array.prototype.forEach.call(document.querySelectorAll('#lc-list input[data-lc]'), function (b) { b.checked = saved[b.dataset.lc] === true; });
+  lcCount();
+}
+
+function lcCount() {
+  var boxes = document.querySelectorAll('#lc-list input[data-lc]'), n = 0, i;
+  for (i = 0; i < boxes.length; i++) if (boxes[i].checked) n++;
+  $('lc-count').textContent = 'Du har bockat av ' + n + ' av ' + boxes.length + '.';
+}
+
+/* ----- händelser ----- */
+$('go-prov').addEventListener('click', function () { syncSetup(); show('start'); KS.tab = 'start'; kSave(); });
+$('go-kort').addEventListener('click', function () { kSync(); show('kort-start'); KS.tab = 'kort-start'; kSave(); });
+$('go-las').addEventListener('click', function () { show('las'); KS.tab = 'las'; kSave(); });
+
+$('kort-setup').addEventListener('change', function (e) {
+  var t = e.target;
+  if (!t) return;
+  if (t.name === 'kdeck') {
+    // bara den ändrade leken påverkas, så att lekar som inte går att para ihop finns kvar när man byter tillbaka
+    KS.sel = KS.sel.filter(function (id) { return id !== t.value; });
+    if (t.checked) KS.sel.push(t.value);
+    KS.sel = KDECKS.map(function (d) { return d.id; }).filter(function (id) { return KS.sel.indexOf(id) !== -1; });
+  } else if (t.name === 'kmode') {
+    KS.mode = t.value;
+    if (KS.mode === 'match' && !KS.sel.some(function (id) { return KDECK[id].fact; })) KS.sel = KS.sel.concat(['GRP', 'EL20', 'JON', 'LAG']);
+  } else if (t.name === 'klen') KS.len = t.value;
+  else if (t.id === 'k-only') KS.only = t.checked;
+  else return;
+  kSave();
+  kSync();
+});
+$('kd-all').addEventListener('click', function () {
+  KS.sel = KDECKS.filter(function (d) { return KS.sel.indexOf(d.id) !== -1 || KS.mode !== 'match' || d.fact; }).map(function (d) { return d.id; });
+  kSave(); kSync();
+});
+$('kd-none').addEventListener('click', function () { KS.sel = []; kSave(); kSync(); });
+$('kort-setup').addEventListener('submit', function (e) { e.preventDefault(); kStart(); });
+$('k-reset').addEventListener('click', function () {
+  var b = $('k-reset');
+  if (b.dataset.armed === '1') { KS.st = {}; kSave(); kSync(); return; }
+  b.dataset.armed = '1';
+  b.textContent = 'Klicka igen för att nollställa det du kan';
+  kResetTimer = setTimeout(kDisarmReset, 4000);
+});
+
+$('k-card').addEventListener('click', function () { if (krun && krun.mode !== 'type') kFlip(); });
+$('k-flip').addEventListener('click', kFlip);
+$('k-yes').addEventListener('click', function () { kGrade(true); });
+$('k-no').addEventListener('click', function () { kGrade(false); });
+$('k-form').addEventListener('submit', function (e) {
+  var val = $('k-input').value, ok, v = $('k-verdict');
+  e.preventDefault();
+  if (!krun || krun.mode !== 'type' || krun.flipped) return;
+  if (!val.trim()) { $('k-input').focus(); return; }
+  ok = kCheck(krun.card, val);
+  $('k-input').readOnly = true;
+  $('k-check').disabled = true;
+  kFlip();
+  v.className = 'verdict ' + (ok ? 'ok' : 'bad');
+  v.innerHTML = ok ? '✓ Rätt!' : '✗ Inte riktigt. Rätt svar: ' + kAnswerHtml(krun.card);
+  v.hidden = false;
+  $('k-yes').textContent = ok ? 'Nästa' : 'Jag hade rätt';
+  $('k-no').textContent = ok ? 'Jag kunde inte' : 'Nästa';
+  $('k-yes').classList.toggle('primary', ok);
+  $('k-no').classList.toggle('primary', !ok);
+  if (!kTouch) (ok ? $('k-yes') : $('k-no')).focus({preventScroll: true});
+});
+$('k-quit').addEventListener('click', function () { clearTimeout(kMatchTimer); krun = null; kSync(); show('kort-start'); });
+
+$('km-left').addEventListener('click', function (e) { var b = e.target.closest('.mbtn'); if (b) kMatchClick(b); });
+$('km-right').addEventListener('click', function (e) { var b = e.target.closest('.mbtn'); if (b) kMatchClick(b); });
+
+$('ks-again').addEventListener('click', function () { if (krun && krun.missed && krun.missed.length) kStart(krun.missed.slice()); });
+$('ks-new').addEventListener('click', function () { kStart(); });
+$('ks-setup').addEventListener('click', function () { kSync(); show('kort-start'); });
+
+document.addEventListener('keydown', function (e) {
+  var t = e.target, tag = t && t.tagName;
+  if ($('screen-kort').hidden || !krun || krun.mode === 'match' || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON' || (t && t.closest && t.closest('dialog'))) return;
+  if ((e.key === ' ' || e.key === 'Enter') && !krun.flipped && krun.mode !== 'type') { e.preventDefault(); kFlip(); }
+  else if (e.key === '1' && krun.flipped) { e.preventDefault(); kGrade(false); }
+  else if (e.key === '2' && krun.flipped) { e.preventDefault(); kGrade(true); }
+});
+// Siffrorna fungerar också när fokus står på knapparna efter att kortet vänts.
+$('k-grade-row').addEventListener('keydown', function (e) {
+  if (e.key === '1') { e.preventDefault(); kGrade(false); } else if (e.key === '2') { e.preventDefault(); kGrade(true); }
+});
+
+$('screen-las').addEventListener('click', function (e) {
+  var b = e.target.closest('button'), deck;
+  if (!b) return;
+  if (b.hasAttribute('data-top')) { window.scrollTo(0, 0); $('las-h').focus({preventScroll: true}); return; }
+  deck = b.getAttribute('data-kdeck');
+  if (!deck || !KDECK[deck]) return;
+  KS.sel = [deck];
+  KS.only = false;
+  if (KS.mode === 'match' && !KDECK[deck].fact) KS.mode = 'flip';
+  kSave();
+  kSync();
+  kStart();
+});
+$('lc-list').addEventListener('change', function () {
+  var saved = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#lc-list input[data-lc]'), function (b) { if (b.checked) saved[b.dataset.lc] = true; });
+  try { localStorage.setItem(LCLS, JSON.stringify(saved)); } catch (e) { /* ignore */ }
+  lcCount();
+});
+
+/* ----- start ----- */
+kLoad();
+kRenderDecks();
+kSync();
+lcLoad();
+if (KS.tab === 'kort-start' || KS.tab === 'las') show(KS.tab);
 
 (function(){
 try{

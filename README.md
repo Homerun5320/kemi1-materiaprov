@@ -8,6 +8,14 @@ Hela sidan ligger i `index.html` och behöver ingen server eller inloggning.
 
 På startsidan kryssar du i vilka områden du vill öva på (atomen, elektroner och atommodeller, periodiska systemet, materia och blandningar, kemisk bindning, laboration och arbetssätt) och väljer läge och antal frågor. Frågorna dras bara från de områden du har valt. Har de valda områdena färre frågor än 10 eller 20 tonas de alternativen ned, och då tas alla frågor i områdena med. Valen sparas i webbläsaren på din egen enhet och går inte att nå av någon annan. Provet innehåller både uppgifter och begreppsfrågor, till exempel "Vad menas med sublimering?". Frågorna följer planeringen fram till E/C-provet. Bindningar mellan molekyler (vätebindning, dipol-dipolbindning, van der Waals-krafter) och löslighet kommer efter det provet och finns därför inte med bland frågorna, men Joels AI-hjälp kan förklara dem.
 
+## Begreppskort
+
+Fliken Begreppskort har kort för alla begrepp i arbetspaketet, grupperna i periodiska systemet, de 20 första grundämnena, sammansatta joner och lågfärger. Varje begreppskort har en förklaring för E och ofta en fördjupning för C. Man kan vända kort, se förklaringen först, skriva svaret (det rättas direkt och små stavfel godkänns) eller para ihop. Kort man inte kan kommer tillbaka i omgången, och vad man kan sparas i webbläsaren. Lösningar och bindningar mellan molekyler är en egen lek som inte är vald från början, eftersom den delen kommer efter E/C-provet.
+
+## Läs
+
+Fliken Läs har en sammanfattning med egna ord av genomgång 2–5 och arbetspaketet, i samma ordning som lektionerna. Varje avsnitt har knappar som startar korten för det avsnittet, och sist finns en checklista. Lärarens egna bilder och texter ligger inte på sidan.
+
 ## Joels AI-hjälp och feedback
 
 Knappen "Joels AI-hjälp och feedback" ligger kvar nere till höger på alla skärmar (och finns också längst ned på sidan). Den öppnar en ruta med två flikar.
