@@ -16,4 +16,12 @@ Knappen "Joels AI-hjälp och feedback" ligger kvar nere till höger på alla sk�
 
 **Feedback.** Meddelanden sparas i tabellen `feedback` i Supabase (gratisplanen). Besökare kan bara lägga till rader, med typ, meddelande och eventuellt id på den fråga det gäller. De kan inte läsa, ändra eller ta bort något, varken feedback eller sidan. Läs meddelandena i Supabase under projektet `kemi1-feedback`, Table Editor, `feedback`.
 
-Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga i en webbsida. De ger bara rätt att lägga till feedback.
+## Se om någon har varit inne
+
+Sidan räknar tre saker: att någon öppnar sidan, startar ett prov och kommer fram till resultatet. Bara tidpunkten sparas, inget om vem besökaren är (inga kakor och inget id), och robotar och automatiska tester räknas inte. Längst ned på sidan står att den räknar besök.
+
+Se siffrorna i Supabase under projektet `kemi1-feedback`, Table Editor, vyn `besok_per_dag` (en rad per dag med kolumnerna `oppnade_sidan`, `startade_prov` och `blev_klara`). Varje enskild händelse finns i tabellen `besok`.
+
+Dina egna besök slipper du räkna genom att öppna sidan en gång med `?inte-rakna-mig` sist i adressen, i varje webbläsare du använder: https://homerun5320.github.io/kemi1-materiaprov/?inte-rakna-mig. Med `?rakna-mig` räknas de igen.
+
+Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga i en webbsida. De ger bara rätt att lägga till feedback och besöksrader, inte att läsa eller ändra något.
