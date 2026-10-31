@@ -473,9 +473,9 @@ window.Q = (window.Q || []).concat([
  p:['s: 1 orbital (2 elektroner) och p: 3 orbitaler (6 elektroner)','d: 5 orbitaler (10 elektroner) och f: 7 orbitaler (14 elektroner)','Yttersta skalet har högst en s-orbital och tre p-orbitaler, alltså 2 + 6 = 8 elektroner']},
 
 {id:'bg-elek3', l:'E', t:'ELEK', ty:'open',
- q:'Vad säger oktettregeln? Hur många elektroner nöjer sig väte och helium med i sitt yttersta skal?',
- m:'Oktettregeln säger att atomer strävar efter åtta elektroner i det yttersta skalet, som ädelgaserna. Väte och helium nöjer sig med två, eftersom deras enda skal blir fullt med två elektroner. Det är samma sak som att ha ädelgasstruktur.',
- p:['Atomer strävar efter åtta elektroner i yttersta skalet (ädelgasstruktur)','Väte och helium nöjer sig med två elektroner, eftersom deras enda skal då är fullt']},
+ q:'Vad säger oktettregeln? Använd regeln för att förklara vilken jon en syreatom bildar.',
+ m:'Oktettregeln säger att atomer strävar efter åtta elektroner i det yttersta skalet, som ädelgaserna (väte och helium nöjer sig med två). Det är samma sak som att ha ädelgasstruktur. Syre står i grupp 16 och har sex valenselektroner. Det är lättare att ta upp två elektroner än att avge sex, så syreatomen tar upp två elektroner och bildar oxidjonen O<sup>2−</sup>, som har åtta elektroner i det yttersta skalet.',
+ p:['Atomer strävar efter åtta elektroner i yttersta skalet (väte och helium två), alltså ädelgasstruktur','Syre har sex valenselektroner och tar upp två elektroner','Jonen blir O<sup>2−</sup> (oxidjon)']},
 
 {id:'bg-elek4', l:'E', t:'ELEK', ty:'open',
  q:'Vad är en elektronformel (Lewis-formel)? Beskriv hur elektronformeln för klor ser ut.',
@@ -497,7 +497,7 @@ window.Q = (window.Q || []).concat([
 
 {id:'bg-pse3', l:'E', t:'PSE', ty:'open',
  q:'Vad heter grupperna 13, 14, 15 och 16, och hur många valenselektroner har atomerna i varje grupp?',
- m:'Grupp 13 är borgruppen (3 valenselektroner), grupp 14 kolgruppen (4), grupp 15 kvävegruppen (5) och grupp 16 syregruppen (6). Antalet valenselektroner är alltså gruppnumret minus 10.',
+ m:'Grupp 13 är borgruppen (3 valenselektroner), grupp 14 kolgruppen (4), grupp 15 kvävegruppen (5) och grupp 16 syregruppen (6). Antalet valenselektroner är alltså entalssiffran i gruppnumret.',
  p:['Grupp 13: borgruppen (3 valenselektroner) och grupp 14: kolgruppen (4)','Grupp 15: kvävegruppen (5 valenselektroner) och grupp 16: syregruppen (6)']},
 
 {id:'bg-pse4', l:'E', t:'PSE', ty:'open',
@@ -530,10 +530,15 @@ window.Q = (window.Q || []).concat([
  m:'En lösning är en homogen blandning där ett ämne, det lösta ämnet, har lösts i ett lösningsmedel, oftast vatten. Exempel: koksalt (löst ämne) i vatten (lösningsmedel).',
  p:['En lösning är en homogen blandning där ett ämne är löst i ett annat','Löst ämne och lösningsmedel med ett rätt exempel, till exempel koksalt i vatten']},
 
-{id:'bg-mat6', l:'E', t:'MAT', ty:'open',
- q:'Vad menas med en mättad lösning, och vad är löslighet?',
- m:'I en mättad lösning kan man inte lösa något mer av ämnet. Löslighet är koncentrationen i en mättad lösning, alltså hur mycket av ett ämne som kan lösas i 1 dm<sup>3</sup> lösningsmedel.',
- p:['Mättad lösning: det går inte att lösa något mer av ämnet','Löslighet: hur mycket av ämnet som kan lösas, alltså koncentrationen i en mättad lösning (till exempel per 1 dm<sup>3</sup> lösningsmedel)']},
+{id:'bg-mat8', l:'E', t:'MAT', ty:'open',
+ q:'Vilka separationsmetoder brukar man använda för heterogena blandningar, och vilka för homogena blandningar? Ge två exempel på varje.',
+ m:'Heterogena blandningar, där man kan urskilja delarna, separeras ofta med silning, filtrering eller dekantering (vätskan hälls försiktigt av från det som sjunkit till botten). Homogena blandningar, till exempel saltvatten, separeras ofta med destillation, indunstning eller avdunstning. Kromatografi används också för att skilja åt ämnen i en lösning.',
+ p:['Heterogena: två rimliga metoder, till exempel filtrering, silning eller dekantering','Homogena: två rimliga metoder, till exempel destillation, indunstning, avdunstning eller kromatografi']},
+
+{id:'bg-mat9', l:'E', t:'MAT', ty:'open',
+ q:'Vad är skillnaden mellan organiska och oorganiska ämnen? Ge ett exempel på varje.',
+ m:'Organiska ämnen är kolföreningar, oftast med bindningar mellan kol och väte, till exempel metan (CH<sub>4</sub>) och etanol. Oorganiska ämnen är övriga ämnen, till exempel natriumklorid (NaCl) och vatten (H<sub>2</sub>O). Koldioxid (CO<sub>2</sub>) räknas som oorganiskt trots att det innehåller kol.',
+ p:['Organiska ämnen är kolföreningar (oftast med bindningar mellan kol och väte), med ett rätt exempel','Oorganiska ämnen är övriga ämnen, med ett rätt exempel (till exempel NaCl eller H<sub>2</sub>O)']},
 
 {id:'bg-mat7', l:'C', t:'MAT', ty:'open',
  q:'Vad är en molekyl? Är alla molekyler kemiska föreningar? Motivera med exempel.',
@@ -541,27 +546,33 @@ window.Q = (window.Q || []).concat([
  p:['En molekyl är två eller flera atomer som hålls ihop av kovalenta bindningar','Inte alla molekyler är föreningar: ett exempel på en molekyl av ett grundämne (till exempel O<sub>2</sub>) och ett på en förening (till exempel H<sub>2</sub>O)']}
 ]);
 
-/* BEGREPPSFRÅGOR: KEMISK BINDNING och LABORATION (arbetspaketet). */
+/* BEGREPPSFRÅGOR: KEMISK BINDNING (bindningar inom molekyler och jonföreningar, som E/C-provet tar upp) och LABORATION (arbetspaketet).
+   Bindningar mellan molekyler (vätebindning, dipol-dipol, van der Waals) kommer efter E/C-provet i planeringen och finns därför inte med här. */
 window.Q = (window.Q || []).concat([
 {id:'bg-bind1', l:'E', t:'BIND', ty:'open',
- q:'Vad menas med en polär kovalent bindning? Vad avgör att bindningen blir polär, och vilken laddning får atomerna?',
- m:'I en polär kovalent bindning delas elektronparet ojämnt mellan atomerna. Det händer när skillnaden i elektronegativitet är större än 0 men mindre än 1,8. Elektronparet dras då mer mot atomen med högst elektronegativitet, som får en liten negativ delladdning (δ<sup>−</sup>), medan den andra atomen får en liten positiv (δ<sup>+</sup>). Exempel: bindningarna i H<sub>2</sub>O.',
- p:['Elektronparet delas ojämnt, eftersom atomerna har olika elektronegativitet (skillnad mellan 0 och 1,8)','Atomen med högst elektronegativitet får en liten negativ delladdning (δ<sup>−</sup>) och den andra en liten positiv (δ<sup>+</sup>)']},
+ q:'Vad menas med en polär kovalent bindning? I bindningen mellan väte och klor i HCl, vilken atom får en liten negativ laddning, och varför?',
+ m:'I en polär kovalent bindning delas elektronparet ojämnt mellan atomerna, eftersom de har olika elektronegativitet (skillnaden är större än 0 men mindre än 1,8). Klor har högre elektronegativitet än väte och drar elektronparet närmare sig. Kloratomen får därför en liten negativ delladdning (δ<sup>−</sup>) och väteatomen en liten positiv (δ<sup>+</sup>).',
+ p:['Elektronparet delas ojämnt, eftersom atomerna har olika elektronegativitet (skillnad mellan 0 och 1,8)','Klor drar hårdast i elektronparet (högst elektronegativitet) och får δ<sup>−</sup>, väte får δ<sup>+</sup>']},
 
 {id:'bg-bind2', l:'E', t:'BIND', ty:'open',
- q:'Jonföreningar som natriumklorid består inte av enskilda molekyler. Vad menas i stället med en formelenhet? Vilken formelenhet har natriumklorid och kalciumklorid?',
- m:'Formelenheten är den minsta enhet som upprepas i jonkristallen och visar förhållandet mellan jonerna. Den positiva jonen skrivs alltid först. I natriumklorid är varannan jon natrium och varannan klorid, så formelenheten är NaCl. Kalciumklorid har en kalciumjon och två kloridjoner: CaCl<sub>2</sub>.',
- p:['Formelenheten är den minsta enhet som upprepas i jonkristallen (den visar förhållandet mellan jonerna)','NaCl för natriumklorid och CaCl<sub>2</sub> för kalciumklorid']},
+ q:'Jonföreningar som natriumklorid består inte av enskilda molekyler. Vad menas i stället med en formelenhet? Vilken formelenhet har natriumklorid och magnesiumklorid?',
+ m:'Formelenheten är den minsta enhet som upprepas i jonkristallen och visar förhållandet mellan jonerna. Den positiva jonen skrivs alltid först. I natriumklorid är varannan jon natrium och varannan klorid, så formelenheten är NaCl. Magnesiumjonen är Mg<sup>2+</sup> och behöver två kloridjoner, Cl<sup>−</sup>, för att laddningarna ska ta ut varandra: MgCl<sub>2</sub>.',
+ p:['Formelenheten är den minsta enhet som upprepas i jonkristallen (den visar förhållandet mellan jonerna)','NaCl för natriumklorid och MgCl<sub>2</sub> för magnesiumklorid']},
 
-{id:'bg-bind3', l:'C', t:'BIND', ty:'open',
- q:'Vad är en vätebindning? Mellan vilka atomer uppstår den, och vilken egenskap hos vatten beror på vätebindningar?',
- m:'Vätebindning är en stark dipol-dipolbindning mellan molekyler. En väteatom som är bunden till kväve, syre eller fluor (N, O eller F) blir så positiv att den dras till ett fritt elektronpar på en N-, O- eller F-atom i en annan molekyl. Vätebindningarna mellan vattenmolekylerna ger vatten dess höga kokpunkt.',
- p:['Vätebindning är en bindning mellan molekyler (en stark dipol-dipolbindning)','En väteatom bunden till N, O eller F dras till ett fritt elektronpar på en N-, O- eller F-atom i en annan molekyl','Vätebindningar ger vatten dess höga kokpunkt']},
+{id:'bg-bind5', l:'E', t:'BIND', ty:'open',
+ q:'Vad är en sammansatt jon? Skriv formel och laddning för hydroxidjonen, sulfatjonen, nitratjonen och ammoniumjonen.',
+ m:'En sammansatt jon är en liten grupp ickemetallatomer som sitter ihop och som tillsammans har tagit upp eller lämnat ifrån sig elektroner, så att hela gruppen är laddad. Hydroxidjon OH<sup>−</sup>, sulfatjon SO<sub>4</sub><sup>2−</sup>, nitratjon NO<sub>3</sub><sup>−</sup> och ammoniumjon NH<sub>4</sub><sup>+</sup>. Andra viktiga sammansatta joner är karbonatjon CO<sub>3</sub><sup>2−</sup> och fosfatjon PO<sub>4</sub><sup>3−</sup>.',
+ p:['En grupp atomer som sitter ihop och tillsammans har en laddning','OH<sup>−</sup> och SO<sub>4</sub><sup>2−</sup>','NO<sub>3</sub><sup>−</sup> och NH<sub>4</sub><sup>+</sup>']},
 
-{id:'bg-bind4', l:'C', t:'BIND', ty:'open',
- q:'Vad är en dipol? Varför säger man att vatten är ett polärt ämne?',
- m:'En dipol är en osymmetrisk molekyl med en sida där positiv laddning överväger och en sida där negativ laddning överväger, alltså två poler. Ett polärt ämne består av dipoler. Vatten är polärt eftersom bindningarna mellan syre och väte är polära (syre drar hårdare i elektronerna) och molekylen är osymmetrisk, så att laddningarna inte tar ut varandra. Ett opolärt ämne har en symmetrisk struktur och inga permanenta delladdningar.',
- p:['En dipol är en osymmetrisk molekyl med två poler: en sida med överskott av positiv laddning och en med överskott av negativ','Vatten är polärt eftersom bindningarna är polära och molekylen är osymmetrisk, så att laddningarna inte tar ut varandra']},
+{id:'bg-bind6', l:'C', t:'BIND', ty:'open',
+ q:'Vad är skillnaden mellan summaformel, strukturformel och empirisk formel? Använd etan, C<sub>2</sub>H<sub>6</sub>, som exempel.',
+ m:'Summaformeln anger hur många atomer av varje grundämne som finns i en molekyl, för etan C<sub>2</sub>H<sub>6</sub>. Strukturformeln visar hur atomerna sitter ihop: varje elektronpar i en bindning ritas som ett streck, och fria elektronpar ritas inte ut. I etan är de två kolatomerna bundna till varandra, och varje kolatom är dessutom bunden till tre väteatomer. Den empiriska formeln visar det minsta heltalsförhållandet mellan atomerna, för etan CH<sub>3</sub>, eftersom det går tre väteatomer på varje kolatom.',
+ p:['Summaformel: antalet atomer av varje grundämne i molekylen (etan: C<sub>2</sub>H<sub>6</sub>)','Strukturformel: visar hur atomerna sitter ihop, med ett streck för varje bindande elektronpar','Empirisk formel: det minsta heltalsförhållandet mellan atomerna (etan: CH<sub>3</sub>)']},
+
+{id:'bg-bind7', l:'C', t:'BIND', ty:'open',
+ q:'Aluminiumoxid är en jonförening av jonerna Al<sup>3+</sup> och O<sup>2−</sup>. Skriv formeln och beräkna formelmassan (Al = 27,0 u, O = 16,0 u). Varför säger man formelmassa och inte molekylmassa?',
+ m:'Laddningarna måste ta ut varandra. Två Al<sup>3+</sup> ger +6 och tre O<sup>2−</sup> ger −6, så formeln är Al<sub>2</sub>O<sub>3</sub>. Formelmassan är 2 · 27,0 + 3 · 16,0 = 54,0 + 48,0 = 102,0 u. Man säger formelmassa eftersom en jonförening inte består av molekyler utan av joner i en kristall, och formeln anger bara förhållandet mellan jonerna.',
+ p:['Formeln Al<sub>2</sub>O<sub>3</sub> (2 · (+3) + 3 · (−2) = 0)','Formelmassan 2 · 27,0 + 3 · 16,0 = 102 u','Formelmassa, eftersom aluminiumoxid är en jonförening och inte består av molekyler']},
 
 {id:'bg-lab1', l:'E', t:'LAB', ty:'open',
  q:'Vad ska en slutsats i en laborationsrapport innehålla, och vad är felkällor? Ge två exempel på felkällor.',
@@ -656,7 +667,7 @@ window.Q = (window.Q || []).concat([
 
 {id:'elek7', l:'E', t:'ELEK', ty:'open',
  q:'Beskriv Daltons och Bohrs atommodeller.',
- m:'Dalton (1803) föreställde sig atomen som en massiv, odelbar kula utan inre delar. Bohr (1913) beskrev atomen som en kärna av protoner och neutroner med elektroner som rör sig i skal runt kärnan, där varje skal har en bestämd energi.',
+ m:'Dalton (1803) föreställde sig atomen som en massiv, odelbar kula utan inre delar. Bohr (1913) beskrev atomen som en liten, positivt laddad kärna med elektroner som rör sig i bestämda banor, skal, runt kärnan, där varje skal har en bestämd energi. Bohrs modell kallas också planetmodellen.',
  p:['Dalton: atomen är en massiv, odelbar kula','Bohr: en kärna med elektroner i skal (energinivåer) runt kärnan']},
 
 {id:'elek8', l:'C', t:'ELEK', ty:'open',
@@ -699,7 +710,7 @@ window.Q = (window.Q || []).concat([
 
 {id:'lab6', l:'E', t:'LAB', ty:'open',
  q:'Frågeställning: ”Smälter is olika fort i saltvatten och sötvatten?” Formulera en testbar hypotes och beskriv kort hur du skulle undersöka den.',
- m:'Hypotes: Is smälter snabbare i saltvatten än i sötvatten. Undersökning: lägg lika stora isbitar i lika mycket saltvatten och sötvatten med samma starttemperatur och mät hur lång tid det tar tills isen har smält. Bara saltet ska skilja mellan försöken, så att resultatet går att jämföra. Hypotesen kan visa sig vara fel, huvudsaken är att den går att testa.',
+ m:'Hypotes: Is smälter snabbare i saltvatten än i sötvatten. Undersökning: lägg lika stora isbitar i lika mycket saltvatten och sötvatten med samma starttemperatur och mät hur lång tid det tar tills isen har smält. Bara saltet ska skilja mellan försöken, så att resultatet går att jämföra. Hypotesen kan visa sig vara fel, huvudsaken är att den går att testa. I just det här försöket brukar isen faktiskt smälta långsammare i saltvattnet: smältvattnet är sötvatten, som är lättare än saltvattnet och lägger sig som ett kallt lager runt isbiten. I sötvattnet sjunker det kalla smältvattnet i stället undan, så att varmare vatten hela tiden når isen.',
  p:['En testbar hypotes, alltså ett påstående om vad du förväntar dig (till exempel att isen smälter snabbare i saltvatten)','Ett rättvist test: saltvatten och sötvatten jämförs med allt annat lika, och smälttiden mäts']},
 
 {id:'lab7', l:'E', t:'LAB', ty:'open',
@@ -722,7 +733,7 @@ window.Q = (window.Q || []).concat([
 
 {id:'mat3', l:'E', t:'MAT', ty:'open',
  q:'Vilka är vattens smältpunkt och kokpunkt? Vilket aggregationstillstånd har vatten vid 50 °C?',
- m:'Vattens smältpunkt är 0 °C och kokpunkt 100 °C. Vid 50 °C ligger temperaturen mellan de två, så vattnet är en vätska.',
+ m:'Vattens smältpunkt är 0 °C och kokpunkt 100 °C (vid normalt lufttryck). Vid 50 °C ligger temperaturen mellan de två, så vattnet är en vätska.',
  p:['Smältpunkt 0 °C och kokpunkt 100 °C','Vätska vid 50 °C']},
 
 {id:'mat4', l:'E', t:'MAT', ty:'open',

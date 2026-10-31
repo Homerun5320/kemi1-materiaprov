@@ -6,7 +6,7 @@ Hela sidan ligger i `index.html` och behöver ingen server eller inloggning.
 
 ## Välj vad du vill öva på
 
-På startsidan kryssar du i vilka områden du vill öva på (atomen, elektroner och atommodeller, periodiska systemet, materia och blandningar, kemisk bindning, laboration och arbetssätt) och väljer läge och antal frågor. Frågorna dras bara från de områden du har valt. Har de valda områdena färre frågor än 10 eller 20 tonas de alternativen ned, och då tas alla frågor i områdena med. Valen sparas i webbläsaren på din egen enhet och går inte att nå av någon annan. Provet innehåller både uppgifter och begreppsfrågor, till exempel "Vad menas med sublimering?".
+På startsidan kryssar du i vilka områden du vill öva på (atomen, elektroner och atommodeller, periodiska systemet, materia och blandningar, kemisk bindning, laboration och arbetssätt) och väljer läge och antal frågor. Frågorna dras bara från de områden du har valt. Har de valda områdena färre frågor än 10 eller 20 tonas de alternativen ned, och då tas alla frågor i områdena med. Valen sparas i webbläsaren på din egen enhet och går inte att nå av någon annan. Provet innehåller både uppgifter och begreppsfrågor, till exempel "Vad menas med sublimering?". Frågorna följer planeringen fram till E/C-provet. Bindningar mellan molekyler (vätebindning, dipol-dipolbindning, van der Waals-krafter) och löslighet kommer efter det provet och finns därför inte med bland frågorna, men Joels AI-hjälp kan förklara dem.
 
 ## Joels AI-hjälp och feedback
 
