@@ -681,6 +681,54 @@ window.Q = (window.Q || []).concat([
  p:['Rätt konfiguration: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>1</sup>','3s<sup>1</sup> betyder skal 3, s-orbital och en elektron (natriums enda valenselektron)']}
 ]);
 
+/* EXTRA: fler räkneuppgifter och C-frågor som kräver resonemang (allt inom E/C-provet enligt planeringen). */
+window.Q = (window.Q || []).concat([
+{id:'atom10', l:'E', t:'ATOM', ty:'open',
+ q:'Hur många protoner, neutroner och elektroner har sulfidjonen <sup>32</sup>S<sup>2−</sup>? Svavel har atomnummer 16.',
+ m:'Protoner: 16 (atomnumret). Neutroner: 32 − 16 = 16. Elektroner: en neutral svavelatom har 16 elektroner, och laddningen 2− betyder att jonen har tagit upp två elektroner, alltså 16 + 2 = 18 elektroner.',
+ p:['16 protoner','16 neutroner (32 − 16)','18 elektroner (16 + 2, eftersom jonen har laddningen 2−)']},
+
+{id:'atom11', l:'C', t:'ATOM', ty:'num',
+ q:'Naturligt bor består av ungefär 20 % bor-10 och 80 % bor-11. Beräkna bors atommassa. Räkna med att isotoperna väger 10 u och 11 u.',
+ ans:10.8, tol:0.05, unit:'u',
+ m:'Atommassan är ett medelvärde där varje isotop räknas efter hur vanlig den är: 0,20 · 10 u + 0,80 · 11 u = 2,0 u + 8,8 u = 10,8 u. Det stämmer med värdet i periodiska systemet, 10,81 u.'},
+
+{id:'elek10', l:'C', t:'ELEK', ty:'open',
+ q:'Kalcium har atomnummer 20. Skriv elektronkonfigurationen och ange hur elektronerna fördelas på skalen K, L, M och N. Varför hamnar de två sista elektronerna i N-skalet, fast M-skalet rymmer 18 elektroner?',
+ m:'1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup>. Skalen: K 2, L 8, M 8 och N 2. Orbitalerna fylls i ordning efter stigande energi, och 4s har lägre energi än 3d. Därför fylls 4s-orbitalen i N-skalet innan d-orbitalerna i M-skalet.',
+ p:['Rätt konfiguration: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup>','Skalfördelningen 2, 8, 8, 2','4s har lägre energi än 3d och fylls därför först']},
+
+{id:'elek11', l:'E', t:'ELEK', ty:'open',
+ q:'Beskriv kort Thomsons och Rutherfords atommodeller. Vad kom Rutherford fram till som gjorde att Thomsons modell inte längre räckte?',
+ m:'Thomson (1904) beskrev atomen som en positivt laddad massa med negativa elektroner instuckna, som russin i en kaka (”plum pudding”). Rutherford (1911) sköt alfapartiklar mot en tunn guldfolie. De flesta gick rakt igenom, men några studsade tillbaka. Han drog slutsatsen att atomen till största delen är tomrum och att nästan all massa och all positiv laddning finns i en liten kärna, med elektronerna runt omkring.',
+ p:['Thomson: en positivt laddad massa med elektroner instuckna (”plum pudding”)','Rutherford: atomen är mest tomrum, med en liten, positivt laddad kärna där nästan all massa finns']},
+
+{id:'pse10', l:'C', t:'PSE', ty:'open',
+ q:'Rubidium, Rb, står i grupp 1 och period 5. Förutsäg utifrån placeringen: är det en metall eller en ickemetall, hur många valenselektroner och elektronskal har atomen, och vilken jon bildas? Är rubidium mer eller mindre reaktivt än natrium, och varför?',
+ m:'Rubidium är en alkalimetall. Grupp 1 ger en valenselektron och period 5 ger fem elektronskal. Atomen avger sin valenselektron och bildar Rb<sup>+</sup>. Rubidium är mer reaktivt än natrium: valenselektronen sitter i ett skal längre från kärnan, så kärnan håller den svagare och den avges lättare.',
+ p:['Metall (alkalimetall) med en valenselektron och fem elektronskal','Bildar jonen Rb<sup>+</sup>','Mer reaktivt än natrium, eftersom valenselektronen sitter längre från kärnan och avges lättare']},
+
+{id:'bind10', l:'C', t:'BIND', ty:'open',
+ q:'Om man slår på en saltkristall (natriumklorid) går den sönder, men en metallbit böjs bara. Förklara skillnaden utifrån bindningarna.',
+ m:'I saltkristallen sitter positiva och negativa joner varannan i ett mönster. Ett slag förskjuter jonlagren så att joner med samma laddning hamnar mot varandra. De stöter bort varandra och kristallen spricker. I en metall hålls atomerna ihop av delokaliserade valenselektroner som kan röra sig fritt. När atomerna förskjuts håller elektronerna fortfarande ihop dem, så metallen böjs i stället för att gå sönder.',
+ p:['Saltet: jonlagren förskjuts så att joner med samma laddning hamnar mot varandra och stöter bort varandra, så kristallen spricker','Metallen: de delokaliserade elektronerna håller ihop atomerna även när de förskjuts, så metallen böjs']},
+
+{id:'bind11', l:'E', t:'BIND', ty:'num',
+ q:'Beräkna molekylmassan för svavelsyra, H<sub>2</sub>SO<sub>4</sub>. Använd H = 1,0 u, S = 32,1 u och O = 16,0 u.',
+ ans:98.1, tol:0.15, unit:'u',
+ m:'Molekylmassan är summan av atommassorna: 2 · 1,0 + 32,1 + 4 · 16,0 = 2,0 + 32,1 + 64,0 = 98,1 u.'},
+
+{id:'lab8', l:'C', t:'LAB', ty:'num',
+ q:'En järnbit väger 39,5 g. Järnets densitet är 7,9 g/cm<sup>3</sup>. Vilken volym har järnbiten? Svara i cm<sup>3</sup>.',
+ ans:5, tol:0.05, unit:'cm³',
+ m:'Från ρ = m / V får man V = m / ρ = 39,5 g / 7,9 g/cm<sup>3</sup> = 5,0 cm<sup>3</sup>.'},
+
+{id:'lab9', l:'E', t:'LAB', ty:'open',
+ q:'Nämn fyra säkerhetsregler som gäller i kemisalen.',
+ m:'Till exempel: använd skyddsglasögon och labbrock, sätt upp långt hår, ät och drick aldrig i labbet, läs varningstexterna på flaskorna och i instruktionen, ta reda på var ögondusch, brandfilt och brandsläckare finns, skölj bort spill på huden med mycket vatten och berätta direkt för läraren om något händer.',
+ p:['Två rimliga regler, till exempel skyddsglasögon och att aldrig äta eller dricka i labbet','Två regler till, till exempel att läsa varningstexterna och veta var ögondusch och brandsläckare finns']}
+]);
+
 /* LABORATION & ARBETSSÄTT (arbetspaketets laborationer) */
 window.Q = (window.Q || []).concat([
 {id:'lab1', l:'E', t:'LAB', ty:'open',
