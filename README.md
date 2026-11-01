@@ -10,11 +10,19 @@ På startsidan kryssar du i vilka områden du vill öva på (atomen, elektroner 
 
 ## Begreppskort
 
-Fliken Begreppskort har kort för alla begrepp i arbetspaketet, grupperna i periodiska systemet, de 20 första grundämnena, sammansatta joner och lågfärger. Varje begreppskort har en förklaring för E och ofta en fördjupning för C. Man kan vända kort, se förklaringen först, skriva svaret (det rättas direkt och små stavfel godkänns) eller para ihop. Kort man inte kan kommer tillbaka i omgången, och vad man kan sparas i webbläsaren. Lösningar och bindningar mellan molekyler är en egen lek som inte är vald från början, eftersom den delen kommer efter E/C-provet.
+Fliken Begreppskort har kort för alla begrepp i arbetspaketet, grupperna i periodiska systemet, de 20 första grundämnena och sammansatta joner. Varje kort visar vilket område det hör till och vad du ska svara. Varje begreppskort har en förklaring för E och ofta en fördjupning för C. Man kan vända kort, se förklaringen först, skriva svaret (det rättas direkt och små stavfel godkänns) eller para ihop. Kort man inte kan kommer tillbaka i omgången, och vad man kan sparas i webbläsaren.
+
+## Periodiska systemet
+
+Fliken Periodiska systemet visar alla 118 grundämnen på sin plats i tabellen. Rutans färg visar typen av grundämne och beteckningens färg visar fasen vid 20 °C, ungefär som på ptable.com. Tryck på ett grundämne (eller flytta med piltangenterna) för att se typ, grupp, period, atommassa och fas, och för de 20 första också elektronskal, valenselektroner och elektronkonfiguration. Rutan "Framhäv de 20 första grundämnena" tonar ned resten.
+
+## Formler
+
+Formlerna i frågor, kort och Läs är skrivna i LaTeX och görs om till MathML när sidan byggs. Webbläsaren ritar dem själv, så sidan behöver varken externa filer eller skript för dem.
 
 ## Läs
 
-Fliken Läs har en sammanfattning med egna ord av genomgång 2–5 och arbetspaketet, i samma ordning som lektionerna. Varje avsnitt har knappar som startar korten för det avsnittet, och sist finns en checklista. Lärarens egna bilder och texter ligger inte på sidan.
+Fliken Läs har en sammanfattning med egna ord av genomgång 2–5 och arbetspaketet, i samma ordning som lektionerna. Varje avsnitt har knappar som startar korten för det avsnittet (och knappar som visar grundämnena i periodiska systemet), och sist finns en checklista. Lärarens egna bilder och texter ligger inte på sidan.
 
 ## Joels AI-hjälp och feedback
 
