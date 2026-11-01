@@ -20,6 +20,10 @@ Fliken Periodiska systemet visar alla 118 grundämnen på sin plats i tabellen. 
 
 Formlerna i frågor, kort och Läs är skrivna i LaTeX och görs om till MathML när sidan byggs. Webbläsaren ritar dem själv, så sidan behöver varken externa filer eller skript för dem.
 
+## Typsnitt
+
+Texten står i PT Serif och rubriker, knappar och rutor i PT Sans (ParaType, SIL Open Font License 1.1, se `OFL.txt`). Typsnitten ligger inbyggda i sidan med bara de tecken som behövs, så sidan hämtar inget från någon annan sida.
+
 ## Läs
 
 Fliken Läs har en sammanfattning med egna ord av genomgång 2–5 och arbetspaketet, i samma ordning som lektionerna. Varje avsnitt har knappar som startar korten för det avsnittet (och knappar som visar grundämnena i periodiska systemet), och sist finns en checklista. Lärarens egna bilder och texter ligger inte på sidan.
