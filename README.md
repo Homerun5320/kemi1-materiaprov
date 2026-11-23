@@ -42,12 +42,16 @@ Sidan räknar bara besök: en rad med tidpunkten varje gång någon öppnar den.
 
 Se siffrorna i Supabase under projektet `kemi1-feedback`, Table Editor, vyn `besok_per_dag` (en rad per dag med kolumnerna `besok`, `mina_besok` och `andras_besok`). Varje enskilt besök finns i tabellen `besok`.
 
-Dina egna besök märks som dina om du öppnar sidan en gång med `?mina-besok` sist i adressen, i varje webbläsare du använder: https://homerun5320.github.io/kemi1-materiaprov/?mina-besok. Med `?inte-mina-besok` tas märkningen bort.
+Dina egna besök märks som dina om du öppnar sidan en gång med `?mina-besok` sist i adressen, i varje webbläsare du använder: https://homerun5320.github.io/kemi1-materiaprov/kemi/?mina-besok. Med `?inte-mina-besok` tas märkningen bort.
 
 Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga i en webbsida. De ger bara rätt att lägga till feedback och besöksrader, inte att läsa eller ändra något.
 
 ## Historia 1a1 (mall)
 
-Under `historia/` ligger en andra del med samma tre flikar som Kemi (Övningsprov, Begreppskort, Läs) för Historia 1a1, medeltiden till franska revolutionen: https://homerun5320.github.io/kemi1-materiaprov/historia/. Just nu är den en mall: områdena, färgerna och frågorna är preliminära och byts ut när områdena är bestämda. Den är inte länkad från Kemi-sidan än, har ingen AI-hjälp och ingen besöksräkning, och den hämtar inget från någon annan sida.
+Under `historia/` ligger en andra del med samma tre flikar som Kemi (Övningsprov, Begreppskort, Läs) för Historia 1a1, medeltiden till franska revolutionen: https://homerun5320.github.io/kemi1-materiaprov/historia/. Just nu är den en mall: områdena, färgerna och frågorna är preliminära och byts ut när områdena är bestämda. Den har ingen AI-hjälp och ingen besöksräkning, och den hämtar inget från någon annan sida.
 
 Båda delarna byggs från samma motor. Skillnaderna (områden, kortlekar, färger, sparnycklar) ligger i en liten inställningsfil per ämne.
+
+## Startsida och adresser
+
+Startsidan på https://homerun5320.github.io/kemi1-materiaprov/ låter dig välja ämne. Kemi ligger på `/kemi/` och Historia på `/historia/`. Startsidan är en enda liten sida utan egen kod som sparar eller räknar något, så besöksräkningen gäller bara Kemi-sidan.
