@@ -62,10 +62,13 @@ h1{font-size:2rem;line-height:1.2;margin:0 0 .4rem;color:var(--accent)}
 .sub{margin:0 0 2rem;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
 a.tile{display:flex;flex-direction:column;gap:.35rem;min-width:0;padding:1.1rem 1.2rem 1.2rem;border:2px solid var(--text);border-radius:8px;background:var(--c);color:var(--text);text-decoration:none}
-a.tile:hover{box-shadow:0 3px 0 var(--shadow)}
+a.tile{transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s cubic-bezier(.2,.8,.2,1)}
+a.tile:hover{transform:translateY(-2px);box-shadow:0 8px 18px -6px var(--shadow)}
+@media (prefers-reduced-motion:reduce){a.tile{transition:none}a.tile:hover{transform:none}}
+::selection{background:var(--accent);color:var(--accent-ink)}
+html{scrollbar-color:var(--line) var(--bg)}
 a.tile:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-.tile .k{font:700 .85rem var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--tile-sub)}
-.tile h2{margin:0;font-size:1.5rem;line-height:1.2}
+.tile h2{margin:0;font-size:1.6rem;line-height:1.2;text-wrap:balance}
 .tile p{margin:0;font-size:.95rem;color:var(--tile-sub)}
 .go{margin-top:.5rem;font-weight:700}
 .t-k{--c:var(--s-d)}.t-h{--c:var(--s-a)}
@@ -77,8 +80,8 @@ a.tile:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 <h1>Plugga inför prov</h1>
 <p class="sub">Välj ämne.</p>
 <div class="grid">
-<a class="tile t-k" href="kemi/"><span class="k">Kemi 1</span><h2>Materia</h2><p>Atomen, elektronerna, periodiska systemet, blandningar och kemisk bindning.</p><span class="go">Öppna →</span></a>
-<a class="tile t-h" href="historia/"><span class="k">Historia 1a1</span><h2>Medeltiden till franska revolutionen</h2><p>Renässansen, upptäcktsresorna, reformationen, upplysningen och revolutionerna.</p><span class="go">Öppna →</span></a>
+<a class="tile t-k" href="kemi/"><h2>Kemi 1</h2><p>Materia: atomen, elektronerna, periodiska systemet, blandningar och kemisk bindning.</p><span class="go">Öppna →</span></a>
+<a class="tile t-h" href="historia/"><h2>Historia 1a1</h2><p>Medeltiden till franska revolutionen: renässansen, upptäcktsresorna, reformationen, upplysningen och revolutionerna.</p><span class="go">Öppna →</span></a>
 </div>
 <p class="foot">Övningsprov, begreppskort och sammanfattning. Inget du gör här sparas utanför din egen webbläsare.</p>
 </main>

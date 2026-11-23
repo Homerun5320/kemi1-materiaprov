@@ -370,6 +370,14 @@ math{font-family:'Cambria Math','STIX Two Math','Latin Modern Math','Noto Sans M
   .tiles{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
+
+/* Webbläsarens egna delar i sidans färger */
+::selection{background:var(--accent);color:var(--accent-ink)}
+input,textarea{caret-color:var(--accent)}
+html{scrollbar-color:var(--line) var(--bg);scrollbar-width:thin}
+a{text-underline-offset:.18em;text-decoration-thickness:1px}
+h1,h2,h3,.qtext{text-wrap:balance}
+p,li,.choice{text-wrap:pretty}
 </style>
 </head>
 <body>
