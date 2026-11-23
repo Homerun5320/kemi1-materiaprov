@@ -377,6 +377,21 @@ html{scrollbar-color:var(--line) var(--bg);scrollbar-width:thin}
 a{text-underline-offset:.18em;text-decoration-thickness:1px}
 h1,h2,h3,.qtext{text-wrap:balance}
 p,li,.choice{text-wrap:pretty}
+/* Hoppa-länk för tangentbord och skärmläsare */
+.skip{position:absolute;left:-999px;top:0;z-index:20;padding:.6rem 1rem;background:var(--accent);color:var(--accent-ink);font-family:var(--sans);font-weight:700;border-radius:0 0 6px 0}
+.skip:focus{left:0}
+/* Långa ord i rutor bryts med avstavning i stället för mitt i */
+.tile,.mbtn,.choice{hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+noscript p{max-width:44rem;margin:1rem auto;padding:.8rem 1rem;border:1px solid var(--bad);border-radius:6px;color:var(--text)}
+/* Utskrift: bara innehållet, svart på vitt */
+@media print{
+  .top,.skip,.helpfoot,.statsnote,#help-fab,.lasgo,.reveal,.quit,.nav{display:none !important}
+  html,body{background:#fff !important;color:#000 !important}
+  body{font-size:11.5pt}
+  .app,main>section{max-width:none}
+  a{color:#000}
+  .las{break-inside:avoid-page}
+}
 
 /* ---------- kemihjälp och feedback ---------- */
 body{padding-bottom:96px}
@@ -465,6 +480,8 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
 </head>
 <body>
 <div class="app">
+  <a class="skip" href="#main">Hoppa till innehållet</a>
+  <noscript><p>Sidan behöver JavaScript för att fungera. Slå på det i webbläsaren och ladda om.</p></noscript>
   <header class="top">
     <p class="brand"><b>Kemi 1</b> <span>Materia · delprov 1</span> <a class="subj" href="../">Välj ämne</a></p>
     <nav class="modes" id="modes" aria-label="Välj del">
