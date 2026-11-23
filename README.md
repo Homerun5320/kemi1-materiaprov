@@ -46,11 +46,11 @@ Dina egna besök märks som dina om du öppnar sidan en gång med `?mina-besok` 
 
 Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga i en webbsida. De ger bara rätt att lägga till feedback och besöksrader, inte att läsa eller ändra något.
 
-## Historia 1a1 (mall)
+## Historia 1a1
 
-Under `historia/` ligger en andra del med samma tre flikar som Kemi (Övningsprov, Begreppskort, Läs) för Historia 1a1, medeltiden till franska revolutionen: https://homerun5320.github.io/kemi1-materiaprov/historia/. Just nu är den en mall: områdena, färgerna och frågorna är preliminära och byts ut när områdena är bestämda. Den har ingen AI-hjälp och ingen besöksräkning, och den hämtar inget från någon annan sida.
+Under `historia/` ligger Historia 1a1 med tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/historia/. Innehållet bygger på infobladet inför prov 1 och har sju områden: medeltiden, upptäcktsresorna och globaliseringen, reformationen, den vetenskapliga revolutionen, upplysningen, den amerikanska och den franska revolutionen. Det finns 54 frågor och 102 begreppskort.
 
-Båda delarna byggs från samma motor. Skillnaderna (områden, kortlekar, färger, sparnycklar) ligger i en liten inställningsfil per ämne.
+**Joels AI-hjälp** är ingen AI-chatt utan en egen sökmotor som körs i webbläsaren, med 80 färdiga förklaringar. Inget du skriver skickas någonstans, den kostar inget och den hämtar inget från någon annan sida. Historia har ingen besöksräkning och ingen feedbackruta.
 
 ## Startsida och adresser
 
