@@ -45,3 +45,9 @@ Se siffrorna i Supabase under projektet `kemi1-feedback`, Table Editor, vyn `bes
 Dina egna besök märks som dina om du öppnar sidan en gång med `?mina-besok` sist i adressen, i varje webbläsare du använder: https://homerun5320.github.io/kemi1-materiaprov/?mina-besok. Med `?inte-mina-besok` tas märkningen bort.
 
 Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga i en webbsida. De ger bara rätt att lägga till feedback och besöksrader, inte att läsa eller ändra något.
+
+## Historia 1a1 (mall)
+
+Under `historia/` ligger en andra del med samma tre flikar som Kemi (Övningsprov, Begreppskort, Läs) för Historia 1a1, medeltiden till franska revolutionen: https://homerun5320.github.io/kemi1-materiaprov/historia/. Just nu är den en mall: områdena, färgerna och frågorna är preliminära och byts ut när områdena är bestämda. Den är inte länkad från Kemi-sidan än, har ingen AI-hjälp och ingen besöksräkning, och den hämtar inget från någon annan sida.
+
+Båda delarna byggs från samma motor. Skillnaderna (områden, kortlekar, färger, sparnycklar) ligger i en liten inställningsfil per ämne.
