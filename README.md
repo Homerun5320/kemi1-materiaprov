@@ -58,4 +58,4 @@ Startsidan på https://homerun5320.github.io/kemi1-materiaprov/ låter dig välj
 
 ## Religion
 
-Under `religion/` ligger en tredje del med samma tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/religion/. Innehållet är byggt efter lektionsmaterialet om judendom, kristendom och islam: 21 skrivfrågor på nivå E, C och A med fokus på jämförelser, 78 begreppskort och en sammanfattning. Den har ingen AI-hjälp och ingen besöksräkning ännu.
+Under `religion/` ligger en tredje del med samma tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/religion/. Innehållet är byggt efter lektionsmaterialet om judendom, kristendom och islam: 18 skrivfrågor på nivå E, C och A med fokus på jämförelser, 68 begreppskort och en sammanfattning. Den har ingen AI-hjälp och ingen besöksräkning ännu.
