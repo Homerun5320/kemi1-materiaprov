@@ -56,6 +56,6 @@ Under `historia/` ligger Historia 1a1 med tre flikar (Övningsprov, Begreppskort
 
 Startsidan på https://homerun5320.github.io/kemi1-materiaprov/ låter dig välja ämne. Kemi ligger på `/kemi/` och Historia på `/historia/`. Startsidan är en enda liten sida utan egen kod som sparar eller räknar något, så besöksräkningen gäller bara Kemi-sidan.
 
-## Religion (mall)
+## Religion
 
-Under `religion/` ligger en tredje del med samma tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/religion/. Just nu är den en mall med fem preliminära områden och några grundfrågor, och den byts ut när provmaterialet är inlagt. Den har ingen AI-hjälp och ingen besöksräkning ännu.
+Under `religion/` ligger en tredje del med samma tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/religion/. Innehållet är byggt efter lektionsmaterialet om judendom, kristendom och islam: 21 skrivfrågor på nivå E, C och A med fokus på jämförelser, 78 begreppskort och en sammanfattning. Den har ingen AI-hjälp och ingen besöksräkning ännu.
