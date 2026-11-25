@@ -393,6 +393,16 @@ noscript p{max-width:44rem;margin:1rem auto;padding:.8rem 1rem;border:1px solid 
   .las{break-inside:avoid-page}
 }
 
+/* frågenavigering */
+.qnav{display:flex;gap:.35rem;overflow-x:auto;padding:.1rem .1rem .5rem;margin:0 0 .8rem;scrollbar-width:thin}
+.qn{flex:0 0 auto;min-width:2.4rem;min-height:2.4rem;padding:0 .5rem;border:1px solid var(--line);border-radius:.6rem;background:var(--subtle);color:var(--muted);font:600 .9rem var(--sans);cursor:pointer;transition:background .15s,border-color .15s}
+.qn:hover{border-color:var(--accent);color:var(--text)}
+.qn.besvarad{color:var(--text);background:var(--accent-soft);border-color:var(--accent)}
+.qn.cur{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.qn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.quit .linkbtn+.linkbtn{margin-left:1rem}
+@media print{.qnav{display:none !important}}
+
 /* ---------- kemihjälp och feedback ---------- */
 body{padding-bottom:96px}
 .helpfoot{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line)}
@@ -514,6 +524,12 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
           <div class="tiles" id="area-list"></div>
         </fieldset>
         <fieldset class="opts">
+          <legend>Nivå</legend>
+          <label class="choice" for="lvl-all"><input type="radio" name="lvl" id="lvl-all" value="all"><span><b>Alla nivåer</b></span></label>
+          <label class="choice" for="lvl-E"><input type="radio" name="lvl" id="lvl-E" value="E"><span><b>Nivå E</b> (kunskap och förklaringar)</span></label>
+          <label class="choice" for="lvl-C"><input type="radio" name="lvl" id="lvl-C" value="C"><span><b>Nivå C</b> (resonemang, jämförelser och slutsatser)</span></label>
+        </fieldset>
+        <fieldset class="opts">
           <legend>Antal frågor</legend>
           <label class="choice" for="len-10"><input type="radio" name="len" id="len-10" value="10"><span>10 slumpade frågor</span></label>
           <label class="choice" for="len-20"><input type="radio" name="len" id="len-20" value="20"><span>20 slumpade frågor</span></label>
@@ -529,6 +545,7 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
     <!-- QUESTION -->
     <section id="screen-quiz" hidden aria-label="Fråga">
       <p class="count" id="q-count"></p>
+      <nav class="qnav" id="q-nav" aria-label="Hoppa till fråga"></nav>
       <p class="meta" id="q-meta"></p>
       <p class="note" id="q-note" hidden>Nu rättar du dina svar. Jämför med facit och kryssa i det som ditt svar hade med.</p>
       <h2 class="qtext" id="q-title" tabindex="-1"></h2>
@@ -546,7 +563,7 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
         <button class="btn" id="btn-prev" type="button">← Föregående</button>
         <button class="btn" id="btn-next" type="button">Nästa →</button>
       </div>
-      <p class="quit"><button class="linkbtn" id="btn-quit" type="button">Avsluta och gå till start</button></p>
+      <p class="quit"><button class="linkbtn" id="btn-finish" type="button">Lämna in nu</button> <button class="linkbtn" id="btn-quit" type="button">Avsluta och gå till start</button></p>
       <div class="sr" id="live" aria-live="polite"></div>
     </section>
 
@@ -1005,7 +1022,7 @@ var BANK = window.Q.slice();
 var TOPICS = {}, TOPIC_ORDER = [];
 SUBJ.topics.forEach(function (t) { TOPICS[t.id] = {name: t.name, ref: t.ref}; TOPIC_ORDER.push(t.id); });
 var LS_KEY = SUBJ.ls.prov;
-var S = {mode: 'train', len: '10', topics: TOPIC_ORDER.slice()};   // topics = the areas to practise
+var S = {mode: 'train', len: '10', lvl: 'all', topics: TOPIC_ORDER.slice()};   // topics = the areas to practise
 var run = null;
 
 function $(id) { return document.getElementById(id); }
@@ -1036,6 +1053,7 @@ function loadSettings() {
     var o = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
     if (o && /^(train|test)$/.test(o.mode)) S.mode = o.mode;
     if (o && /^(10|20|all)$/.test(String(o.len))) S.len = String(o.len);
+    if (o && /^(all|E|C)$/.test(String(o.lvl))) S.lvl = String(o.lvl);
     if (o && Array.isArray(o.topics)) {
       // keep only known areas that really have questions; an empty or broken list means "all areas"
       var keep = TOPIC_ORDER.filter(function (t) {
@@ -1052,7 +1070,7 @@ function saveSettings() {
 
 /* ---------- selecting questions ---------- */
 function poolFor(topics) {
-  return BANK.filter(function (q) { return topics.indexOf(q.t) !== -1; });
+  return BANK.filter(function (q) { return topics.indexOf(q.t) !== -1 && (S.lvl === 'all' || q.l === S.lvl); });
 }
 
 // total = how many questions the chosen areas hold
@@ -1153,7 +1171,7 @@ function show(name) {
 // areas cannot fill are greyed out, and Starta is blocked while no area is chosen.
 function syncSetup() {
   var total = poolFor(S.topics).length, n = S.topics.length, eff = effLen(total);
-  ['mode', 'len'].forEach(function (name) {
+  ['mode', 'lvl', 'len'].forEach(function (name) {
     var radios = document.getElementsByName(name), want = name === 'len' ? eff : S[name], i;
     for (i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === want);
   });
@@ -1163,10 +1181,17 @@ function syncSetup() {
     r.disabled = !fits;
     r.parentNode.classList.toggle('off', !fits);
   });
+  // antalet frågor per område följer vald nivå
+  var cnt = {};
+  BANK.forEach(function (q) { if (S.lvl === 'all' || q.l === S.lvl) cnt[q.t] = (cnt[q.t] || 0) + 1; });
+  TOPIC_ORDER.forEach(function (t) {
+    var el = document.querySelector('label[for=area-' + t + '] .cnt');
+    if (el) el.textContent = plural(cnt[t] || 0, 'fråga', 'frågor');
+  });
   $('len-all-text').textContent = total ? 'Alla ' + plural(total, 'fråga', 'frågor') : 'Alla frågor';
   $('sel-sum').textContent = n === 0 ? 'Inget område är valt. Välj minst ett för att kunna starta.' :
     (n === TOPIC_ORDER.length ? 'Alla områden valda' : n + ' av ' + TOPIC_ORDER.length + ' områden valda') + ' · ' + plural(total, 'fråga', 'frågor');
-  $('btn-start').disabled = (n === 0);
+  $('btn-start').disabled = (n === 0 || total === 0);
 }
 
 function renderTopics() {
@@ -1210,10 +1235,12 @@ function renderQ(focus) {
   $('q-reveal').hidden = !(run.mode === 'train' && !it.done);
   renderFacit(it);
   $('q-warn').hidden = true;
+  renderNav();
   $('btn-prev').disabled = (run.i === 0);
   var last = run.i === n - 1, next = $('btn-next');
   next.textContent = last ? (run.mode === 'test' && run.phase === 'answer' ? 'Lämna in' : 'Se resultat') : 'Nästa →';
   next.classList.toggle('primary', run.mode === 'test' || it.done);
+  $('btn-finish').textContent = run.mode === 'test' && run.phase === 'answer' ? 'Lämna in nu' : 'Se resultat nu';
   if (focus) {
     window.scrollTo(0, 0);
     var field = $('ans-text') || $('ans-num');
@@ -1221,6 +1248,20 @@ function renderQ(focus) {
     if (field && !field.readOnly && !touch) field.focus({preventScroll: true});
     else $('q-title').focus({preventScroll: true});
   }
+}
+
+/* Frågenavigering: numrerade knappar för att hoppa direkt till en fråga, så man aldrig måste klicka sig igenom alla. */
+function renderNav() {
+  var nav = $('q-nav'), html = '', i, it, st;
+  for (i = 0; i < run.items.length; i++) {
+    it = run.items[i];
+    st = (run.mode === 'train' ? it.done : answered(it)) ? ' besvarad' : '';
+    html += '<button type="button" class="qn' + st + (i === run.i ? ' cur' : '') + '" data-i="' + i + '"' +
+      (i === run.i ? ' aria-current="step"' : '') + ' aria-label="Fråga ' + (i + 1) + (st ? ', besvarad' : ', inte besvarad') + '">' + (i + 1) + '</button>';
+  }
+  nav.innerHTML = html;
+  var cur = nav.querySelector('.cur');
+  if (cur && nav.scrollTo) nav.scrollLeft = Math.max(0, cur.offsetLeft - nav.clientWidth / 2);
 }
 
 function renderAnswer(it) {
@@ -1328,8 +1369,12 @@ function firstPending() {
 }
 
 function goNext() {
-  var n = run.items.length, left;
-  if (run.i < n - 1) { run.i++; renderQ(true); return; }
+  if (run.i < run.items.length - 1) { run.i++; renderQ(true); return; }
+  finish();
+}
+
+function finish() {
+  var left;
   if (!$('q-warn').hidden) return;
   if (run.mode === 'train') {
     left = run.items.filter(function (it) { return !it.done; }).length;
@@ -1424,9 +1469,10 @@ $('setup').addEventListener('change', function (e) {
   if (!t) return;
   if (t.name === 'area') {
     setAreas(TOPIC_ORDER.filter(function (k) { return $('area-' + k).checked; }));
-  } else if (t.name === 'mode' || t.name === 'len') {
+  } else if (t.name === 'mode' || t.name === 'len' || t.name === 'lvl') {
     S[t.name] = t.value;
     saveSettings();
+    if (t.name === 'lvl') syncSetup();
   }
 });
 $('areas-all').addEventListener('click', function () { setAreas(TOPIC_ORDER.slice()); });
@@ -1459,6 +1505,13 @@ $('q-facit').addEventListener('change', function (e) {
 $('btn-reveal').addEventListener('click', reveal);
 $('btn-prev').addEventListener('click', goPrev);
 $('btn-next').addEventListener('click', goNext);
+$('btn-finish').addEventListener('click', finish);
+$('q-nav').addEventListener('click', function (e) {
+  var b = e.target.closest ? e.target.closest('button[data-i]') : null;
+  if (!b) return;
+  run.i = parseInt(b.getAttribute('data-i'), 10);
+  renderQ(true);
+});
 $('btn-warn-back').addEventListener('click', function () { run.i = firstPending(); renderQ(true); });
 $('btn-warn-go').addEventListener('click', function () { if (run.warnGo) run.warnGo(); });
 $('btn-quit').addEventListener('click', function () {
