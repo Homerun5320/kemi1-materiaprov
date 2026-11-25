@@ -528,6 +528,7 @@ select{display:block;width:100%;min-height:44px;padding:.55rem .7rem;border:1px 
           <label class="choice" for="lvl-all"><input type="radio" name="lvl" id="lvl-all" value="all"><span><b>Alla nivåer</b></span></label>
           <label class="choice" for="lvl-E"><input type="radio" name="lvl" id="lvl-E" value="E"><span><b>Nivå E</b> (kunskap och förklaringar)</span></label>
           <label class="choice" for="lvl-C"><input type="radio" name="lvl" id="lvl-C" value="C"><span><b>Nivå C</b> (resonemang, jämförelser och slutsatser)</span></label>
+          <label class="choice" for="lvl-A"><input type="radio" name="lvl" id="lvl-A" value="A"><span><b>Nivå A</b> (värdera, nyansera och se samband över tid)</span></label>
         </fieldset>
         <fieldset class="opts">
           <legend>Antal frågor</legend>
@@ -1053,7 +1054,7 @@ function loadSettings() {
     var o = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
     if (o && /^(train|test)$/.test(o.mode)) S.mode = o.mode;
     if (o && /^(10|20|all)$/.test(String(o.len))) S.len = String(o.len);
-    if (o && /^(all|E|C)$/.test(String(o.lvl))) S.lvl = String(o.lvl);
+    if (o && /^(all|E|C|A)$/.test(String(o.lvl))) S.lvl = String(o.lvl);
     if (o && Array.isArray(o.topics)) {
       // keep only known areas that really have questions; an empty or broken list means "all areas"
       var keep = TOPIC_ORDER.filter(function (t) {
@@ -1135,9 +1136,11 @@ function pts(it) {
   return it.g.filter(Boolean).length;
 }
 
-function verdict(e, c) {
+function verdict(e, c, a) {
+  var pa = a && a.n ? a.k / a.n : null;
   var pe = e && e.n ? e.k / e.n : null, pc = c && c.n ? c.k / c.n : null;
   if (pe !== null && pc !== null) {
+    if (pe >= 0.8 && pc >= 0.7 && pa !== null) return pa >= 0.7 ? 'Bra på alla nivåer. Titta igenom det du missade.' : 'E och C sitter. På A-frågorna ska du väga orsaker mot varandra, nyansera och sätta in saker i ett större sammanhang, så läs facit extra noga där.';
     if (pe >= 0.8 && pc >= 0.7) return 'Bra på både E och C. Titta igenom det du missade.';
     if (pe >= 0.8) return 'E-poängen sitter. På C-frågorna ska du kunna förklara varför, jämföra och räkna i flera steg, så läs facit extra noga där.';
     if (pe >= 0.5) return 'Grunderna börjar sitta. Gå igenom det du missade och kör igen.';
@@ -1184,6 +1187,10 @@ function syncSetup() {
   // antalet frågor per område följer vald nivå
   var cnt = {};
   BANK.forEach(function (q) { if (S.lvl === 'all' || q.l === S.lvl) cnt[q.t] = (cnt[q.t] || 0) + 1; });
+  ['E', 'C', 'A'].forEach(function (l) {   // visa bara de nivåer som finns i ämnet
+    var r = $('lvl-' + l);
+    if (r) r.parentNode.hidden = !BANK.some(function (q) { return q.l === l; });
+  });
   TOPIC_ORDER.forEach(function (t) {
     var el = document.querySelector('label[for=area-' + t + '] .cnt');
     if (el) el.textContent = plural(cnt[t] || 0, 'fråga', 'frågor');
@@ -1436,7 +1443,7 @@ function reviewHtml(it, i) {
 }
 
 function showResult() {
-  var items = run.items, tot = 0, got = 0, byL = {E: {n: 0, k: 0}, C: {n: 0, k: 0}}, byT = {}, missed = [];
+  var items = run.items, tot = 0, got = 0, byL = {E: {n: 0, k: 0}, C: {n: 0, k: 0}, A: {n: 0, k: 0}}, byT = {}, missed = [];
   items.forEach(function (it) {
     var m = maxPts(it), p = pts(it), L = byL[it.q.l], T = byT[it.q.t] || (byT[it.q.t] = {n: 0, k: 0});
     L.n += m; L.k += p; T.n += m; T.k += p; tot += m; got += p;
@@ -1444,10 +1451,10 @@ function showResult() {
   });
   $('r-kicker').textContent = 'Resultat · ' + plural(items.length, 'fråga', 'frågor') + ' · ' + (run.kind === 'missed' ? 'omtag av missade frågor' : (run.mode === 'train' ? 'träning' : 'prov'));
   $('r-title').textContent = got + ' av ' + tot + ' poäng';
-  $('r-levels').innerHTML = ['E', 'C'].filter(function (l) { return byL[l].n; }).map(function (l) {
+  $('r-levels').innerHTML = ['E', 'C', 'A'].filter(function (l) { return byL[l].n; }).map(function (l) {
     return '<li>' + l + '-poäng: <b>' + byL[l].k + ' av ' + byL[l].n + '</b></li>';
   }).join('');
-  $('r-msg').textContent = verdict(byL.E, byL.C);
+  $('r-msg').textContent = verdict(byL.E, byL.C, byL.A);
   $('r-topics').innerHTML = '<thead><tr><th scope="col">Område</th><th scope="col">Poäng</th></tr></thead><tbody>' +
     TOPIC_ORDER.filter(function (t) { return byT[t]; }).map(function (t) {
       var T = byT[t];
