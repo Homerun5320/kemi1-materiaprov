@@ -50,7 +50,7 @@ Nycklarna i `index.html` är de publika nycklarna, som är gjorda för att ligga
 
 Under `historia/` ligger Historia 1a1 med tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/historia/. Innehållet bygger på infobladet inför prov 1 och har sju områden: medeltiden, upptäcktsresorna och globaliseringen, reformationen, den vetenskapliga revolutionen, upplysningen, den amerikanska och den franska revolutionen. Det finns 82 frågor på nivå E, C och A (14 resonemangsfrågor på C och 14 värderande frågor på A) och 102 begreppskort.
 
-**Joels AI-hjälp** är ingen AI-chatt utan en egen sökmotor som körs i webbläsaren, med 80 färdiga förklaringar. Inget du skriver skickas någonstans, den kostar inget och den hämtar inget från någon annan sida. Historia har ingen besöksräkning och ingen feedbackruta.
+**Joels AI-hjälp** är ingen AI-chatt utan en egen sökmotor som körs i webbläsaren, med 80 färdiga förklaringar. Om ingen passar söker den även i hela Läs-texten, begreppskorten och facit och visar det som står närmast. Inget du skriver skickas någonstans, den kostar inget och den hämtar inget från någon annan sida. Historia har ingen besöksräkning och ingen feedbackruta.
 
 ## Startsida och adresser
 
