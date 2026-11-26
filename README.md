@@ -54,8 +54,12 @@ Under `historia/` ligger Historia 1a1 med tre flikar (Övningsprov, Begreppskort
 
 ## Startsida och adresser
 
-Startsidan på https://homerun5320.github.io/kemi1-materiaprov/ låter dig välja ämne. Kemi ligger på `/kemi/` och Historia på `/historia/`. Startsidan är en enda liten sida utan egen kod som sparar eller räknar något, så besöksräkningen gäller bara Kemi-sidan.
+Startsidan på https://homerun5320.github.io/kemi1-materiaprov/ låter dig välja ämne. Kemi ligger på `/kemi/`, Historia på `/historia/`, Religion på `/religion/` och Matte 5 på `/matte/`. Startsidan är en enda liten sida utan egen kod som sparar eller räknar något, så besöksräkningen gäller bara Kemi-sidan.
 
 ## Religion
 
 Under `religion/` ligger en tredje del med samma tre flikar (Övningsprov, Begreppskort, Läs): https://homerun5320.github.io/kemi1-materiaprov/religion/. Innehållet är byggt efter lektionsmaterialet om judendom, kristendom och islam: 18 skrivfrågor på nivå E, C och A med fokus på jämförelser, 68 begreppskort och en sammanfattning. Den har ingen AI-hjälp och ingen besöksräkning ännu.
+
+## Matte 5
+
+Under `matte/` ligger en fjärde del med samma tre flikar: https://homerun5320.github.io/kemi1-materiaprov/matte/. Den täcker delprov 2 i Matte 5 (kapitel 2.1–2.3): multiplikations- och additionsprincipen, permutationer, kombinationer, binomialsatsen, lådprincipen och mängdlära. Innehållet är 53 uppgifter på nivå E, C och A (räkneuppgifterna rättas automatiskt, resonemangsuppgifterna rättar du mot facit), 46 begreppskort inklusive formelkort och en sammanfattning med checklista. Den har ingen AI-hjälp och ingen besöksräkning.
